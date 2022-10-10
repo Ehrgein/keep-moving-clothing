@@ -11,9 +11,7 @@
   animation-iteration-count: infinite;
   animation-direction: normal;
   animation-name: slide;
-  position: absolute;
   transform: translate(-100vw, 0);
-  overflow: hidden;
 }
 
 .fade-anim img {
@@ -43,7 +41,7 @@
   }
 
   65% {
-    transform: translate(100vw, 0);
+    transform: translate(99vw, 0);
   }
   100% {
     transform: translate(100vw, 0);
@@ -86,7 +84,6 @@
   animation-direction: normal;
   animation-name: slidetwo;
   transform: translate(-100vw, 0);
-  overflow: hidden;
 }
 
 .hero img {
@@ -109,12 +106,22 @@
   }
 
   65% {
-    transform: translate(100vw, 0);
+    transform: translate(99vw, 0);
   }
 
   100% {
     transform: translate(100vw, 0);
   }
+}
+
+.gradientimg{
+
+  background-image: 
+  linear-gradient(to top, red 50%, #000 50%),
+  linear-gradient(to top, yellow 50%, transparent 50%)
+
+
+
 }
 
 html,
@@ -123,5 +130,10 @@ body {
   height: 100%;
   margin: 0px;
   padding: 0px;
+  background: white;
+  font-family: 'Lato', sans-serif;
   overflow-x: hidden;
 }
+
+
+

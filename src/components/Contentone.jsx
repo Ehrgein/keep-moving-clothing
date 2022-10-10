@@ -1,6 +1,4 @@
 import React from "react";
-import women from "../assets/women.webp";
-import men from "../assets/men.webp";
 import shirt1 from "../assets/shirts/shirt1.webp";
 import shirt2 from "../assets/shirts/shirt2.webp";
 import balance1 from "../assets/shirts/newbalance1.webp";
@@ -8,7 +6,6 @@ import balance2 from "../assets/shirts/newbalance2.webp";
 import mizuno1 from "../assets/shirts/mizuno1.webp";
 import mizuno2 from "../assets/shirts/mizuno2.webp";
 import womenclothes from "../assets/womenclothes.jpg";
-import menclothes from "../assets/menclothes.jpg";
 import discounts from "../assets/discounts.jpg";
 import menclothes2 from "../assets/menclothes2.avif";
 import shirts from "../assets/category/shirts.webp";
@@ -22,57 +19,57 @@ function Contentone() {
   return (
     <div className="md:hidden my-2 md:mx-60 overflow-x:hidden">
       <div className="flex flex-col justify-center overflow-x-hidden">
-        <h2 className="text-center font-bold text-black md:text-3xl text-xl">
-          Shop our Latest Products{" "}
+        <h2 className="text-center font-medium text-black md:text-3xl text-xl">
+          Shop our Latest Products
         </h2>
-        <p className="flex justify-center text-center my-1 md:text-xl text-xs font-">
-          View All{" "}
+        <p className="flex justify-center text-center my-1 md:text-xl text-xs font-normal	">
+          VIEW ALL
         </p>
       </div>
       <div className="flex flex-col justify-center columns-2 mb-6">
         <div className="grid grid-cols-2 gap-4 place-content-center">
-          <div className="mx-auto my-auto relative transform translate-x-2">
+          <div className="mx-auto my-auto">
             <img className="w-[80%] h-[80%] mx-4 my-4" src={shirt1} />
-            <h2 className="text-center text-xs w-[40%] transform translate-x-14">
+            <h2 className="text-center text-xs">
               <a className="text-xs">
                 Norse Projects Algot Mixed Flannel Check Shirt
               </a>
             </h2>
             <p className="text-center text-xs mt-1 mr-1">$ 159.99 </p>
           </div>
-          <div className="mx-auto my-auto relative transform translate-x-2">
+          <div className="mx-auto my-auto">
             <img className="w-[80%] h-[80%] mx-4 my-4" src={shirt2} />
-            <h2 className="text-center text-xs w-[40%] transform translate-x-14">
-              <a className="text-xs">
+            <h2 className="text-center text-xs">
+              <a className="text-xs mr-2">
                 Norse Projects Algot Mixed Flannel Check Shirt
               </a>
             </h2>
             <p className="text-center text-xs mt-1 mr-1">$ 159.99 </p>
           </div>
-          <div className="mx-auto my-auto relative transform translate-x-2">
+          <div className="mx-auto my-auto">
             <img className="w-[80%] h-[80%] mx-4" src={balance1} />
-            <h2 className="text-center text-xs w-[50%] transform translate-x-14">
+            <h2 className="text-center text-xs">
               <a className="text-xs">New Balance U9060W0R Shoes</a>
             </h2>
             <p className="text-center text-xs mt-1 mr-1">$ 159.99 </p>
           </div>
-          <div className="mx-auto my-auto relative transform translate-x-2">
+          <div className="mx-auto my-auto">
             <img className="w-[80%] h-[80%] mx-4" src={balance2} />
-            <h2 className="text-center text-xs w-[50%] transform translate-x-14">
-              <a className="text-xs"> Mizuno Sky Medal Premium Shoes</a>
+            <h2 className="text-center text-xs">
+              <a className="text-xs"> New Balance U9060IND Shoes</a>
             </h2>
             <p className="text-center text-xs mt-1 mr-1">$ 159.99 </p>
           </div>
-          <div className="mx-auto my-auto relative transform translate-x-2">
+          <div className="mx-auto my-auto">
             <img className="w-[80%] h-[80%] mx-4" src={mizuno1} />
-            <h2 className="text-center text-xs w-[50%] transform translate-x-14">
+            <h2 className="text-center text-xs">
               <a className="text-xs"> Mizuno Sky Medal Premium Shoes</a>
             </h2>
             <p className="text-center text-xs mt-1 mr-1">$ 159.99 </p>
           </div>
-          <div className="mx-auto my-auto relative transform translate-x-2">
+          <div className="mx-auto my-auto">
             <img className="w-[80%] h-[80%] mx-4" src={mizuno2} />
-            <h2 className="text-center text-xs w-[50%] transform translate-x-14">
+            <h2 className="text-center text-xs">
               <a className="text-xs"> Mizuno Sky Medal Premium Shoes</a>
             </h2>
             <p className="text-center text-xs mt-1 mr-1">$ 159.99 </p>
