@@ -21,3 +21,23 @@
   <VscAccount className="lg:px-6 lg: ml-1" size={27}/>
 < AiOutlineShoppingCart className="flex lg:mr-6 mr-1 ml-1" size={27}/>
 </div>u */}
+
+
+// THING TO MAKE THE BUTTON MOVE
+
+//         <div className='hidden md:flex max-w[2500px] max-h-[1000px] relative gap-5 my-10'>
+{/* <img className='w-[100%] h-auto' src={northface2}/>
+<a className='absolute  text-white px-5 py-2.5 group left-[40%] top-[60%] w-24 text-3xl bg-black group-hover:text-red-500' >
+    <span className='absolute w-0 group-hover:w-full group-hover:text-black group-hover:bg-white transition-all h-full left-0 top-0'></span>
+    <span className='relative hover:text-white bg-black ease-out duration-300'></span>
+</a>
+</div> */}
+  // let timeoutid = null;
+
+  // const handleMouseEnter = () => {
+  //   clearTimeout(timeoutid);
+  // };
+
+  // const handleMouseLeave = () => {
+  //   timeoutid = setTimeout(() => setSubNav(false), 1000);
+  // };

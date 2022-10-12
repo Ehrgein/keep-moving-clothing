@@ -92,6 +92,13 @@
   animation-timing-function: ease-out;
 }
 
+.buttonfill{{
+  background: linear-gradient(to right, black 50%, white 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: all .5s ease-out;
+}}
+
 @keyframes slidetwo {
   0% {
     transform: translate(-50vw);
@@ -114,15 +121,11 @@
   }
 }
 
-.gradientimg{
-
-  background-image: 
-  linear-gradient(to top, red 50%, #000 50%),
-  linear-gradient(to top, yellow 50%, transparent 50%)
 
 
 
-}
+
+
 
 html,
 body {

@@ -21,16 +21,13 @@ import HamburgerMenuList from "./HamburgerMenuList";
 function Hamburger({ nav, handleNav }) {
 
 
-
-
-
   return (
     <div className="md:hidden">
       <div onClick={handleNav} className="flex ">
         <AiOutlineMenu size={20} />
       </div>
       <div  className={nav ? "fixed left-0 top-0 w-[75%] h-[100%] border-r text-black bg-white ease-in-out duration-500": "fixed ease-in-out duration-500 left-[-100%] h-[100%] top-0"}>
-        <HamburgerMenuList nav={nav} handleNav={handleNav} />
+        <HamburgerMenuList nav={nav} handleNav={handleNav}/>
       </div>
 
     </div>

@@ -8,6 +8,12 @@ module.exports = {
       'sans': ['Helvetica', 'Arial', 'sans-serif'],
     },
     extend: {
+      screens:{
+        'laptopL':'1440px',
+        '3xl': '1600px',
+        'desktop': '1920px',
+        '4k': '2500px',
+      }
     },
   },
   plugins: [],

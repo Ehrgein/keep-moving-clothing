@@ -27,7 +27,8 @@ export const products = [
           {
             "id":6,
             "name": "3XL"
-          }
+          },
+          
       ]
   },
     {
@@ -64,10 +65,6 @@ export const products = [
         },
         {
           "id": 8,
-          "name": "Patagonia"
-        },
-        {
-          "id": 9,
           "name": "King Ice"
         }
       ]
@@ -178,11 +175,11 @@ export const products = [
     "items":[
       {
         "id": 1,
-        "name": "Watches"
+        "name": "Watch 1"
       },
       {
         "id": 2,
-        "name": "Bags"
+        "name": "Bag 1"
       }
     ]
   }
