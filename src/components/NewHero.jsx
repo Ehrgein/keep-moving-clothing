@@ -5,7 +5,7 @@ import supremehoodie from '../assets/category/supremehoodie.jpg'
 import newbalances from "../assets/category/newbalancemobile.jpg";
 import northface2 from "../assets/northface2.jpg"
 
-const style = 'bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500'
+
 
 function NewHero() {
 

@@ -1,15 +1,25 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { IconContext } from "react-icons";
+import {Link } from "react-router-dom"
+import {ProductsContext, CategoriesContext} from '../App'
 
-function HeaderDropdown({ category, items }) {
+
+
+function HeaderDropdown({categories}) {
   const [subnav, setSubNav] = useState(false);
+
+  const productscontext = useContext(ProductsContext)
+
+
 
   const handleSubNav = () => {
     setSubNav(!subnav);
   };
 
-  const handleSubFalse = () => setSubNav(false);
+
+  const handleSubFalse = () => setSubNav(false)
+
 
   useEffect(() => {
     document.addEventListener("click", handleClickOutside, true);
@@ -18,45 +28,53 @@ function HeaderDropdown({ category, items }) {
   const refOne = useRef(null);
 
   const handleClickOutside = (e) => {
-    if (!refOne.current.contains(e.target)) {
+    if (!refOne.current?.contains(e.target)) {
       setSubNav(false);
     } else {
       console.log("holi");
     }
-  };
+
+  };          
+
 
   return subnav ? (
-    <div>
-      <div
-        onClick={handleSubNav}
-        className="flex items-center uppercase hover:text-red-500"
-      >
-        <p className="">{category}</p>
+    <div className=''>
+      <div onClick={handleSubNav}  className="flex items-start uppercase align-middle">
+        <h1 className="">{categories}</h1>
         <IconContext.Provider value={{ color: "white", size: "20px" }}>
           <MdOutlineKeyboardArrowDown />
         </IconContext.Provider>
       </div>
-      <div
-        ref={refOne}
-        onMouseLeave={handleSubFalse}
-        className="fixed top-[16%] left-[0%] w-[100%] h-[40%] text-black bg-white ease-in-out duration-500"
-      >
-        <ul className="ease-in-out duration-500">
-          {items.map((item) => (
-            <li key={item.id} name={item.name}>
-              {" "}
-              {item.name}
-            </li>
+
+      <div ref={refOne} onMouseLeave={handleSubFalse} className="fixed top-[13%] w-[100%] h-[56%] left-0 text-black bg-white fade-anim font-thin flex flex-col">
+        <div className="flex flex-col">
+          <div className="text-3xl justify-center flex font-bold mt-4"> Featured in {categories}</div>
+        </div>
+        <div className="flex justify-center">
+        <div className="flex mt-2">
+          {productscontext.filter(item => item.categories ===  categories).slice(-3).map((newitem) => (
+            <div>
+                <div name={newitem.name} price={newitem.price} key={newitem.id} className="w-[250px] h-[250px] justify-center flex  flex-col mr-6 mt-20 gap-4">
+                  <Link className='mx-4' to={`/products/${categories}/${newitem.name}`}>
+                    <img  src={newitem.prod_img}/>
+                  </Link>
+                  <ul className="">
+                  <li className="uppercase font-bold text-base mx-6 text-center"> {newitem.name}</li>
+                  <li className="text-center font-bold text-base"> ${newitem.price} </li>
+                  </ul>
+                </div>
+            </div>
           ))}
-        </ul>
+        </div>
+        </div>
+        <div className="flex justify-center h-14 items-end mt-10 text-lg">
+          <Link to={`/products/${categories}`} onClick={handleSubFalse} className="bg-[#1f2021] text-white px-4 py-2 font-bold ">VIEW ALL </Link>
+        </div>
       </div>
-    </div>
+    </div> 
   ) : (
-    <div
-      onClick={handleSubNav}
-      className="flex items-center uppercase hover:text-red-500"
-    >
-      <p className="">{category}</p>
+    <div onClick={handleSubNav} className="flex items-start uppercase align-middle">
+      <p className="">{categories}</p>
       <IconContext.Provider value={{ color: "white", size: "20px" }}>
         <MdOutlineKeyboardArrowDown />
       </IconContext.Provider>
@@ -65,3 +83,4 @@ function HeaderDropdown({ category, items }) {
 }
 
 export default HeaderDropdown;
+

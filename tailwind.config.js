@@ -5,7 +5,7 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      'sans': ['Helvetica', 'Arial', 'sans-serif'],
+      'sans': ['Lato', 'sans-serif'],
     },
     extend: {
       screens:{

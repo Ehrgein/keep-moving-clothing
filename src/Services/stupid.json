@@ -1,0 +1,51 @@
+{
+    "id": 2,
+    "category": "bottoms",
+    "items": [
+        {
+            "id": 15,
+            "name": "x carhartt wip men's pants",
+            "brand": "junya watanabe",
+            "stock": 2,
+            "prod_img": "https://cdn.shopify.com/s/files/1/0049/9112/products/junyawatanabeMEN_SPANTSBEIGE3WJ-P905-W22_2_370x.jpg?v=1665158806",
+            "price": 639.99,
+            "featured": "no"
+        },
+        {
+            "id": 16,
+            "name": "x levi's pants",
+            "brand": "junya watanabe",
+            "stock": 5,
+            "prod_img": "https://cdn.shopify.com/s/files/1/0049/9112/products/junyawatanabeMEN_SPANTSINDIGOMIX3WJ-P203-W22_1_370x.jpg?v=1665673785",
+            "price": 1209.99,
+            "featured": "no"
+        },
+        {
+            "id": 17,
+            "name": "martin jeans",
+            "brand": "a.p.c",
+            "stock": 12,
+            "prod_img": "https://cdn.shopify.com/s/files/1/0049/9112/products/a.p.c.JEANMARTINCAMEL30CODBX-H09121_2_370x.jpg?v=1665169251",
+            "price": 264.99,
+            "featured": "yes"
+        },
+        {
+            "id": 18,
+            "name": "musashi vs bat loose snopants",
+            "brand": "maharishi",
+            "stock": 4,
+            "prod_img": "https://cdn.shopify.com/s/files/1/0049/9112/products/maharishiMUSASHIVS.BATLOOSESNOPANTSBLACKM4119_2_370x.jpg?v=1665508006",
+            "price": 534.99,
+            "featured": "yes"
+        },
+        {
+            "id": 19,
+            "name": "crumple jogger crump",
+            "brand": "helmut lang",
+            "stock": 2,
+            "prod_img": "https://cdn.shopify.com/s/files/1/0049/9112/products/helmutlangCRUMPLEJOGGER.CRUMPBLACK-001SM07HM203_1_370x.jpg?v=1665002563",
+            "price": 294.99,
+            "featured": "yes"
+        }
+    ]
+}
