@@ -7,11 +7,14 @@ import Login from "./pages/Login";
 import Update from "./pages/Update";
 import NewArrivals from "./pages/NewArrivals"
 import axios from 'axios'
+import CartContext from "./components/Cart/CartFunctionality";
 
 
 
 export const ProductsContext = React.createContext()
 export const CategoriesContext = React.createContext()
+
+
 
 
 function App() {
@@ -47,7 +50,8 @@ function App() {
     
 
     <div className='opacity-changer'>
-          <ProductsContext.Provider value={newproducts}>
+        <ProductsContext.Provider value={newproducts}>
+            <CartContext>
             <CategoriesContext.Provider value={newcategories}>
             <Routes>
               <Route path='/' element={<Home/>}> </Route>
@@ -58,7 +62,8 @@ function App() {
               <Route path="/update/:id" element={<Update/>}/>
             </Routes>
             </CategoriesContext.Provider>
-          </ProductsContext.Provider>
+        </CartContext>
+        </ProductsContext.Provider>
     </div>
 
   );

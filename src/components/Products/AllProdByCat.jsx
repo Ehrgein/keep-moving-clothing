@@ -36,7 +36,7 @@ function AllProducts() {
               <div key={item.id} photo={item.prod_img}  name={item.name}  brand={item.brand} price={item.price}   
                 className='flex justify-center flex-col mr-2 my-2 py-10 tracking-wide w-[360px] h-[420px] items-center'>
                 <div>
-                  <Link to={`${item.name}`}> <img className='desktop:h-[285px] w-[285px]'  src={item.prod_img}/></Link>
+                  <Link to={`${item.id}`}> <img className='desktop:h-[285px] w-[285px]'  src={item.prod_img}/></Link>
                 </div>   
                     <ul>
                       <li className='font-bold text-base uppercase my-1'>{item.name}</li>
@@ -67,7 +67,7 @@ function AllProducts() {
           {productscontext.filter(item => item.categories === productscategory).map(item =>
             <div key={item.id} className="mx-auto my-auto">
               <div className='my-2'>
-              <Link to={`/products/${item.categories}/${item.name}`}>
+              <Link to={`/products/${item.categories}/${item.id}`}>
                 <img className='w-[190px] h-[190px] mx-auto my-auto' src={item.prod_img}/>
               </Link>
               </div>

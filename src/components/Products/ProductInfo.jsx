@@ -3,6 +3,7 @@ import {useParams} from "react-router-dom"
 import {ProductsContext} from '../../App'
 import Header from '../Header'
 import {Link} from 'react-router-dom'
+import { CartContext } from '../Cart/CartFunctionality'
 
 
 
@@ -12,20 +13,27 @@ function ProductInfo() {
     let {productscategory} = useParams()
 
     const productscontext = useContext(ProductsContext)
+    const cart = useContext(CartContext)
+    const getProductQuantity = cart.getProductQuantity(productinfo)
 
-    console.log();
+
+
+
+
+
+
 
   return (
     <div className=''> 
         <div className='hidden md:flex w-full h-auto bg-white justify-end flex-col flex-columns-2 desktop:items-end 4k:items-center mt-10 mb-10 ml-14'>
             {productscontext.map(item => (
-            item.name === productinfo ? 
+            item.id == productinfo ? 
             <div key={item.id} className='flex'>
                 <div className='flex justify-center'>
                     <img className='h-[690px] w-[690px]'src={item.prod_img}/>
                  </div>
                 <div className='flex flex-col ml-20 mt-14'>
-                    <h4 className='font-bold text-4xl uppercase w-[800px] flex'>{productinfo}</h4>
+                    <h4 className='font-bold text-4xl uppercase w-[800px] flex'>{item.name}</h4>
                     <h1 className='mt-2 capitalize text-xl'>{item.brand}</h1>
                     <h1 className='flex mt-4font-bold text-xl mt-4'> ${item.price}</h1>
                     <h1 className='mt-4 text-2xl tracking-widest'>S M L XL</h1>
@@ -41,7 +49,10 @@ function ProductInfo() {
                       <p className='mt-[20px] ml-2'>Out of stock</p>
                     </div>
                     }
-                    <h4 className='uppercase mt-8 text-center text-2xl border-4 h bg-[#1f2021] text-white font-black h-12 px-2 py-1 w-[450px]'> add to cart</h4>
+                    <button onClick={() => cart.addOneToCart(productinfo)}
+                    className='uppercase mt-8 text-center text-2xl border-4 h bg-[#1f2021] text-white font-black h-12 px-2 py-1 w-[450px]'>
+                    add to cart</button>
+                    
                     <h4 className='mt-2 text-center text-2xl border-4 h bg-yellow-500 text-black  h-12 px-2 py-1  w-[450px]'> Buy with Paypal</h4>
                   </div>
             </div> 
@@ -54,9 +65,9 @@ function ProductInfo() {
         
         
         <div className='md:hidden'>
-          {productscontext.filter(item => item.name=== productinfo).map(item=>
-          <div>
-            <div key={item.id} className='mt-6 mx-6'>
+          {productscontext.filter(item => item.id == productinfo).map(item=>
+          <div key={item.id}>
+            <div  className='mt-6 mx-6'>
               <img src={item.prod_img}/>
             </div>
           <div className='flex justify-center my-2 items-center text-center flex-col'>

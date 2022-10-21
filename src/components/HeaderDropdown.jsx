@@ -53,9 +53,9 @@ function HeaderDropdown({categories}) {
         <div className="flex justify-center">
         <div className="flex mt-2">
           {productscontext.filter(item => item.categories ===  categories).slice(-3).map((newitem) => (
-            <div>
-                <div name={newitem.name} price={newitem.price} key={newitem.id} className="w-[250px] h-[250px] justify-center flex  flex-col mr-6 mt-20 gap-4">
-                  <Link className='mx-4' to={`/products/${categories}/${newitem.name}`}>
+            <div key={newitem.id}>
+                <div name={newitem.name} price={newitem.price}  className="w-[250px] h-[250px] justify-center flex  flex-col mr-6 mt-20 gap-4">
+                  <Link className='mx-4' to={`/products/${categories}/${newitem.id}`}>
                     <img  src={newitem.prod_img}/>
                   </Link>
                   <ul className="">

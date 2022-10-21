@@ -6,6 +6,7 @@ import MobileMenWomen from "./MobileMenWomen";
 import BrowseByCategory from "./BrowseByCategory";
 import {Link} from 'react-router-dom'
 import DisplayItemsHome from './DisplayItemsHome'
+import { CartContext } from "./Cart/CartFunctionality";
 
 
 function Contentone() {
@@ -21,7 +22,7 @@ function Contentone() {
       <div className="hidden md:block">
         <NewArrivalsHome/>
         <ThreeFeatures/>
-        <DisplayItemsHome key={1}props={"accesories"}/>
+        <DisplayItemsHome key={1} props={"accesories"}/>
         <ThreeFeatures />
         <DisplayItemsHome  key={2} props={"bottoms"}/>
       </div>
@@ -39,7 +40,7 @@ function Contentone() {
         <div className="grid grid-cols-2 gap-4 place-content-center">
           {productscontext.slice(-4).reverse().map(item => 
             <div key={item.id} className="mx-auto my-auto">
-              <Link to={`products/${item.categories}/${item.name}`}> <img className="w-[180px] h-[180px] mx-4 my-4" src={item.prod_img} /> </Link>
+              <Link to={`products/${item.categories}/${item.id}`}> <img className="w-[180px] h-[180px] mx-4 my-4" src={item.prod_img} /> </Link>
               <h2 className="text-center text-xs">
               <a className="text-base capitalize font-semibold">
                 {item.name}

@@ -13,7 +13,7 @@ import {Link} from 'react-router-dom'
 function BrowseByCategory() {
 
   const categoriescontext = useContext(CategoriesContext)
-  console.log(categoriescontext)
+
 
   return (
     <div className='flex flex-wrap flex-columns-2 gap-2 mx-2 my-4'>

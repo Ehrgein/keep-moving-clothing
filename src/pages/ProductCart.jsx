@@ -5,7 +5,7 @@ import ProductInfo from '../components/Products/ProductInfo'
 import Recommended from '../components/Products/Recommended'
 
 
-function ProductCart({products, categories}) {
+function ProductCart() {
 
 
   return (
