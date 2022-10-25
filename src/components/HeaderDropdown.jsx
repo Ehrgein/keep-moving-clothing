@@ -41,14 +41,12 @@ function HeaderDropdown({categories}) {
 
   return subnav ? (
     <div className=''>
+      
       <div onClick={handleSubNav}  className="flex items-start uppercase align-middle">
         <h1 className="">{categories}</h1>
-        <IconContext.Provider value={{ color: "white", size: "20px" }}>
-          <MdOutlineKeyboardArrowDown />
-        </IconContext.Provider>
       </div>
 
-      <div ref={refOne} onMouseLeave={handleSubFalse} className="fixed top-[13%] w-[100%] h-[56%] left-0 text-black bg-white fade-anim font-thin flex flex-col">
+      <div ref={refOne} onMouseLeave={handleSubFalse} className="fixed top-[10%] w-[100%] h-[56%] left-0 text-black bg-white fade-anim font-thin flex flex-col">
         <div className="flex flex-col">
           <div className="text-3xl justify-center flex font-bold mt-4"> Featured in {categories}</div>
         </div>
@@ -75,11 +73,8 @@ function HeaderDropdown({categories}) {
       </div>
     </div> 
   ) : (
-    <div onClick={handleSubNav} className="flex items-start uppercase align-middle">
+    <div onClick={handleSubNav} className="flex items-start uppercase align-middle px-1">
       <p className="">{categories}</p>
-      <IconContext.Provider value={{ color: "white", size: "20px" }}>
-        <MdOutlineKeyboardArrowDown />
-      </IconContext.Provider>
     </div>
   );
 }

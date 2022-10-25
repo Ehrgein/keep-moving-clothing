@@ -1,5 +1,5 @@
 import React, {useState, useContext, useRef, useEffect} from 'react'
-import {AiOutlineClose, AiOutlinePlus, AiOutlineMinus} from 'react-icons/ai'
+import {AiOutlineClose, AiOutlinePlus, AiOutlineMinus, AiOutlineShoppingCart} from 'react-icons/ai'
 import {IconContext} from 'react-icons'
 import {BsPlus} from 'react-icons/bs'
 import {ProductsContext} from '../../App'
@@ -26,7 +26,9 @@ function CartSlider() {
 
   return (
     <div>
-        <h1 onClick={handleCart} className="mr-4 text-base"> CART ({cart.items.length}) </h1>  
+        <div onClick={handleCart} className="mr-4 text-base flex gap-4">
+            <AiOutlineShoppingCart size={25}/> 
+        </div>  
         <div className={cartSlider ? "testing border-r w-[20%] right-0 text-black bg-white ease-in-out duration-500" : "fixed ease-in-out duration-1000 right-[-100%] h-[100%] top-0"}>
             <div className='text-black text-xl flex mt-4 ml-4 justify-between text-center items-start'>
                 <h1 className=''> 

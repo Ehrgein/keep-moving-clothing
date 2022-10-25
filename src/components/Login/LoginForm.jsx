@@ -28,7 +28,8 @@ function LoginForm() {
             } else{
                 console.log(response.data[0].username)
                 usercontext.setUser(response.data[0].username)
-                navigate('/account')
+                usercontext.setIsLoggedIn(true)
+                navigate("/account")
             }
         })
     }

@@ -14,28 +14,17 @@ import Account from './pages/Account'
 import ProtectedRoutes from "./pages/ProtectedRoutes";
 
 
+
 export const ProductsContext = React.createContext()
 export const CategoriesContext = React.createContext()
+export const BrandsContext = React.createContext()
 export const UserContext = React.createContext({
   user: null,
   isLoggedIn: false,
+  setIsLoggedIn: () => {},
   setUser: () => {},
 })
 
-
-// export const LoginContext = createContext(
-//   {
-//   loggedIn: false,
-//   setLoggedIn: () => {},
-//   username: "",
-//   setUsername: () => {},
-//   password: "",
-//   setPassword: () => {},
-//   loginMessage: "",
-//   setLoginMessage: () => {},
-//   loggedUser: "",
-//   setLoggedUser: () => {},
-//   })
 
 
 
@@ -46,6 +35,7 @@ function App() {
   const [user, setUser] = useState(null)
   const [newproducts, setProducts] = useState([])
   const [newcategories, setCategories] = useState([])
+  const [allbrands, setBrands] = useState()
   
   const [loginMessage, setLoginMessage] = useState("")
   const [loggedUser, setLoggedUser] = useState("")
@@ -53,7 +43,7 @@ function App() {
 
 
   const usercontext = useContext(UserContext)
-  console.log(usercontext.user)
+
 
 
 
@@ -61,14 +51,16 @@ function App() {
 
   const prodreq = axios.get('http://localhost:3001/products')
   const catreq = axios.get("http://localhost:3001/categories")
+  const brandsreq = axios.get("http://localhost:3001/brands")
   
 
 
   const fetchAllProducts = async () =>{
     try{
-        await axios.all([prodreq, catreq]).then(axios.spread(function(res1, res2){
+        await axios.all([prodreq, catreq, brandsreq]).then(axios.spread(function(res1, res2, res3){
           setProducts(res1.data) 
           setCategories(res2.data)
+          setBrands(res3.data)
         }))
 
         return;
@@ -92,13 +84,17 @@ useEffect(() => {
           setUser(response.data.user[0].username)
       } else{
           setIsLoggedIn(false)
+          
       }
   })
 }, [])
 
 
 
-  const contextvalue = {user, isLoggedIn, setUser}
+console.log(usercontext.user)
+
+  const contextvalue = {user, isLoggedIn, setUser, setIsLoggedIn}
+
 
 
   return (
@@ -106,6 +102,7 @@ useEffect(() => {
 
     <div className='opacity-changer'>
       <UserContext.Provider value={contextvalue}>
+        <BrandsContext.Provider value={allbrands}>
         <ProductsContext.Provider value={newproducts}>
             <CartContext>
             <CategoriesContext.Provider value={newcategories}>
@@ -124,6 +121,7 @@ useEffect(() => {
             </CategoriesContext.Provider>
             </CartContext>
         </ProductsContext.Provider>
+        </BrandsContext.Provider>
       </UserContext.Provider>
 
     </div>
