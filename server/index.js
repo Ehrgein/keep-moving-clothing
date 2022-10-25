@@ -1,8 +1,14 @@
-import express from 'express';
+import express, { json } from 'express';
 import mysql from "mysql"
 import cors from "cors";
+import bcrypt from 'bcrypt'
+import cookieParser from 'cookie-parser';
+import session from 'express-session'
+
+
 
 const app = express()
+const saltRounds = 10
 
  
 const db = mysql.createConnection({
@@ -12,8 +18,26 @@ const db = mysql.createConnection({
     database: "ecommerce_db"
 })
 
+
 app.use(express.json())
-app.use(cors())
+app.use(cors(({
+    credentials: true,
+    origin: 'http://localhost:3000',
+    methods: ["GET", "POST"]
+    })));
+
+app.use(session({
+    key: "username",
+    secret:"subscribe",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        expires: 60 * 60 * 24 * 1000
+    }
+}))
+
+app.use(cookieParser())
+
 
 app.get("/", (req, res) =>{
     res.json("Hello this is the backend")
@@ -44,11 +68,83 @@ app.get("/brands", (req, res) => {
  })
 
 
+ app.post("/userdata", (req, res) => {
+
+    const username = req.body.username
+    const password = req.body.password
+    const email = req.body.email
+
+    bcrypt.hash(password,saltRounds, (err, hash) =>{
+
+        if(err) {
+            console.log(err);
+        }
+        db.query(
+            "INSERT INTO userdata (username, password, email) values (?, ?, ?)",
+            [username, hash, email]
+            , (err, result) =>{
+            console.log(err)
+            }
+        ) 
+    })
+
+})
+
+
+app.get("/logout", (req, res, next) =>{
+    res.clearCookie("username", {
+    path: "/"
+    })
+    req.session.destroy((err) => {
+        if (err) return next(err)
+        return res.redirect('/login')
+    })
+})
+ 
+
+app.get("/login", (req, res) => {
+
+    if (req.session.user) {
+        console.log(req.session.user)
+        res.send({loggedIn: true, user: req.session.user})
+    } else{
+        res.send({loggedIn: false})
+    }
+})
 
 
 
-// if theres an auth problem
-// ALTER USE 'root'@'localhost" IDENTIFIED WITH mysql_native_password by 'asdwow123'
+app.post("/login", (req, res) => {
+
+    const username = req.body.username
+    const password = req.body.password
+
+    db.query(
+        "SELECT * FROM userdata WHERE username = ?;",
+        [username],
+        (err, result) =>{
+            if (err) {
+                res.send({err: err})
+            } 
+                
+            if (result.length > 0) {
+                bcrypt.compare(password, result[0].password, (err, response) =>{
+                    if (response) {
+                        req.session.user = result
+                        res.send(result)
+                    } else{ 
+                        res.send({message: "Wrong username/password"})
+                    }
+                })
+            }else {
+                res.send({message: "User doesn't exist"})
+            }
+        }   
+    )
+ })
+
+
+
 
 
 
@@ -58,52 +154,4 @@ app.listen(3001, () =>{
 
 
 
-
-
-
-// app.post("/books", (req, res) =>{
-//     const query = "INSERT INTO books (`title`, `desc`, `price`, `cover`) VALUES (?)"
-//     const values = [
-
-//         req.body.title,
-//         req.body.desc,
-//         req.body.price,
-//         req.body.cover,
-//     ]
-
-
-//     db.query(query, [values], (err,data) => {
-//         if (err) return res.json(err)
-//         return res.json("Book has been created")
-//     })
-// })
-
-// app.delete("/books/:id", (req, res) =>{
-//     const bookId = req.params.id;
-//     const q = "DELETE FROM books WHERE id = ?"
-
-//     db.query(q, [bookId], (err, data) =>{
-//         if (err) return res.json(err);
-//         return res.json("book has been deleted successfully")
-//     })
-// })
-
-
-// app.put("/books/:id", (req, res) =>{
-//     const bookId = req.params.id;
-//     const q = "UPDATE books SET `title` = ?, `desc` = ?, `price` = ?, `cover` = ? WHERE id = ?";
-
-//     const values=[
-        
-//         req.body.title,
-//         req.body.desc,
-//         req.body.price,
-//         req.body.cover,
-//     ]
-
-//     db.query(q, [...values, bookId], (err, data) =>{
-//         if (err) return res.json(err);
-//         return res.json("book has been updated successfully")
-//     })
-// })
 

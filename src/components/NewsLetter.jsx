@@ -81,7 +81,7 @@ function NewsLetter() {
           </div> 
         </div>  
       </div>
-      <div className='hidden md:flex justify-center h-40  bg-black text-white w-full'>
+      <div className='hidden md:flex justify-center h-16 bg-black text-white w-full'>
           <SiVisa className='mx-2'size={40}/>
           <SiMastercard  className='mx-2'size={40}/>
           <SiDiscover className='mx-2' size={40}/>

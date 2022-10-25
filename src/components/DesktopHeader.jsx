@@ -1,22 +1,31 @@
 import React, {useState, useContext} from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import Sliderbar from './Sliderbar'
 import {AiOutlineSearch } from 'react-icons/ai'
 import {CategoriesContext} from '../App'
 import HeaderDropdown from './HeaderDropdown'
 import CartSlider from './Cart/CartSlider'
 import {CartContext} from '../components/Cart/CartFunctionality'
+import axios from 'axios'
+
 
 function DesktopHeader() {
 
     const [nav, setNav] = useState(false);
     const handleNav = () => setNav(!nav);
-    
-    
+
     const contextcategories = useContext(CategoriesContext)
     const cart = useContext(CartContext)
+    
 
-    console.log(cart.items.length)
+
+
+    const navigate = useNavigate()
+
+    
+
+
+
 
 
   return (
@@ -35,7 +44,7 @@ function DesktopHeader() {
             </div>
         </div>
         <div className="flex ml-6 justify-end w-[20%] items-center mt-4 font-semibold tracking-[2px] pr-4 mr-4 text-xs">
-            <Link to="/account/login"><h1 className="mr-4 text-base"> LOGIN </h1> </Link>
+            <Link to="/login"> <h1 className="mr-4 text-base"> LOGIN</h1>  </Link> 
             <h1 className="mr-4 text-base"> WISHLIST (0) </h1>
             
             <CartSlider/>

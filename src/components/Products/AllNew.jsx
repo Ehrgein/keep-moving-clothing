@@ -7,10 +7,10 @@ import {ProductsContext} from '../../App'
 function AllNew() {
 
       
-    const productscontext = useContext(ProductsContext)  
+    const productscontext = useContext(ProductsContext)
+      
 
-
-
+   
   return (
     <div>
         <div className='hidden md:flex text-4xl justify-center flex-col'>
@@ -33,7 +33,7 @@ function AllNew() {
               <div key={item.id} photo={item.prod_img}  name={item.name}  brand={item.brand} price={item.price}   
                 className='flex justify-center flex-col ml-14 mr-2 my-2 py-10 tracking-wide w-[390px] h-[440px] items-center'>
                 <div>
-                  <Link to={`/products/${item.categories}/${item.name}`}> <img className='desktop:h-[290px] w-[290px]'  src={item.prod_img}/></Link>
+                  <Link to={`/products/${item.categories}/${item.id}`}> <img className='desktop:h-[290px] w-[290px]'  src={item.prod_img}/></Link>
                 </div>   
                     <ul>
                     <li className='font-bold text-base uppercase my-1'>{item.name}</li>
@@ -66,7 +66,7 @@ function AllNew() {
         <div className="grid grid-cols-2 gap-4 place-content-center">
           {productscontext.slice(-15).reverse().map(item => 
             <div key={item.id} className="mx-auto my-auto">
-              <Link to={`/products/${item.categories}/${item.name}`}> 
+              <Link to={`/products/${item.categories}/${item.id}`}> 
                <img className="w-[180px] h-[180px] mx-4 my-4" src={item.prod_img} />
                </Link>
               <h2 className="text-center text-xs">

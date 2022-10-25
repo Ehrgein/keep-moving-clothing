@@ -1,6 +1,6 @@
 import React, {useContext} from 'react'
 import {useParams} from "react-router-dom"
-import {ProductsContext} from '../../App'
+import {ProductsContext, UserContext} from '../../App'
 import Header from '../Header'
 import {Link} from 'react-router-dom'
 import { CartContext } from '../Cart/CartFunctionality'
@@ -12,14 +12,14 @@ function ProductInfo() {
     let {productinfo} = useParams()
     let {productscategory} = useParams()
 
+
     const productscontext = useContext(ProductsContext)
+
     const cart = useContext(CartContext)
     const getProductQuantity = cart.getProductQuantity(productinfo)
 
-
-
-
-
+    const usercontext = useContext(UserContext)
+   
 
 
 
@@ -37,6 +37,7 @@ function ProductInfo() {
                     <h1 className='mt-2 capitalize text-xl'>{item.brand}</h1>
                     <h1 className='flex mt-4font-bold text-xl mt-4'> ${item.price}</h1>
                     <h1 className='mt-4 text-2xl tracking-widest'>S M L XL</h1>
+                    <p>{usercontext.user}</p>
           
                     {item.stock > 1 ? 
                     <div className='flex'>
@@ -52,13 +53,15 @@ function ProductInfo() {
                     <button onClick={() => cart.addOneToCart(productinfo)}
                     className='uppercase mt-8 text-center text-2xl border-4 h bg-[#1f2021] text-white font-black h-12 px-2 py-1 w-[450px]'>
                     add to cart</button>
-                    
                     <h4 className='mt-2 text-center text-2xl border-4 h bg-yellow-500 text-black  h-12 px-2 py-1  w-[450px]'> Buy with Paypal</h4>
                   </div>
+
             </div> 
             : 
             null
+            
         ))}
+
         </div>
 
         {/*Mobile starts here*/}

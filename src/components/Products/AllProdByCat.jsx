@@ -12,7 +12,7 @@ function AllProducts() {
 
     const productscontext = useContext(ProductsContext)
 
-    console.log(productscontext)
+
 
   return (
     <div>
@@ -46,6 +46,7 @@ function AllProducts() {
               </div>)}
             </div>
         </div>
+
 
         {/*mobile starts here */}
 

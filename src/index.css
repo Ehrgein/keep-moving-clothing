@@ -22,6 +22,7 @@
 
 .cart-anim {
   animation: fadeAnim 400ms ease-in;
+  overflow-y: auto;
 
 }
 
@@ -71,6 +72,55 @@
   100% {
     transform: translate(100vw, 0);
   }
+}
+
+.inpborder{
+  border: 1px solid #ccc;
+}
+
+.cartborder{
+
+  border-top: 1px solid #ccc;
+}
+
+.botbordercustom{
+  border-bottom: 1px solid #ccc;
+}
+
+.accountborder{
+  border-bottom : 1px solid #ccc;
+  border-left: 1px solid #ccc;
+
+}
+
+.topbotborder{
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+.menuborder{
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+.bottomleftrightb{
+  border-bottom: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+
+
+.testing{
+  position: fixed;
+  top: 0;
+  bottom:0;
+
+  width: 20w; /* viewport width */
+  height: 100vh; /* viewport height */
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .midtext {
@@ -161,6 +211,7 @@ body {
   background: white;
   font-family: 'Lato', sans-serif;
   overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 

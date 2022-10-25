@@ -1,4 +1,5 @@
-import React, {createContext, useContext, useState} from 'react'
+import React, {createContext, useContext, useState, useEffect} from 'react'
+import { json } from 'react-router-dom'
 import {ProductsContext} from '../../App'
 
 
@@ -14,12 +15,24 @@ export const CartContext = createContext({
 })
 
 
+const cartitemsLocal = JSON.parse(localStorage.getItem("cart")) // "[]" 
+
 
 function CartFunctionality({children}) {
 
-    const [cartProducts, setCartProducts] = useState([])
+
+    const [cartProducts, setCartProducts] = useState(cartitemsLocal)
 
     const productscontext = useContext(ProductsContext)
+
+
+    useEffect(() => {
+
+        localStorage.setItem("cart", JSON.stringify(cartProducts))
+        
+    }, [cartProducts])
+    
+
 
 
 
@@ -84,8 +97,8 @@ function CartFunctionality({children}) {
                 cartProducts.map(
                     product =>
                     
-                    product.id === id                              
-                    ? {...product, quantity: product.quantity + 1}  
+                    product.id === id
+                      ? {...product, quantity: product.quantity + 1}  
                     : product                                    
 
                 )          
@@ -157,5 +170,6 @@ return (
     </CartContext.Provider>
         )
 }
+
 
 export default CartFunctionality

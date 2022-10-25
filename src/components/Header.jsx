@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import MobileHeader from "./MobileHeader";
 import DesktopHeader from "./DesktopHeader";
-
+import {VscAccount} from 'react-icons'
 
 function Header() {
 

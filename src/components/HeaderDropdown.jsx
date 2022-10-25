@@ -25,6 +25,7 @@ function HeaderDropdown({categories}) {
     document.addEventListener("click", handleClickOutside, true);
   }, []);
 
+
   const refOne = useRef(null);
 
   const handleClickOutside = (e) => {
@@ -36,6 +37,7 @@ function HeaderDropdown({categories}) {
 
   };          
 
+  
 
   return subnav ? (
     <div className=''>

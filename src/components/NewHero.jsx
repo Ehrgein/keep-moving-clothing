@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
-import mensection from '../assets/mensection.jpg'
-import womensection from '../assets/womensection.jpg'
+import mensection from '../assets/optimizedmen.jpg'
+import womensection from '../assets/optimizedwomen.jpg'
 import supremehoodie from '../assets/category/supremehoodie.jpg'
 import newbalances from "../assets/category/newbalancemobile.jpg";
-import northface2 from "../assets/northface2.jpg"
+import northface2 from "../assets/optimizednorth.jpg"
 
 
 
