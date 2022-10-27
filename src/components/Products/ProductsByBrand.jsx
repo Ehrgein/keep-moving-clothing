@@ -5,20 +5,21 @@ import {Link} from 'react-router-dom'
 import ProductMenus from './ProductMenus'
 import {ProductsContext} from '../../App'
 
-function AllProducts() {
+function ProductsByBrand() {
 
-    let {productscategory} = useParams()
-    console.log(productscategory)
+    let {brand} = useParams()
+
+      
 
     const productscontext = useContext(ProductsContext)
 
-
+    console.log(productscontext)
 
   return (
     <div>
         <div className='hidden md:flex text-4xl justify-center flex-col'>
           <div className='flex justify-center capitalize text-4xl font-bold mt-12'>  
-              {productscategory}
+              {brand}
           </div>
         <div className='flex justify-end mr-4'>
             <div className='text-sm px-2'>
@@ -32,11 +33,11 @@ function AllProducts() {
         <div className='hidden md:flex'>
             <ProductMenus/>
             <div className='flex flex-wrap my-10 pl-16'>
-              {productscontext.filter(item => item.categories === productscategory).map(item =>
+              {productscontext.filter(item => item.brand == brand).map(item =>
               <div key={item.id} photo={item.prod_img}  name={item.name}  brand={item.brand} price={item.price}   
                 className='flex justify-center flex-col mr-2 my-2 py-10 tracking-wide w-[360px] h-[420px] items-center'>
                 <div>
-                  <Link to={`${item.id}`}> <img className='desktop:h-[285px] w-[285px]'  src={item.prod_img}/></Link>
+                  <Link to={`/products/${item.categories}/${item.id}`}> <img className='desktop:h-[285px] w-[285px]'  src={item.prod_img}/></Link>
                 </div>   
                     <ul>
                       <li className='font-bold text-base uppercase my-1'>{item.name}</li>
@@ -52,7 +53,7 @@ function AllProducts() {
 
         <div className='md:hidden flex text-4xl justify-center flex-col'>
             <div className='flex justify-center capitalize text-3xl font-bold mt-12'>  
-                {productscategory}
+                {brand}
             </div>
           <ProductMenus/>
           <div className='md:hidden flex justify-end mr-4'>
@@ -65,7 +66,7 @@ function AllProducts() {
           </div>
           <div className="flex flex-col justify-center columns-2 my-6">
           <div className="grid grid-cols-2 gap-4 place-content-center my-2"> 
-          {productscontext.filter(item => item.categories === productscategory).map(item =>
+          {productscontext.filter(item => item.brand === brand).map(item =>
             <div key={item.id} className="mx-auto my-auto">
               <div className='my-2'>
               <Link to={`/products/${item.categories}/${item.id}`}>
@@ -86,6 +87,6 @@ function AllProducts() {
   )
 }
 
-export default AllProducts
+export default ProductsByBrand
 
 

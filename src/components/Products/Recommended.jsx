@@ -13,6 +13,10 @@ function Recommended() {
 
     const productscontext = useContext(ProductsContext)
 
+    const scrolltoTop = () => {
+      window.scrollTo(0, 0)
+    }
+
   return (
     <div>
         <div className="hidden md:flex justify-center text-center mt-10">
@@ -22,7 +26,7 @@ function Recommended() {
            {productscontext.filter(item => item.categories === productscategory).slice(-5).map(item =>
             <div key={item.id} className='flex uppercase justify-center desktop:w-[280px] laptopL:w-[160px] md:w-[150px] my-10 pb-10 text-sm laptopL:mx-12 md:mx-20 lg:mx-12'>
               <ul>
-              <Link to={`/products/${productscategory}/${item.id}`}><img className='h-auto text-center mb-4' src={item.prod_img}/></Link>
+              <Link onClick={scrolltoTop} to={`/products/${productscategory}/${item.id}`}><img className='h-auto text-center mb-4' src={item.prod_img}/></Link>
                 <li className='font-bold text-center 4k:text-lg'> {item.name} </li>
                 <li className='text-center 4k:text-lg text-sm mt-2'> {item.brand}</li>
                 <p className='text-base mt-1 font-semibold text-center 4k:text-lg'>$ {item.price}</p>

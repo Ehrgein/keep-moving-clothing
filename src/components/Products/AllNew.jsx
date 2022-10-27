@@ -28,12 +28,12 @@ function AllNew() {
         </div>
         <div className='hidden md:flex'>
             <ProductMenus/>
-            <div className='flex flex-wrap my-20 pl-16'>
+            <div className='flex flex-wrap my-10 pl-16'>
               {productscontext.slice().reverse().map(item =>
               <div key={item.id} photo={item.prod_img}  name={item.name}  brand={item.brand} price={item.price}   
-                className='flex justify-center flex-col ml-14 mr-2 my-2 py-10 tracking-wide w-[390px] h-[440px] items-center'>
+                className='flex justify-center flex-col mr-2 my-2 py-10 tracking-wide w-[360px] h-[420px] items-center'>
                 <div>
-                  <Link to={`/products/${item.categories}/${item.id}`}> <img className='desktop:h-[290px] w-[290px]'  src={item.prod_img}/></Link>
+                  <Link to={`/products/${item.categories}/${item.id}`}> <img className='desktop:h-[285px] w-[285px]'  src={item.prod_img}/></Link>
                 </div>   
                     <ul>
                     <li className='font-bold text-base uppercase my-1'>{item.name}</li>

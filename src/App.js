@@ -1,7 +1,7 @@
-import React, {useState, useEffect, useContext, createContext} from "react";
+import React, {useState, useEffect, useContext, createContext, useLayoutEffect} from "react";
 import Home from "./pages/Home";
 import { useNavigate } from "react-router-dom"; 
-import {Routes, Route} from 'react-router-dom'
+import {Routes, Route, useLocation} from 'react-router-dom'
 import Products from "./pages/Products";
 import ProductCart from "./pages/ProductCart";
 import Login from "./pages/Login";
@@ -12,7 +12,9 @@ import CartContext from "./components/Cart/CartFunctionality";
 import Register from "./pages/Register";
 import Account from './pages/Account'
 import ProtectedRoutes from "./pages/ProtectedRoutes";
-
+import ProductsByBrand from "./components/Products/ProductsByBrand";
+import BrandProduct from './pages/BrandProduct'
+import ScrollToTop from "./components/ScrollToTop";
 
 
 export const ProductsContext = React.createContext()
@@ -43,6 +45,7 @@ function App() {
 
 
   const usercontext = useContext(UserContext)
+  
 
 
 
@@ -78,7 +81,6 @@ function App() {
 useEffect(() => {
 
   axios.get("http://localhost:3001/login").then((response)=>{
-    console.log(response.data.isLoggedIn)
       if (response.data.loggedIn) {
           setIsLoggedIn(true)
           setUser(response.data.user[0].username)
@@ -91,7 +93,7 @@ useEffect(() => {
 
 
 
-console.log(usercontext.user)
+
 
   const contextvalue = {user, isLoggedIn, setUser, setIsLoggedIn}
 
@@ -106,24 +108,24 @@ console.log(usercontext.user)
         <ProductsContext.Provider value={newproducts}>
             <CartContext>
             <CategoriesContext.Provider value={newcategories}>
-            <Routes>
-              <Route path='/' element={<Home/>}> </Route>
-              <Route path='products/:productscategory' element={<Products/>}/> 
-              <Route path='newarrivals' element={<NewArrivals/>}/>
-              <Route path='products/:productscategory/:productinfo' element={<ProductCart/>} />
-              <Route path='account/register' element={<Register/>}/>
-              <Route path="/update/:id" element={<Update/>}/>
-              <Route element={<ProtectedRoutes />}> 
-                <Route path="/account" element={<Account/>}/>
-              </Route>
-              <Route path='/login' element={<Login/>}/>
-            </Routes>
+              <Routes>
+                <Route path='/' element={<Home/>}> </Route>
+                <Route path='products/:productscategory' element={<Products/>}/> 
+                <Route path='newarrivals' element={<NewArrivals/>}/>
+                <Route path='products/:productscategory/:productinfo' element={<ProductCart/>} />
+                <Route path='/collection/:brand' element={<BrandProduct/>}/>
+                <Route path='account/register' element={<Register/>}/>
+                <Route path="/update/:id" element={<Update/>}/>
+                <Route element={<ProtectedRoutes />}> 
+                  <Route path="/account" element={<Account/>}/>
+                </Route>
+                <Route path='/login' element={<Login/>}/>
+              </Routes>
             </CategoriesContext.Provider>
             </CartContext>
         </ProductsContext.Provider>
         </BrandsContext.Provider>
       </UserContext.Provider>
-
     </div>
 
   );

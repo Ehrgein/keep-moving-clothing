@@ -7,36 +7,51 @@ import {ProductsContext} from '../../App'
 
 export const CartContext = createContext({
     items: [],
+    cartSlider: false,
+    wishitems: [],
     getProductQuantity: () => {},
     addOneToCart: () => {},
     removeOneFromCart: () => {},
     deleteFromCart: () => {},
     getTotalCost: () => {},
+    handleCart: () => {},
+    closeCart: () => {},
+    openCart: () => {},
+    addToWishList: () => {},
+    getWishQuantity: () => {},
+    deleteFromWish: () => {},
 })
 
 
-const cartitemsLocal = JSON.parse(localStorage.getItem("cart")) // "[]" 
-
+const cartitemsLocal = JSON.parse(localStorage.getItem("cart")) // "[]11" 
+const wishlistitemsLocal = JSON.parse(localStorage.getItem("wish")) 
 
 function CartFunctionality({children}) {
 
 
     const [cartProducts, setCartProducts] = useState(cartitemsLocal)
+    const [cartSlider, setCart] = useState(false)
+    const [wishlist, setwishList] = useState(wishlistitemsLocal)
 
     const productscontext = useContext(ProductsContext)
 
+    
 
     useEffect(() => {
 
         localStorage.setItem("cart", JSON.stringify(cartProducts))
-        
-    }, [cartProducts])
+        localStorage.setItem("wish", JSON.stringify(wishlist))
+
+            
+
+    }, [cartProducts, wishlist])
     
 
+    const handleCart = () => setCart(!cartSlider)
 
+    const closeCart = () => setCart(false)
 
-
-
+    const openCart = () => setCart(true)
 
     function getProductData(id) {
         let productData = productscontext.find(product => product.id === id) 
@@ -61,6 +76,17 @@ function CartFunctionality({children}) {
         return quantity
     }
 
+    function getWishQuantity(id) {
+        
+        const quantity = wishlist.find(product => product.id === id)?.quantity
+
+        if (quantity === undefined) {
+            return 0;
+        }
+        
+        
+        return quantity
+    }
 
 
 
@@ -69,9 +95,7 @@ function CartFunctionality({children}) {
         const quantity = getProductQuantity(id);
         const fullitem = productscontext.filter(item => item.id == id)
 
-              
 
-        
 
         if(quantity === 0) {    
            
@@ -124,7 +148,18 @@ function CartFunctionality({children}) {
         }
     }
 
+    function getTotalCost() {
 
+        let totalcost = 0
+
+        cartProducts ? cartProducts.map(cartitem => {
+            totalcost += (cartitem.price * cartitem.quantity)
+        })
+        :
+        null
+
+        return totalcost
+    }
     
 
 
@@ -139,28 +174,62 @@ function CartFunctionality({children}) {
         
     }
 
+    function addToWishList(id)  {
 
-    function getTotalCost() {
+        const quantity = getWishQuantity(id);
+        const fullitem = productscontext.filter(item => item.id == id)
 
-        let totalCost = 0;
-        cartProducts.map( cartItem => {
-            const productData = getProductData(cartItem.id)
-            totalCost += (productData.price * cartItem.quantity)
-        })
+        if (quantity == 0) {
+        setwishList(
+                [
+                    ...wishlist,
+                    {
+                        id: id,
+                        name: fullitem[0].name,
+                        price: fullitem[0].price,
+                        brand: fullitem[0].brand,
+                        img: fullitem[0].prod_img,
+                        quantity: 1,
+                    }
+                ]
+            )
+        }else{
+            setwishList(wishlist)
+        }
+    }
 
-        return totalCost
-    } 
+    function deleteFromWish(id){
 
-    
+        // const wish = JSON.parse(localStorage.getItem('wish'))
+        // const filtered = items.filter(item => item.id != id)  
+        //  maybe this instead next time hm
+
+        setwishList(
+            wishlist =>
+            wishlist.filter(currentwishitem=> {
+                return currentwishitem.id != id;
+            })                                              
+        )
+        
+    }
+
 
     const contextValue = {
         items: cartProducts,
+        cartSlider: cartSlider,
+        wishitems: wishlist,
         getProductQuantity,
         addOneToCart,
         removeOneFromCart,
         deleteFromCart,
-        getTotalCost
-    }
+        getTotalCost,
+        handleCart,
+        openCart,
+        closeCart,
+        getWishQuantity,
+        addToWishList,
+        deleteFromWish,
+    }   
 
  
 return (
@@ -173,3 +242,9 @@ return (
 
 
 export default CartFunctionality
+
+
+
+
+    
+ 

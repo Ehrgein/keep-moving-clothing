@@ -1,25 +1,44 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import {useParams} from "react-router-dom"
 import {ProductsContext, UserContext} from '../../App'
 import Header from '../Header'
 import {Link} from 'react-router-dom'
 import { CartContext } from '../Cart/CartFunctionality'
+import {AiOutlineHeart, AiFillHeart} from 'react-icons/ai'
+import {FiHeart} from 'react-icons/fi'
+import { IconContext } from 'react-icons'
 
-
+const wishitems = JSON.parse(localStorage.getItem("wish"))
 
 function ProductInfo() {
+
+    const [wishlist, setwishList] = useState([])
+    const [wishstatus, setWishStatus] = useState(wishitems)
 
     let {productinfo} = useParams()
     let {productscategory} = useParams()
 
-
     const productscontext = useContext(ProductsContext)
-
-    const cart = useContext(CartContext)
-    const getProductQuantity = cart.getProductQuantity(productinfo)
-
     const usercontext = useContext(UserContext)
-   
+    const cart = useContext(CartContext)
+
+    const AddCart = () => {
+      cart.openCart()
+      cart.addOneToCart(productinfo)
+
+    }
+
+
+      
+    const filtered = cart.wishitems.filter(item => item.id == productinfo)
+
+    useEffect(() => {
+
+      setwishList[wishstatus]
+      
+        
+    }, [cart.wishitems])  
+ 
 
 
 
@@ -33,16 +52,32 @@ function ProductInfo() {
                     <img className='h-[690px] w-[690px]'src={item.prod_img}/>
                  </div>
                 <div className='flex flex-col ml-20 mt-14'>
-                    <h4 className='font-bold text-4xl uppercase w-[800px] flex'>{item.name}</h4>
-                    <h1 className='mt-2 capitalize text-xl'>{item.brand}</h1>
+                    <h4 className='font-bold text-4xl capitalize w-[800px] flex'>{item.name}</h4>
+                    
+                    {
+                    filtered[0]?.id === productinfo ? 
+                    
+                    <button  className='ease-in duration-500' onClick={() => cart.deleteFromWish(productinfo)}>
+                      <AiFillHeart className='ease-in duration-500' size={35}/>
+                    </button>
+                      : 
+                    <button className='' onClick={() => cart.addToWishList(productinfo)}> 
+                    <IconContext.Provider value={{color:'black'}}>
+                      <FiHeart  className='heart' size={35}/>
+                    </IconContext.Provider>
+                    </button> }
+
+
+
+
+                    <Link to={`/collection/${item.brand}`}><h1 className='mt-2 capitalize text-xl'>{item.brand}</h1></Link>
                     <h1 className='flex mt-4font-bold text-xl mt-4'> ${item.price}</h1>
                     <h1 className='mt-4 text-2xl tracking-widest'>S M L XL</h1>
                     <p>{usercontext.user}</p>
-          
                     {item.stock > 1 ? 
                     <div className='flex'>
                       <div className='rounded-full bg-green-500 w-[20px] h-[20px] mt-6'></div> 
-                      <p className='mt-[20px] ml-2'>In stock, ready to ship</p>
+                      <p className='mt-[20px] ml-2'>In stock</p>
                     </div>
                     :
                     <div className='flex'>
@@ -50,10 +85,10 @@ function ProductInfo() {
                       <p className='mt-[20px] ml-2'>Out of stock</p>
                     </div>
                     }
-                    <button onClick={() => cart.addOneToCart(productinfo)}
-                    className='uppercase mt-8 text-center text-2xl border-4 h bg-[#1f2021] text-white font-black h-12 px-2 py-1 w-[450px]'>
+                    <button onClick={AddCart}
+                    className='uppercase mt-8 text-center text-2xl  bg-[#1f2021] text-white font-black h-12 1 py-1 w-[450px]'>
                     add to cart</button>
-                    <h4 className='mt-2 text-center text-2xl border-4 h bg-yellow-500 text-black  h-12 px-2 py-1  w-[450px]'> Buy with Paypal</h4>
+                    <h4 className='mt-2 text-center text-2xl bg-yellow-500 text-black h-12 py-1 w-[450px]'> Buy with Paypal</h4>
                   </div>
 
             </div> 

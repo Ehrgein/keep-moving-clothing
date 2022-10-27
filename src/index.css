@@ -15,6 +15,8 @@
   transform: translate(-100vw, 0);
 }
 
+
+
 .fade-anim {
   animation: fadeAnim 400ms ease-out;
 
@@ -97,9 +99,26 @@
 
 }
 
+.opaci{
+  opacity: 1;
+}
+
+.bgparent{
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.bgchild {
+  background: rgb(255, 255, 255, 1)
+}
+
+
 .topbotborder{
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
+}
+
+.topborder{
+  border-top: 1px solid #ccc;
 }
 
 .menuborder{
@@ -178,6 +197,42 @@
   background-position: right bottom;
   transition: all .5s ease-out;
 }}
+
+
+
+.heart{
+  color:black;
+  opacity: 0.4;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}
+
+.heart:hover{
+  animation: heartbeat 5s;
+  fill: black;
+  color: black;
+  opacity: 1;
+  transition: opacity 1000ms;
+  transform-origin: center 60%;
+
+}
+
+
+@keyframes heartbeat {
+  
+  0% {
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.15);
+  }
+  100%{
+    transform: scale(1.2);
+  }
+}
+
+
 
 @keyframes slidetwo {
   0% {

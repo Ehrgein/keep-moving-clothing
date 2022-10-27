@@ -3,6 +3,7 @@ import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { IconContext } from "react-icons";
 import {Link } from "react-router-dom"
 import {ProductsContext, CategoriesContext} from '../App'
+import {CartContext} from './Cart/CartFunctionality'
 
 
 
@@ -10,6 +11,7 @@ function HeaderDropdown({categories}) {
   const [subnav, setSubNav] = useState(false);
 
   const productscontext = useContext(ProductsContext)
+  const cartcontext = useContext(CartContext)
 
 
 
@@ -19,6 +21,11 @@ function HeaderDropdown({categories}) {
 
 
   const handleSubFalse = () => setSubNav(false)
+
+  const closecartdrop = () => {
+    handleSubFalse()
+    cartcontext.closeCart()
+  }
 
 
   useEffect(() => {
@@ -55,7 +62,7 @@ function HeaderDropdown({categories}) {
           {productscontext.filter(item => item.categories ===  categories).slice(-3).map((newitem) => (
             <div key={newitem.id}>
                 <div name={newitem.name} price={newitem.price}  className="w-[250px] h-[250px] justify-center flex  flex-col mr-6 mt-20 gap-4">
-                  <Link className='mx-4' to={`/products/${categories}/${newitem.id}`}>
+                  <Link onClick={handleSubNav} className='mx-4' to={`/products/${categories}/${newitem.id}`}>
                     <img  src={newitem.prod_img}/>
                   </Link>
                   <ul className="">
@@ -68,7 +75,7 @@ function HeaderDropdown({categories}) {
         </div>
         </div>
         <div className="flex justify-center h-14 items-end mt-10 text-lg">
-          <Link to={`/products/${categories}`} onClick={handleSubFalse} className="bg-[#1f2021] text-white px-4 py-2 font-bold ">VIEW ALL </Link>
+          <Link to={`/products/${categories}`} onClick={closecartdrop} className="bg-[#1f2021] text-white px-4 py-2 font-bold ">VIEW ALL </Link>
         </div>
       </div>
     </div> 

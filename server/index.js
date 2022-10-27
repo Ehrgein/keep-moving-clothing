@@ -44,7 +44,7 @@ app.get("/", (req, res) =>{
 })
 
 app.get("/products", (req, res) => {
-    const query = "SELECT p.id, p.name, p.price, p.stock, p.prod_img, b.brand, c.categories FROM products p JOIN brands b on p.brand_id = b.id JOIN categories c on p.category_id = c.id ORDER BY p.id ASC;";
+    const query = "SELECT p.id, p.name, p.price, p.stock, p.brand_id, p.prod_img, b.brand, c.categories FROM products p JOIN brands b on p.brand_id = b.id JOIN categories c on p.category_id = c.id ORDER BY p.id ASC;";
     db.query(query, (err, data) =>{
         if(err) return res.json(err)
         return res.json(data)
@@ -89,6 +89,19 @@ app.get("/brands", (req, res) => {
     })
 
 })
+
+app.post("/checkout", (req, res) => {
+
+
+    db.query("INSERT INTO purchases (item, price, brand, img, product_id) values ?",
+    [req.map(item => [item.name, item.price, item.brand, item.img, item.productid])]
+    , (err, result) => {
+        console.log(err)
+    }
+    )
+})
+
+
 
 
 app.get("/logout", (req, res, next) =>{

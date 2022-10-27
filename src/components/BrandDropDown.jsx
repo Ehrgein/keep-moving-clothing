@@ -44,15 +44,15 @@ function BrandDropDown() {
               <div className='h-[35%] w-[15%] desktop:text-sm md: text-xs flex flex-col justify-start items-start flex-wrap mt-6 mr-40 gap-1'>
                   {brands.slice(0, 10).map(item => 
                   <div key={item.id} className='flex mx-6'>
-                    <Link to="/"><p className='flex'>{item.brand}</p></Link>
+                    <Link  onClick={handleSubFalse} to={`/collection/${item.brand}`}><p className='flex'>{item.brand}</p></Link>
                   </div>)}
                   {brands.slice(11, 21).map(item => 
                   <div key={item.id} className='flex mx-6'>
-                    <Link to="/"><p className='flex'>{item.brand}</p></Link>
+                    <Link onClick={handleSubFalse} to={`/collection/${item.brand}`}><p className='flex'>{item.brand}</p></Link>
                   </div>)}
                   {brands.slice(21, 32).map(item => 
                   <div key={item.id} className='flex mx-6'>
-                    <Link to="/"><p className='flex'>{item.brand}</p></Link>
+                    <Link onClick={handleSubFalse} to={`/collection/${item.brand}`}><p className='flex'>{item.brand}</p></Link>
                   </div>)}
               </div>
                 <div className='mt-5 w-[40%] flex justify-center ml-32'>
