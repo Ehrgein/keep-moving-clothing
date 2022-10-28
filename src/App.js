@@ -15,6 +15,7 @@ import ProtectedRoutes from "./pages/ProtectedRoutes";
 import ProductsByBrand from "./components/Products/ProductsByBrand";
 import BrandProduct from './pages/BrandProduct'
 import ScrollToTop from "./components/ScrollToTop";
+import MyWishlist from './pages/MyWishlist'
 
 
 export const ProductsContext = React.createContext()
@@ -118,8 +119,10 @@ useEffect(() => {
                 <Route path="/update/:id" element={<Update/>}/>
                 <Route element={<ProtectedRoutes />}> 
                   <Route path="/account" element={<Account/>}/>
+                  <Route path='/login' element={<Login/>}/>
+                  <Route path="/account/wishlist" element={<MyWishlist/>}/>
                 </Route>
-                <Route path='/login' element={<Login/>}/>
+
               </Routes>
             </CategoriesContext.Provider>
             </CartContext>

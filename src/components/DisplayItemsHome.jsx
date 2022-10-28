@@ -1,18 +1,29 @@
-import React, {useContext} from 'react'
+import React, { useContext, useEffect, useRef, useState }from 'react'
 import {Link} from 'react-router-dom'
 import {ProductsContext} from '../App'
+import {motion} from 'framer-motion'
 
   function Accesories({props}) {
 
   const contextproducts = useContext(ProductsContext)
+  const [width, setWidth] = useState(0)
 
+  const carouseltwo = useRef()
+
+  useEffect(()=> {
+
+    setWidth(3600 - 1900)
+
+  }, [])
 
   return (
     <div>        
         <div className="flex justify-center text-center mt-11">
             <a className='text-2xl px-4 py-2 capitalize' > {props} </a>
         </div>
-        <div className="flex justify-center flex-wrap">
+        <motion.div ref={carouseltwo} className="carousel">
+          <motion.div drag="x"
+          dragConstraints={{right:0, left:-width}} className='inner-carousel'>
             {contextproducts.filter(item => item.categories == props).slice(-5).map(item => 
             <div className='flex uppercase justify-center desktop:w-[280px] laptopL:w-[160px] md:w-[150px] mt-11 text-sm laptopL:mx-12 md:mx-20 lg:mx-12' 
             key={item.id} categories={item.categories} itemname={item.name} itemprice={item.price} itemimg={item.prod_img} >
@@ -26,7 +37,8 @@ import {ProductsContext} from '../App'
             </ul>
             </div>
             )}
-        </div>
+          </motion.div>
+        </motion.div>
         <div className='flex justify-center mt-6 mb-12'>
           <Link className='text-white font-bold text-2xl px-4 py-2 bg-[#1f2021]' to={`/products/${props}`}>VIEW ALL</Link>
         </div>

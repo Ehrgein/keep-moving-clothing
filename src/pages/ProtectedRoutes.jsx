@@ -10,7 +10,8 @@ const useAuth = () => {
 
   const loggedin = useContext(UserContext)
    
-  return loggedin.isLoggedIn
+  console.log(loggedin.isLoggedIn)
+  return loggedin.user
 
 }
 
@@ -18,8 +19,9 @@ const useAuth = () => {
 function ProtectedRoutes() {
 
     const isAuth = useAuth()
+    console.log(isAuth)
 
-  return isAuth == true ? <Outlet/> : <Navigate to="/login"/>
+  return isAuth ? <Outlet/> : <Login/>
   
 }
 

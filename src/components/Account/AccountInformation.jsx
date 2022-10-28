@@ -2,7 +2,7 @@ import React, {useContext} from 'react'
 import { ProductsContext, UserContext } from '../../App'
 import {VscAccount} from 'react-icons/vsc'
 import axios from 'axios'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, Link} from 'react-router-dom'
 
 
 
@@ -41,7 +41,7 @@ function AccountInformation() {
                         <ul className='h-auto w-auto ml-4 text-2xl font-medium'>
                             <li className='my-6 botbordercustom w-auto h-auto'> Account Info </li>
                             <li className='my-6 botbordercustom'> My Address </li>
-                            <li className='my-6 botbordercustom'> My Wishlist </li>
+                            <Link to="wishlist"><li className='my-6 botbordercustom'> My Wishlist </li></Link>
                             <li className='my-6 botbordercustom'> My Orders </li>
                             <li onClick={handleLogout} className='my-2 botbordercustom'> Sign Out </li>
                         </ul>

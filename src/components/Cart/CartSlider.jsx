@@ -54,12 +54,12 @@ function CartSlider() {
                             </div>
                         </div>
                             )}
-                            <div className='flex justify-between topborder mt-2 uppercase'>
+                            <div className='flex justify-between topborder mt-2 uppercase text-sm'>
                                 <h1 className='mt-2'>Subtotal</h1>
                                 <h1 className='mt-2'>$ {cart.getTotalCost()}</h1>
                             </div>
-                            <div className='flex justify-center mt-12'>
-                                <button className='bg-black text-white font-bold px-10 py-2 text-sm'>Checkout</button>
+                            <div className='flex justify-center mt-12 '>
+                                <button className='bg-black text-white tracking-widest uppercase font-bold px-20 py-2 text-lg'>Checkout</button>
                             </div>
                     </div>  
                 </div>

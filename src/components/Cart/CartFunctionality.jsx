@@ -176,6 +176,8 @@ function CartFunctionality({children}) {
 
     function addToWishList(id)  {
 
+        
+
         const quantity = getWishQuantity(id);
         const fullitem = productscontext.filter(item => item.id == id)
 
@@ -189,6 +191,7 @@ function CartFunctionality({children}) {
                         price: fullitem[0].price,
                         brand: fullitem[0].brand,
                         img: fullitem[0].prod_img,
+                        categories: fullitem[0].categories,
                         quantity: 1,
                     }
                 ]

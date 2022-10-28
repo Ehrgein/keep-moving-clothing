@@ -52,7 +52,7 @@ function DesktopHeader() {
             <div className="flex ml-6 justify-end w-auto items-center mt-4 font-semibold tracking-[2px] pr-4 mr-4 text-xs gap-4">
                 <SearchBar/>
                 <Link to={validateroute}> <VscAccount size={25}/> </Link> 
-                <AiOutlineHeart size={25}/>
+                <Link to="/account/wishlist"> <AiOutlineHeart size={25}/></Link>
                 <CartSlider/>
             </div>
             

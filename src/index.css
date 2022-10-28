@@ -3,6 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .arrow {
   color: white;
   animation: linear;
@@ -19,8 +20,8 @@
 
 .fade-anim {
   animation: fadeAnim 400ms ease-out;
-
 }
+
 
 .cart-anim {
   animation: fadeAnim 400ms ease-in;
@@ -41,6 +42,8 @@
     opacity: 1;
   }
 }
+
+
 
 @keyframes cartAnim {
   from {
@@ -75,6 +78,34 @@
     transform: translate(100vw, 0);
   }
 }
+
+.item{
+  min-width: 250px;
+  min-height: 250px;
+  padding: 1px;
+}
+
+.grabimg{
+  cursor: pointer;
+}
+
+.inner-carousel{
+  display: flex;
+  width: 100%;
+}
+
+.carousel{
+  cursor:grab;
+  overflow: hidden;
+  width: 3600px;
+}
+
+
+
+
+
+
+
 
 .headerborder{
   border-bottom: 1px solid ;
@@ -200,37 +231,16 @@
 
 
 
-.heart{
-  color:black;
-  opacity: 0.4;
-  cursor: pointer;
-  width: 30px;
-  height: 30px;
-}
 
-.heart:hover{
-  animation: heartbeat 5s;
+.heart{
+  animation: heartbeat 1s infinite;
   fill: black;
   color: black;
   opacity: 1;
   transition: opacity 1000ms;
-  transform-origin: center 60%;
-
 }
 
 
-@keyframes heartbeat {
-  
-  0% {
-    transform: scale(1);
-  }
-  50%{
-    transform: scale(1.15);
-  }
-  100%{
-    transform: scale(1.2);
-  }
-}
 
 
 
@@ -272,6 +282,8 @@ body {
   font-family: 'Lato', sans-serif;
   overflow-x: hidden;
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 
