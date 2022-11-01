@@ -40,7 +40,7 @@ function Contentone() {
         <div className="grid grid-cols-2 gap-4 place-content-center">
           {productscontext.slice(-4).reverse().map(item => 
             <div key={item.id} className="mx-auto my-auto">
-              <Link to={`products/${item.categories}/${item.id}`}> <img className="w-[180px] h-[180px] mx-4 my-4" src={item.prod_img} /> </Link>
+              <Link to={`products/${item.categories}/${item.id}`}> <img className="w-[170px] h-[170px] my-4" src={item.prod_img} /> </Link>
               <h2 className="text-center text-xs">
               <a className="text-base capitalize font-semibold">
                 {item.name}
@@ -51,7 +51,7 @@ function Contentone() {
           </div>
             )}
         </div>
-        <div className="flex justify-center text-center my-2 md:text-xl text-base font-normal	">
+        <div className="flex justify-center text-center my-6 md:text-xl text-base font-normal	">
             <Link to="/newarrivals" className='text-white font-bold text-xl px-4 py-2 bg-[#1f2021]'>
               VIEW ALL
             </Link>

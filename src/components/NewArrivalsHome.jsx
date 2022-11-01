@@ -17,6 +17,8 @@ function NewArrivalsHome() {
   }, [])
 
   
+
+  
   return (
     <div>      
         <div className="flex justify-center text-center mt-11">

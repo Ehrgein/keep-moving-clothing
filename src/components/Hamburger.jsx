@@ -12,7 +12,7 @@ function Hamburger({ nav, handleNav }) {
       <div onClick={handleNav} className="flex ">
         <AiOutlineMenu size={20} />
       </div>
-      <div  className={nav ? "fixed left-0 top-0 w-[75%] h-[100%] border-r text-white bg-black ease-in-out duration-500" : "fixed ease-in-out duration-500 left-[-100%] h-[100%] top-0"}>
+      <div  className={nav ? "fixed left-0 top-0 w-[75%] h-[100%] text-black bg-white ease-in-out duration-500" : "fixed h-[100%] w-[75%] ease-in-out duration-500 left-[-100%]  top-0"}>
         <HamburgerMenuList handleNav={handleNav}/>
       </div>
     </div>

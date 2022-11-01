@@ -9,8 +9,8 @@ import Login from './Login'
 const useAuth = () => {
 
   const loggedin = useContext(UserContext)
-   
   console.log(loggedin.isLoggedIn)
+   
   return loggedin.user
 
 }
@@ -19,7 +19,6 @@ const useAuth = () => {
 function ProtectedRoutes() {
 
     const isAuth = useAuth()
-    console.log(isAuth)
 
   return isAuth ? <Outlet/> : <Login/>
   

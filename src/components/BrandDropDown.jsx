@@ -57,7 +57,7 @@ function BrandDropDown() {
               </div>
                 <div className='mt-5 w-[40%] flex justify-center ml-32'>
                  <button className='h-10 font-bold w-[30%] border-2 flex justify-center bg-[#1f2021] text-white items-center'>
-                  VIEW ALL
+                  <Link to="/brands">VIEW ALL</Link>
                   </button>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 import React, {useState, useContext} from 'react'
-import { AiOutlineHeart } from 'react-icons/ai'
+import { AiOutlineHeart} from 'react-icons/ai'
+import { FiHeart } from 'react-icons/fi'
 import { CartContext } from '../Cart/CartFunctionality'
 import DesktopHeader from '../DesktopHeader'
 import {Link} from 'react-router-dom'
@@ -7,6 +8,8 @@ import {Link} from 'react-router-dom'
 function Wishlist() {
 
   const cart = useContext(CartContext)
+
+  
 
   console.log(cart.wishitems)
   
@@ -17,6 +20,7 @@ function Wishlist() {
 
   }
 
+  
   
   return (
     
@@ -29,7 +33,13 @@ function Wishlist() {
           <div className='flex flex-row flex-wrap justify-center h-auto mt-10'>
             {cart.wishitems.map(wishitem => 
             <div className='flex flex-col  items-center justify-center w-[400px] h-[420px] capitalize mx-2 my-10'>
+              <div className='flex items-end justify-end mr-20 w-[400px]' onClick={() => cart.deleteFromWish(wishitem.id)} >
+                <button>
+                  <FiHeart className='heart mt-2' size={24}/>
+                </button>
+              </div>
               <Link to={`/products/${wishitem.categories}/${wishitem.id}`}><img className='w-[250px] h-[250px]' src={wishitem.img}/></Link>
+
               <p className='text-lg my-2 tracking-wide font-normal'> {wishitem.name}</p>
             <p className='text-lg  tracking-wide font-normal text-gray-600'> {wishitem.brand}</p>
               <p className='text-lg mt-1 tracking-wide font-normal'>$ {wishitem.price}</p>

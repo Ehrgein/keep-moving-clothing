@@ -16,6 +16,7 @@ import ProductsByBrand from "./components/Products/ProductsByBrand";
 import BrandProduct from './pages/BrandProduct'
 import ScrollToTop from "./components/ScrollToTop";
 import MyWishlist from './pages/MyWishlist'
+import AllBrands from "./pages/AllBrands";
 
 
 export const ProductsContext = React.createContext()
@@ -23,9 +24,11 @@ export const CategoriesContext = React.createContext()
 export const BrandsContext = React.createContext()
 export const UserContext = React.createContext({
   user: null,
+  userid: null,
   isLoggedIn: false,
   setIsLoggedIn: () => {},
   setUser: () => {},
+  setUserId: () => {},
 })
 
 
@@ -36,6 +39,7 @@ function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [user, setUser] = useState(null)
+  const [userid, setUserId] = useState(null)
   const [newproducts, setProducts] = useState([])
   const [newcategories, setCategories] = useState([])
   const [allbrands, setBrands] = useState()
@@ -46,7 +50,9 @@ function App() {
 
 
   const usercontext = useContext(UserContext)
-  
+  const cartcontext = useContext(CartContext)
+
+  console.log
 
 
 
@@ -84,21 +90,26 @@ useEffect(() => {
   axios.get("http://localhost:3001/login").then((response)=>{
       if (response.data.loggedIn) {
           setIsLoggedIn(true)
+          setUserId(response.data.user[0].id)
           setUser(response.data.user[0].username)
       } else{
           setIsLoggedIn(false)
+
           
       }
   })
 }, [])
 
 
+  console.log()
 
 
 
-  const contextvalue = {user, isLoggedIn, setUser, setIsLoggedIn}
+  
 
+  const contextvalue = {user, userid, isLoggedIn, setUser, setUserId, setIsLoggedIn}
 
+  
 
   return (
     
@@ -112,6 +123,7 @@ useEffect(() => {
               <Routes>
                 <Route path='/' element={<Home/>}> </Route>
                 <Route path='products/:productscategory' element={<Products/>}/> 
+                <Route path='brands' element={<AllBrands/>}/>
                 <Route path='newarrivals' element={<NewArrivals/>}/>
                 <Route path='products/:productscategory/:productinfo' element={<ProductCart/>} />
                 <Route path='/collection/:brand' element={<BrandProduct/>}/>

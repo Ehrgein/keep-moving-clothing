@@ -11,7 +11,7 @@ function ProductMenus() {
 
   return (
     <div>
-        <div className='flex items-center'>
+        <div className='hidden md:flex items-center'>
             <h1 className='px-2 uppercase text-xl items-start border-b-2 border-black font-black mt-4 h-8 ml-10 w-[265px]'> Search By</h1>
         </div>
         {searchmenu.map(item => 
@@ -25,7 +25,7 @@ function ProductMenus() {
         {/*mobile here */}
 
         {searchmenu.map(item =>
-        <div className='md:hidden flex w-[420px] h-auto justify-start flex-col mx-2 my-10'>
+        <div className='md:hidden flex md:w-[420px] h-auto justify-start flex-col mx-2 my-10'>
             <div className='flex items-center '>
                 <h1 className='px-2 uppercase text-xl items-start border-b-2 border-black font-black mt-4  h-8 w-full'> {item} </h1>
                 <MdKeyboardArrowDown className='mt-2 mr-2' size={28}/>

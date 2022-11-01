@@ -53,7 +53,7 @@ function HeaderDropdown({categories}) {
         <h1 className="">{categories}</h1>
       </div>
 
-      <div ref={refOne} onMouseLeave={handleSubFalse} className="fixed top-[10%] w-[100%] h-[56%] left-0 text-black bg-white fade-anim font-thin flex flex-col">
+      <div ref={refOne} onMouseLeave={handleSubFalse} className="fixed top-[11%] w-[100%] h-[56%] left-0 text-black bg-white fade-anim font-thin flex flex-col">
         <div className="flex flex-col">
           <div className="text-3xl justify-center flex font-bold mt-4"> Featured in {categories}</div>
         </div>

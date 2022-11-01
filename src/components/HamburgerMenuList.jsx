@@ -1,7 +1,10 @@
 import React, { useState, useContext } from "react";
-import {AiOutlineClose} from 'react-icons/ai'
+import {AiOutlineClose, AiOutlineRight, AiOutlineShop, AiOutlineShopping, AiOutlineShoppingCart} from 'react-icons/ai'
 import {CategoriesContext, productscontext} from '../App'
 import {Link} from 'react-router-dom'
+import {BsArrowRightShort} from 'react-icons/bs'
+import {VscAccount} from 'react-icons/vsc'
+
 
 function HamburgerMenuList({key, nav, handleNav}) {
   
@@ -14,20 +17,49 @@ function HamburgerMenuList({key, nav, handleNav}) {
   }
   
   return (
-    <div className="">
+    <div className="w-full">
         <div className="flex justify-end text-xl">
-          <div className="bg-[#1f2021] w-[300px]">
-            <input className="ml-2 my-1 text-xl w-[260px] focus:outline-none bg-[#1f2021]" placeholder="Search"/>
-          </div>
-          <AiOutlineClose onClick={handleNav} className='mr-2 mt-1 pl-2 flex' size={35}/>
+          <AiOutlineClose onClick={handleNav} className='mt-1 pl-2 flex' size={35}/>
         </div>
+        <div>
+          <Link className="flex items-center topblack" to="/newarrivals">
+            <h1 className='flex pl-2 text-lg font-bold py-2 w-[100%] uppercase tracking-widest'>
+              New Arrivals
+            </h1>
+            <div className="h-auto">
+              <AiOutlineRight  size={22}/>
+            </div>
+          </Link>
+          <Link className="flex items-center topblack" to="/brands">
+            <h1 className='flex pl-2 text-lg font-bold py-2 w-[100%] uppercase tracking-widest'>
+              Brands
+            </h1>
+            <div className="h-auto">
+                <AiOutlineRight  size={22}/>
+            </div>
+          </Link>
         {arrowcategories.map(item =>
-        <div key={item.id}>
-          <div className="flex justify-between items-end">
-            <Link to={`/products/${item.categories}`} onClick={handleNav} className='flex pl-2 text-lg font-bold py-2 w-[100%] uppercase tracking-widest' >{item.categories}</Link>
+          <div key={item.id} className="flex items-center topblack justify-between">
+              <Link to={`/products/${item.categories}`} 
+                onClick={handleNav} >
+                <h1 className='flex pl-2 text-lg font-bold py-2 w-[100%] uppercase tracking-widest'>
+                  {item.categories}
+                </h1>
+              </Link>
+              <div className="h-auto">
+              <AiOutlineRight  size={22}/>
+            </div>
           </div>
-        </div>
         ) }
+        <Link className="flex items-center topblack" to="/brands">
+          <h1 className='flex pl-2 text-lg font-bold py-2 w-[100%] uppercase tracking-widest'>Sale</h1>
+          <div className="h-auto">
+            <AiOutlineRight  size={22}/>
+          </div>
+        </Link>
+        </div>
+        <div className="h-[70vh] w-full bg-black flex  flex-col px-4 text-white">
+        </div>
     </div>  
   );
 }

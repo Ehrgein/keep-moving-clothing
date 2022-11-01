@@ -26,7 +26,6 @@ function LoginForm() {
             if (response.data.message) {
                 setMessage(response.data.message)
             } else{
-                console.log(response.data[0].username)
                 usercontext.setUser(response.data[0].username)
                 usercontext.setIsLoggedIn(true)
                 navigate("/account")
@@ -34,10 +33,9 @@ function LoginForm() {
         })
     }
 
+    console.log()
 
 
-
-    
       
   return (
     <div>

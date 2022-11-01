@@ -9,6 +9,9 @@ module.exports = {
     },
     extend: {
       screens:{
+        'mobilexs': '320px',
+        'mobilem': '375px',
+        'mobileL': '425px',
         'laptopL':'1440px',
         '3xl': '1600px',
         'desktop': '1920px',

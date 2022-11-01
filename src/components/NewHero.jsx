@@ -1,16 +1,21 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import mensection from '../assets/optimizedmen.jpg'
 import womensection from '../assets/optimizedwomen.jpg'
 import supremehoodie from '../assets/category/supremehoodie.jpg'
 import newbalances from "../assets/category/newbalancemobile.jpg";
 import northface2 from "../assets/optimizednorth.jpg"
+import {Link} from 'react-router-dom'
+import { BrandsContext } from '../App';
+import northface from '../assets/northfacemobile.jpg'
 
 
 
-function NewHero() {
+function  NewHero() {
 
     const [nav, setNav] = useState(false);
     const handleNav = () => setNav(!nav);
+
+    const brands = useContext(BrandsContext)
 
 
   return (
@@ -47,41 +52,21 @@ function NewHero() {
 
 
         <div className="md:hidden relative">
-            <img className="aspect-square" src={newbalances} alt="/"></img>
-            <div className="absolute top-[80%]">
-                <span className="relative text-white text-lg">
-                    <a className="ml-4">New Balance Collection</a>
-                </span>
+            <img className='max-w-full h-auto' src={northface} alt="/"/>
+            <div className="absolute mobilexs:top-[85%] mobilexs:left-[22%] mobilem:left-[25%] mobileL:left-[25%]">
+              <span className="relative text-white bg-[#171816f5] mobileL:py-3 py-1 px-1 mobilem:px-3 mobilexs:px-3 mobilexs:py-2">
+                  <Link
+                  to={`/collection/the north face`}
+                  className="border-white  text-base mobilem:text-lg mobileL:text-xl"
+                  >
+                  SHOP THE NORTH FACE
+                  </Link>
+              </span>
             </div>
-            <div className="absolute top-[90%]">
-            <span className="relative text-white">
-                <a
-                href="/"
-                className="border-white border-2 py-1 px-6  ml-2 text-lg"
-                >
-                SHOP NEW BALANCE
-                </a>
-            </span>
+            <div className="absolute mobilexs:top-[78%] mobilexs:left-[32%] mobilem:left-[37%] mobileL:left-[38%]">
+              <span className="relative text-white mobileL:py-3 py-1 px-1 mobilem:px-3 mobilexs:px-3 mobilexs:py-2 mobileL:text-lg">Available now</span>
             </div>
         </div>
-      <div className="md:hidden relative">
-        <img className="aspect-square" src={supremehoodie} alt="/"></img>
-        <div className="absolute top-[80%]">
-          <span className="relative text-white text-lg">
-            <a className="ml-6"> Supreme Hoodies </a>
-          </span>
-        </div>
-        <div className="absolute top-[90%]">
-          <span className="relative text-white">
-            <a
-              href="/"
-              className="border-white border-2 py-1 px-6  ml-2 text-lg w-full"
-            >
-              SHOP SUPREME
-            </a>
-          </span>
-        </div>
-      </div>
     </div>
   )
 }

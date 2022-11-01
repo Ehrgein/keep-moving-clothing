@@ -196,8 +196,6 @@ function CartFunctionality({children}) {
                     }
                 ]
             )
-        }else{
-            setwishList(wishlist)
         }
     }
 

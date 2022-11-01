@@ -69,7 +69,7 @@ function AllProducts() {
             <div key={item.id} className="mx-auto my-auto">
               <div className='my-2'>
               <Link to={`/products/${item.categories}/${item.id}`}>
-                <img className='w-[190px] h-[190px] mx-auto my-auto' src={item.prod_img}/>
+                <img className='mobilem:w-[190px] mobilem:h-[190px] mobilexs:w-[175px] mobilexs:h-[175px] mx-auto my-auto' src={item.prod_img}/>
               </Link>
               </div>
               <div className='text-sm capitalize text-center h-auto my-2'>

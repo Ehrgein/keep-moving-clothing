@@ -148,6 +148,10 @@
   border-bottom: 1px solid #ccc;
 }
 
+.topblack{
+  border-top: 1px solid black;
+}
+
 .topborder{
   border-top: 1px solid #ccc;
 }
@@ -167,16 +171,29 @@
 
 
 
-.testing{
+.testingmobile{
   position: fixed;
   top: 0;
   bottom:0;
+  right: 0;
 
-  width: 20w; /* viewport width */
+  width: 80vw; /* viewport width */
   height: 100vh; /* viewport height */
   overflow-y: scroll;
   overflow-x: hidden;
 }
+
+.testingdesktop{
+  position: fixed;
+  top: 0;
+  bottom:0;
+
+  width: 20vw; /* viewport width */
+  height: 100vh; /* viewport height */
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
 
 .midtext {
   position: absolute;
@@ -276,6 +293,8 @@ html,
 body {
   width: 100%;
   height: 100%;
+  min-width: 320px;
+  min-height: 100%;
   margin: 0px;
   padding: 0px;
   background: white;

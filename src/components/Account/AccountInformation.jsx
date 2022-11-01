@@ -21,7 +21,7 @@ function AccountInformation() {
     const handleLogout = () => {
         axios.get("http://localhost:3001/logout").then((response)=>{
             usercontext.setIsLoggedIn(false)
-
+            navigate("/login")
         })
     }
 

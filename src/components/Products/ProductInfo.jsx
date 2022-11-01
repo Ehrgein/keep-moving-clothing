@@ -41,7 +41,6 @@ function ProductInfo() {
  
 
 
-    console.log(cart.wishitems)
 
 
 
@@ -127,7 +126,7 @@ function ProductInfo() {
         <div className='md:hidden'>
           {productscontext.filter(item => item.id == productinfo).map(item=>
           <div key={item.id}>
-            <div  className='mt-6 mx-6'>
+            <div  className='flex mt-6 mx-6 '>
               <img src={item.prod_img}/>
             </div>
           <div className='flex justify-center my-2 items-center text-center flex-col'>
@@ -141,9 +140,11 @@ function ProductInfo() {
             : 
             <p className='mt-4 mx-1 h-6 text-lg'>In stock, ready to ship</p>}
             </div>
-            <div className=''>
-                <h2 className='uppercase mt-6 text-center text-2xl bg-[#1f2021] text-white font-black h-12  py-1 w-[390px] mx-3'> add to cart</h2>
-                <h2 className='mt-3 text-center text-2xl  h bg-yellow-500 text-black  h-12 px-2 py-1 w-[390px] mx-3'> Buy with Paypal</h2>
+            <div className='flex flex-col justify-center items-center'>
+                <h2 onClick={AddCart} className='uppercase mt-6 text-center text-2xl bg-[#1f2021] text-white font-black h-12  py-1 md:w-[390px] mx-3 mobilexs:w-[290px]'>
+                   add to cart
+                </h2>
+                <h2 className='mt-3 text-center text-2xl  h bg-yellow-500 text-black  h-12 px-2 py-1 w-[390px] mobilexs:w-[290px] mx-3'> Buy with Paypal</h2>
             </div>
           </div>)}
           

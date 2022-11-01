@@ -20,15 +20,13 @@ function BrowseByCategory() {
       { 
         categoriescontext.map(item => 
           <div key={item.id} pic={item.categories_img} className='flex flex-wrap my-4'>
-            <div className="mt-4 flex">
+            <div className="mt-4 flex w-full">
             <Link to={`/products/${item.categories}`}>
               <div>
-                 <img className='w-[190px] h-[180[px]' src={item.categories_img}/> 
-                <h1 className='text-center font-normal capitalize text-lg'>{item.categories}</h1>
+                 <img className='mobileL:w-[190px] mobileL:h-[190px] mobilem:w-[170px] mobilem:h-[170px]  mobilexs:w-[130px] mobilexs:h-[130px]  ml-1' src={item.categories_img}/> 
+                  <h1 className='text-center font-normal capitalize text-lg'>{item.categories}</h1>
               </div>
-              </Link>
-              <div>
-                </div>
+            </Link>
             </div>
           </div>
         )

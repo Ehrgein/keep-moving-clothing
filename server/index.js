@@ -15,7 +15,8 @@ const db = mysql.createConnection({
     host:"localhost",
     user: "root",
     password: "asdwow123",
-    database: "ecommerce_db"
+    database: "ecommerce_db",
+    multipleStatements: true
 })
 
 
@@ -51,8 +52,16 @@ app.get("/products", (req, res) => {
     })
  })
 
+ app.get("/purchase_history", (req, res) => {
+    const query = "SELECT p.id, p.name, p.price, p.stock, p.brand_id, p.prod_img, b.brand, c.categories FROM products p JOIN brands b on p.brand_id = b.id JOIN categories c on p.category_id = c.id ORDER BY p.id ASC;";
+    db.query(query, (err, data) =>{
+        if(err) return res.json(err)
+        return res.json(data)
+    })
+ })
+
 app.get("/brands", (req, res) => {
-    const query = "SELECT * from brands";
+    const query = "SELECT * from brands ORDER BY brand";
     db.query(query, (err, data) =>{
         if(err) return res.json(err)
         return res.json(data)
@@ -87,19 +96,48 @@ app.get("/brands", (req, res) => {
             }
         ) 
     })
-
 })
+
 
 app.post("/checkout", (req, res) => {
 
+    const userid = req.body.userid
+    const values = req.body.values
+ 
+    db.beginTransaction(function(err) {
+        if (err) {throw err;}
+        db.query('INSERT INTO purchases SET user_id=?', userid, function(error, results){
+            if (error) {
+                return db.rollback(function()  {
+                    throw error;
+                })
+            }
+            var insertid = results.insertId;
+            const newvalues = values.map(row => row.push(insertid))
+            console.log(newvalues)
 
-    db.query("INSERT INTO purchases (item, price, brand, img, product_id) values ?",
-    [req.map(item => [item.name, item.price, item.brand, item.img, item.productid])]
-    , (err, result) => {
-        console.log(err)
-    }
-    )
-})
+            db.query(`INSERT INTO purchases_products (product_id, quantity, purchase_id) VALUES ?`, [values], function(error, results) {
+                if (error) {
+                    console.log(results)
+                    return db.rollback(function() {
+                        console.log(error)
+                        throw error;
+                    })
+                }
+                db.commit(function(err){
+                    if (err) {
+                        return connection.rollback(function() {
+                            throw err;
+                        });
+                    }
+                    console.log('success pog')
+                })
+            })
+        })
+    })
+}
+    
+)
 
 
 
@@ -144,6 +182,7 @@ app.post("/login", (req, res) => {
                 bcrypt.compare(password, result[0].password, (err, response) =>{
                     if (response) {
                         req.session.user = result
+                        console.log(result)
                         res.send(result)
                     } else{ 
                         res.send({message: "Wrong username/password"})
@@ -168,3 +207,6 @@ app.listen(3001, () =>{
 
 
 
+
+// SELECT  p.id, p.prod_img, p.price, p.name, c.quantity, c.purchase_id, c.product_id
+// FROM  purchases_products c JOIN products p on p.id = c.product_id 
