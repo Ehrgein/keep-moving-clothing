@@ -1,6 +1,9 @@
 import React, {useState, useContext} from 'react'
 import mensection from '../assets/optimizedmen.jpg'
 import womensection from '../assets/optimizedwomen.jpg'
+import glasses1 from '../assets/glasses1.jpg'
+import glasses2 from '../assets/glasses2.jpg'
+import glasses3 from '../assets/glasses3.jpg'
 import supremehoodie from '../assets/category/supremehoodie.jpg'
 import newbalances from "../assets/category/newbalancemobile.jpg";
 import northface2 from "../assets/optimizednorth.jpg"
@@ -20,20 +23,27 @@ function  NewHero() {
 
   return (
     <div>
-        <div className='hidden md:flex max-w[1920px] max-h-[900px] my-4 relative gap-8 ml-4'>
-                <img className='w-[49%] h-auto' src={mensection}/>
-                <div className='absolute top-[60%] left-[21%] text-3xl font-bold px-10 py-2  bg-black text-white hover:bg-white hover:text-black ease-in duration-500'>MEN</div>
-                
-                <img className='w-[49%] h-auto' src={womensection}/>
-                <div className='absolute top-[60%] right-[22%] text-3xl font-bold border-2 px-4 py-2 border-black bg-black text-white '>WOMEN</div>
+        <div className='hidden md:flex max-w[1980px] max-h-[1020px] relative'>
+                <img className='w-[50%] h-[900px]' src={glasses1}/>
+                <div className='absolute top-[62%] right-[45%] text-xl font-bold px-12 py-3  bg-black text-white hover:bg-white hover:text-black ease-in duration-300'>
+                  <h1>Shop now</h1>
+                </div>
+                <div className='absolute top-[50%] right-[35%] text-5xl font-bold px-12 py-3  text-white'>
+                  <h1>Garret Leight Collection</h1>
+                </div>
+                <img className='w-[50%] h-auto' src={glasses3}/>
+        </div>
 
-        </div>
-        <div className='hidden md:flex max-w[2500px] max-h-[1000px] relative gap-5 my-10 hover:text-red-500'>
+        {/* <div className='hidden md:flex max-w[2500px] max-h-[1000px] relative gap-5 my-10 hover:text-red-500'>
             <img className='w-[100%] h-auto' src={northface2}/>
-            <div className='absolute top-[48%] left-[44%] text-white font-bold text-3xl'>NOW AVAILABLE: </div>
-            <div className='absolute top-[54%] left-[43%] text-white font-bold text-4xl'> THE NORTH FACE </div>
+            <div className='absolute top-[48%] left-[44%] text-white font-bold text-3xl'>
+              NOW AVAILABLE: 
+              </div>
+            <div className='absolute top-[54%] left-[43%] text-white font-bold text-4xl'>
+               THE NORTH FACE
+            </div>
             <a className='absolute top-[60%] left-[46%] text-white font-bold text-2xl px-6 py-2 bg-[#1f2021]'>SHOP NOW</a>
-        </div>
+        </div> */}
 
 
 

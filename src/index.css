@@ -104,7 +104,9 @@
 
 
 
-
+.brandborder{
+  border-top: 1px solid #eee;
+}
 
 
 .headerborder{
@@ -127,7 +129,10 @@
 
 .accountborder{
   border-bottom : 1px solid #ccc;
+}
 
+.cancelborder{
+  border-bottom: 0px solid#ccc;
 }
 
 .opaci{
@@ -165,6 +170,12 @@
 
 .bottomleftrightb{
   border-bottom: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+.topleftrightborder{
+  border-top: 1px solid #ccc;
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
 }

@@ -17,6 +17,8 @@ import BrandProduct from './pages/BrandProduct'
 import ScrollToTop from "./components/ScrollToTop";
 import MyWishlist from './pages/MyWishlist'
 import AllBrands from "./pages/AllBrands";
+import MyOrders from "./pages/MyOrders";
+import OrdersInfo from "./pages/OrdersInfo";
 
 
 export const ProductsContext = React.createContext()
@@ -42,7 +44,7 @@ function App() {
   const [userid, setUserId] = useState(null)
   const [newproducts, setProducts] = useState([])
   const [newcategories, setCategories] = useState([])
-  const [allbrands, setBrands] = useState()
+  const [allbrands, setBrands] = useState([])
   
   const [loginMessage, setLoginMessage] = useState("")
   const [loggedUser, setLoggedUser] = useState("")
@@ -101,7 +103,6 @@ useEffect(() => {
 }, [])
 
 
-  console.log()
 
 
 
@@ -133,8 +134,9 @@ useEffect(() => {
                   <Route path="/account" element={<Account/>}/>
                   <Route path='/login' element={<Login/>}/>
                   <Route path="/account/wishlist" element={<MyWishlist/>}/>
+                  <Route path="/account/orders" element={<MyOrders/>}/>
+                  <Route path="/account/orders/:orderid" element={<OrdersInfo/>}/> 
                 </Route>
-
               </Routes>
             </CategoriesContext.Provider>
             </CartContext>

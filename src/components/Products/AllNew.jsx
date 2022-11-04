@@ -67,7 +67,7 @@ function AllNew() {
           {productscontext.slice(-15).reverse().map(item => 
             <div key={item.id} className="mx-auto my-auto">
               <Link to={`/products/${item.categories}/${item.id}`}> 
-               <img className="w-[180px] h-[180px] mx-4 my-4" src={item.prod_img} />
+               <img className="mobilexs:w-[160px] mobilexs:h-[160px] mobilem:w-[170px] mobilem:h-[170px] mobilem:mx-4 mobilexs:mx-0 my-4" src={item.prod_img} />
                </Link>
               <h2 className="text-center text-xs">
                 <a className="text-base capitalize font-semibold">

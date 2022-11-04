@@ -34,14 +34,14 @@ function AllProducts() {
             <div className='flex flex-wrap my-10 pl-16'>
               {productscontext.filter(item => item.categories === productscategory).map(item =>
               <div key={item.id} photo={item.prod_img}  name={item.name}  brand={item.brand} price={item.price}   
-                className='flex justify-center flex-col mr-2 my-2 py-10 tracking-wide w-[360px] h-[420px] items-center'>
-                <div>
-                  <Link to={`${item.id}`}> <img className='desktop:h-[285px] w-[285px]'  src={item.prod_img}/></Link>
+                className='flex justify-center flex-col mr-2 my-2 py-10 tracking-wide w-[410px] h-[420px] items-center'>
+                <div >
+                  <Link to={`${item.id}`}> <img className='desktop:h-[295px] w-[295px]'  src={item.prod_img}/></Link>
                 </div>   
-                    <ul>
-                      <li className='font-bold text-base uppercase my-1'>{item.name}</li>
-                      <li className='text-center uppercase text-base my-1'> {item.brand}</li>
-                      <li  className='text-base uppercase text-center'> ${item.price}</li>
+                    <ul className='mt-9'>
+                      <li className='font-bold text-sm uppercase mt-1'>{item.name}</li>
+                      <li className='text-center text-sm uppercase mt-1'> {item.brand}</li>
+                      <li  className='text-base uppercase text-center mt-1'> ${item.price}</li>
                     </ul>
               </div>)}
             </div>

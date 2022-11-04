@@ -1,15 +1,15 @@
-import React, {useContext} from 'react'
+import React, {useContext, useState} from 'react'
 import { ProductsContext, UserContext } from '../../App'
 import {VscAccount} from 'react-icons/vsc'
 import axios from 'axios'
 import {useNavigate, Link} from 'react-router-dom'
+import { useEffect } from 'react'
 
 
 
 function AccountInformation() {
 
-    // const {loggedUser, setLoggedUser} = useContext(LoginContext)
-    // const {loggedIn, setLoggedIn} = useContext(LoginContext)
+  
 
     
     const productspurchased = useContext(ProductsContext)
@@ -26,12 +26,16 @@ function AccountInformation() {
     }
 
 
+
+   
+    
   return (
     <div>
         <div className='flex justify-center h-[15vh]'>
             <div className='w-full mt-10 flex flex-col items-center capitalize'>
                     <VscAccount size={35}/>
                     <h1 className='mx-2 my-2 font-bold'> My Account</h1>
+                    <button className='bg-black px-4 py-2 text-white font-bold'>Get items</button>
                     <h1 className='mx-2 my-2'>Welcome {usercontext.user} </h1>
             </div>
         </div>
@@ -42,8 +46,8 @@ function AccountInformation() {
                             <li className='my-6 botbordercustom w-auto h-auto'> Account Info </li>
                             <li className='my-6 botbordercustom'> My Address </li>
                             <Link to="wishlist"><li className='my-6 botbordercustom'> My Wishlist </li></Link>
-                            <li className='my-6 botbordercustom'> My Orders </li>
-                            <li onClick={handleLogout} className='my-2 botbordercustom'> Sign Out </li>
+                            <Link to="orders"><li className='my-6 botbordercustom'> My Orders </li></Link>
+                            <li onClick={handleLogout} className='my-6 botbordercustom'> Sign Out </li>
                         </ul>
                     </div>
                 </div>

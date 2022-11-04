@@ -24,13 +24,13 @@ import {motion} from 'framer-motion'
         <motion.div ref={carouseltwo} className="carousel">
           <motion.div drag="x"
           dragConstraints={{right:0, left:-width}} className='inner-carousel'>
-            {contextproducts.filter(item => item.categories == props).slice(-5).map(item => 
+            {contextproducts.filter(item => item.categories == props).slice(0, 10).map(item => 
             <div className='flex uppercase justify-center desktop:w-[280px] laptopL:w-[160px] md:w-[150px] mt-11 text-sm laptopL:mx-12 md:mx-20 lg:mx-12' 
             key={item.id} categories={item.categories} itemname={item.name} itemprice={item.price} itemimg={item.prod_img} >
             <ul>
             <Link to={`/products/${item.categories}/${item.id}`}>
-              <img src={item.prod_img}/>
-              <li className='font-bold text-center 4k:text-lg'> {item.name}</li>
+              <img className='py-3' src={item.prod_img}/>
+              <li className='font-bold text-center 4k:text-lg mt-2'> {item.name}</li>
               <li className='text-center 4k:text-lg text-sm mt-2'> {item.brand} </li>
               <p className='text-base mt-1 font-semibold text-center 4k:text-lg'> $ {item.price}  </p>
             </Link>

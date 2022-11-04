@@ -52,16 +52,37 @@ app.get("/products", (req, res) => {
     })
  })
 
- app.get("/purchase_history", (req, res) => {
-    const query = "SELECT p.id, p.name, p.price, p.stock, p.brand_id, p.prod_img, b.brand, c.categories FROM products p JOIN brands b on p.brand_id = b.id JOIN categories c on p.category_id = c.id ORDER BY p.id ASC;";
-    db.query(query, (err, data) =>{
+ app.post("/purchase_list", (req, res) => {
+
+    const userid = req.body.userid
+
+    const query = "SELECT us.username, pu.id, pu.user_id, pu.purchase_date FROM purchases pu JOIN userdata us on us.id = pu.user_id where pu.user_id=?"
+    
+    db.query(query, userid,  (err, data) =>{
         if(err) return res.json(err)
         return res.json(data)
     })
  })
 
+
+ app.post("/purchase_history", (req, res) => {
+
+    const orderid = req.body.orderid
+
+    const query = "SELECT pc.purchase_id, pc.product_id, pc.quantity, pur.user_id, pur.purchase_date, p.name, p.prod_img, p.price, b.brand FROM  purchases_products pc JOIN purchases pur on pc.purchase_id = pur.id JOIN products p on p.id = product_id JOIN brands b on b.id = p.brand_id  WHERE pc.purchase_id=?"
+    
+    db.query(query, orderid,  (err, data) =>{
+        if(err) return res.json(err)
+        return res.json(data)
+    })
+ })
+
+
+
+
+
 app.get("/brands", (req, res) => {
-    const query = "SELECT * from brands ORDER BY brand";
+    const query = "SELECT brand from brands ORDER BY brand";
     db.query(query, (err, data) =>{
         if(err) return res.json(err)
         return res.json(data)

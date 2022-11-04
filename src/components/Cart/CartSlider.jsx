@@ -35,7 +35,7 @@ function CartSlider() {
   }
 
 
-    console.log(values);
+    // console.log(values);
     // const newvalues = values.map(row => row.push(2))
 
 
@@ -61,9 +61,9 @@ function CartSlider() {
             <AiOutlineShoppingCart size={25}/> 
         </div>  
         <div className={cart.cartSlider ?
-             "fixed top-0 bottom-0 right-0 h-screen desktop:w-[20%] laptopL:w-[30%] mobilexs:w-[80%] text-black bg-white ease-in-out duration-700 " 
+             "fixed top-0 bottom-0 right-0 h-screen desktop:w-[20%] laptopL:w-[30%] mobilexs:w-[80%] text-black bg-white ease-in-out duration-700 overflow-y-scroll" 
              : 
-             " fixed top-0 bottom-0 h-screen desktop:w-[20%] mobilexs:w-[80%] ease-in-out duration-700 right-[-100%]"}>
+             " fixed top-0 bottom-0 h-screen desktop:w-[20%] mobilexs:w-[80%] ease-in-out duration-700 right-[-120%]"}>
             <div className='text-black text-xl flex mt-4 ml-4 justify-between text-center items-start'>
                 <h1 className=''> 
                     CART
@@ -98,7 +98,7 @@ function CartSlider() {
                                 <h1 className='mt-2'>Subtotal</h1>
                                 <h1 className='mt-2'>$ {cart.getTotalCost()}</h1>
                             </div>
-                            <div className='flex justify-center mt-12 '>
+                            <div className='flex justify-center mt-12 mb-12'>
                                 <button onClick={handleCheckout} className='bg-black text-white tracking-widest uppercase font-bold px-20 py-2 text-lg'>Checkout</button>
                             </div>
                     </div>  

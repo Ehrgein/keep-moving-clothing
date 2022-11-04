@@ -40,7 +40,7 @@ function SearchBar() {
           <motion.div className='flex flex-col w-full justify-center bg-white md:py-12 py-8  md:px-24 px-4 cart-anim' >
             <div className='flex w-full opacity-100'>
                 <input placeholder='Search' value={filter} onChange={handleFilter}
-                className='w-full border-b-2 border-[#1f2021] focus:outline-none text-black font-light placeholder:px-2'/>
+                className='w-full border-b-2 border-[#1f2021] focus:outline-none text-black font-light'/>
                 <AiOutlineClose className='ml-4' onClick={handleSearch} />
             </div>
             <div className='md:hidden flex mt-4 uppercase text-sm font-medium'>

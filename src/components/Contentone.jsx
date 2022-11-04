@@ -15,7 +15,7 @@ function Contentone() {
   const productscontext = useContext(ProductsContext)
 
 
-  // el prop que se manda es <<<<< no el de la derecha, corki, se lo estas asignando
+ 
 
   return (
     <div>
