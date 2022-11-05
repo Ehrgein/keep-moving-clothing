@@ -22,6 +22,7 @@ function AccountInformation() {
         axios.get("http://localhost:3001/logout").then((response)=>{
             usercontext.setIsLoggedIn(false)
             navigate("/login")
+            window.location.reload()
         })
     }
 

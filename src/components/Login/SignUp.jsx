@@ -1,39 +1,78 @@
-import React, {useState, useRef} from 'react'
+import React, {useState, useRef, useEffect} from 'react'
 import {BsGoogle, } from 'react-icons/bs'
 import {IconContext} from 'react-icons'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 
 
 function SignUp() {
 
-    const [username, setUsernameReg] = useState("")
-    const [password, setPasswordReg] = useState("")
-    const [email, setEmailReg] = useState("")
-  
-    const nameRef = useRef(null)
-    const passwordRef = useRef(null)
-    const mailRef = useRef(null)
+    const initialvalues = {username: "", password: "", email: ""}
+    const [formvalues, setFormValues] = useState(initialvalues)
+    const [formError, setFormError] = useState({});
+    const [isSubmit, setIsSubmit] = useState(false)
 
-    const handleRegister = (event) => {
-        axios.post("http://localhost:3001/userdata", {
-            username: username,
-            password: password,
-            email: email,
-        }).then((response) =>{
-            console.log(response);
-            event.preventDefault()
-            // event.target.reset()
-            nameRef.current.value = ''
-            passwordRef.current.value = ''
-            mailRef.currentvalue = ''
-            console.log(username)
-        })
+    console.log(formvalues.username)
+
+    const userRef = useRef()
+    const pwdRef = useRef()
+    const emailRef = useRef()
+
+
+    const handleChange = (e) => {
+        const {name, value} = e.target
+        setFormValues({...formvalues, [name]:value})
+        
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setFormError(validate(formvalues))
+        setIsSubmit(true)
+        handleRegister()
+        setFormValues(initialvalues)
+    }
+
+    useEffect(() => {
+        console.log(formError)
+        if(Object.keys(formError).length ===0 && isSubmit){
+            console.log(formvalues)
+        }
+    }, [formError])
+
+
+
+    const validate = (values) => {
+        const errors = {}
+        const regex= /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+        if (!values.username) {
+            errors.username = 'Username is required'
+        }
+        if (!values.password) {
+            errors.password = 'Password is required'
+        }else if(values.password.length < 4) {
+            errors.password = "Password must be longer than 4 characters"
+        } else if(values.password.length > 12){
+            errors.password = "Password cannot be longer than 12 characters"
+        }
+        if (!values.email) {
+            errors.email = 'Email is required'
+        } else if(!regex.test(values.email)){ 
+            errors.email = 'Not a valid email format'
+        }
+        return errors;
     }
 
 
-    console.log(username)
-
-
+        const handleRegister = () => {
+            axios.post("http://localhost:3001/userdata", {
+                username: formvalues.username,
+                password: formvalues.password,
+                email: formvalues.email,
+            }).then((response) =>{
+                console.log(response);
+            })
+        }
 
   return (
     <div>
@@ -42,15 +81,34 @@ function SignUp() {
                 <div className='mt-12 flex justify-center w-[400px] h-auto mb-4'>
                     <h3 className='text-2xl font-bold'> Create Account</h3>
                 </div>
-                <form onSubmit={handleRegister} className='flex flex-col justify-start text-black w-[400px] h-auto'>
-                    <input ref={nameRef} name="username" onChange={(e) => {setUsernameReg(e.target.value)}} placeholder='Username' className='pl-2 inpborder mt-2 h-14'/>
-                    <input ref={passwordRef} name="password" onChange={(e) => {setPasswordReg(e.target.value)}} type='password' autoComplete="off" placeholder='Password' className='placeholder:pl-2 inpborder mt-2 h-14 pl-2'/>
-                    <input ref={mailRef} name="email" onChange={(e) => {setEmailReg(e.target.value)}} placeholder='Email' className='pl-2 inpborder mt-2 h-14'/>
+                <form onSubmit={handleSubmit} className='flex flex-col justify-start text-black w-[400px] h-auto'>
+
+                    <label className='flex items-start font-bold text-lg mt-1' >Username</label>
+                    <input onChange={handleChange}  name="username" value={formvalues.username} placeholder='Username' className='pl-2 inpborder mt-2 h-14'/>
+                    <p className='text-red-500 text-start mt-1'>{formError.username}</p>
                     
-                    <button  type="submit" className='text-xl uppercase font-sans tracking-wide'>create</button>
+                    <label className='flex items-start font-bold text-lg  mt-1'>Password</label>
+                    <input  onChange={handleChange}  name="password" value={formvalues.password}  type='password' autoComplete="off" placeholder='Password' className='inpborder mt-2 h-14 pl-2'/>
+                    <p className='text-red-500 text-start mt-1'>{formError.password}</p>
+
+                    <label className='flex items-start font-bold text-lg mt-1'>Email</label>
+                    <input onChange={handleChange}  name="email" value={formvalues.email} placeholder='Email' className='pl-2 inpborder mt-2 h-14'/>
+                    <p className='text-red-500 text-start mt-1'>{formError.email}</p>
+
+                    <button onClick={handleRegister} className='mt-2 text-lg font-bold px-12 py-2 bg-black text-white ease-in duration-300'>
+                        CREATE
+                    </button>
+                     <div className='flex justify-center items-center mt-3 text-center'>
+                        <Link to="/login"><p className='w-auto border-b-2 border-black'>Back to Login</p></Link>
+                    </div>
+
+                    {Object.keys(formError).length === 0 && isSubmit ?
+                    (<div className='text-green-500 mt-2'>
+                        Signed up successfully
+                    </div>)
+                    :
+                    null}
                 </form> 
-
-
 
             </div>
         </div>
@@ -59,3 +117,30 @@ function SignUp() {
 }
 
 export default SignUp
+
+
+
+
+
+
+
+
+
+// const handleRegister = (event) => {
+//     axios.post("http://localhost:3001/userdata", {
+//         username: username,
+//         password: password,
+//         email: email,
+//     }).then((response) =>{
+//         console.log(response);
+//         event.preventDefault()
+//         // event.target.reset()
+//         nameRef.current.value = ''
+//         passwordRef.current.value = ''
+//         mailRef.currentvalue = ''
+//         console.log(username)
+//     })
+// }
+
+{/* <input ref={mailRef} name="email" onChange={(e) => {setEmailReg(e.target.value)}} placeholder='Email' className='pl-2 inpborder mt-2 h-14'/>
+<button  type="submit" className='text-xl uppercase font-sans tracking-wide'>create</button> */}

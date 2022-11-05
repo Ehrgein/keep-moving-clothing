@@ -124,9 +124,11 @@ app.post("/checkout", (req, res) => {
 
     const userid = req.body.userid
     const values = req.body.values
- 
+    
+    if (userid) {
     db.beginTransaction(function(err) {
         if (err) {throw err;}
+
         db.query('INSERT INTO purchases SET user_id=?', userid, function(error, results){
             if (error) {
                 return db.rollback(function()  {
@@ -151,11 +153,15 @@ app.post("/checkout", (req, res) => {
                             throw err;
                         });
                     }
-                    console.log('success pog')
+                    res.send('success pog')
                 })
             })
         })
     })
+    }
+    else{
+        res.send("Please login to make your purchase")
+    }
 }
     
 )

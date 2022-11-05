@@ -29,6 +29,7 @@ function LoginForm() {
                 usercontext.setUser(response.data[0].username)
                 usercontext.setIsLoggedIn(true)
                 navigate("/account")
+                window.location.reload()
             }
         })
     }
@@ -79,6 +80,10 @@ function LoginForm() {
                     <p className='pr-2'> No account ? </p>
                     <Link to="/account/register"> <button className='tracking-wide text-black border-black border-b-2'> Register here </button> </Link>
                 </div>
+                <div className='flex w-[400px] justify-center h-14 px-1 py-1 mt-2 text-lg font-normal text-red-500'>
+                    <p className='pr-2'> {loginMessage} </p>
+                </div>
+
               
             </div>
         </div>

@@ -44,7 +44,7 @@ function DesktopHeader() {
                 <Link onClick={() => cart.closeCart()} to="/"><h1 className="desktop:text-xl 2xl:text-sm py-2 px-2 border-2 border-white md:text-xl md:mt-1 md:ml-4 ml-10 mt-4">K E E P M O V I N G</h1></Link>
             </div>
             <div className="hidden md:flex tracking-widest bg-black text-white justify-start h-10 items-end font-normal md:gap-3 gap-6 text-base uppercase">
-                <BrandDropDown />
+                <BrandDropDown/>
                 <Link to="/newarrivals"><p>LATEST</p></Link>        
                 {contextcategories.map(menu => <HeaderDropdown key={menu.id}  categories={menu.categories}/>)}
                 <p>SALE</p>
@@ -55,7 +55,6 @@ function DesktopHeader() {
                 <Link to="/account/wishlist"> <AiOutlineHeart size={25}/></Link>
                 <CartSlider/>
             </div>
-            
         </div>
 
 

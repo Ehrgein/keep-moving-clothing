@@ -10,7 +10,10 @@ import axios from 'axios'
 
 
 
+
 function CartSlider() {
+
+    const [errorMsg, seterrorMsg] = useState("")
 
     const productscontext = useContext(ProductsContext)
     const cart = useContext(CartContext)
@@ -30,30 +33,13 @@ function CartSlider() {
             values: values
     }).then((response) => {
         console.log(response);
+        seterrorMsg(response.data)
     })
     
   }
 
 
-    // console.log(values);
-    // const newvalues = values.map(row => row.push(2))
 
-
-
-    // console.log(arrayofarrays)
-
-    // const handleCheckout = () => {
-    //     axios.post("http://localhost:3001/checkout"), {
-    //         userid: usercontext?.userid,
-    //         quantity: arrayofarrays
-    //     }.then((response) => {
-    //         console.log(response);
-    //     })
-    // }
-
-
-    // console.log(usercontext.userid)
-    // console.log(userid)
 
   return ( 
     <div>
@@ -99,7 +85,10 @@ function CartSlider() {
                                 <h1 className='mt-2'>$ {cart.getTotalCost()}</h1>
                             </div>
                             <div className='flex justify-center mt-12 mb-12'>
-                                <button onClick={handleCheckout} className='bg-black text-white tracking-widest uppercase font-bold px-20 py-2 text-lg'>Checkout</button>
+                                <button onClick={handleCheckout} className='bg-black text-white tracking-widest uppercase font-bold px-20 py-2 text-lg'>Checkout {errorMsg}</button>
+                            </div>
+                            <div>
+                                
                             </div>
                     </div>  
                 </div>
