@@ -44,7 +44,7 @@ function CartSlider() {
   return ( 
     <div>
         <div onClick={() => cart.handleCart()} className="md:mr-4 mobilexs:mr-2 mobilem:mr-2 text-base flex gap-4">
-            <AiOutlineShoppingCart size={25}/> 
+            <AiOutlineShoppingCart className='4k:w-[35px] 4k:h-[35px] desktop:w-[25px] desktop:h-[25px] laptopL:w-[22px] laptopL:h-[22px]'/> 
         </div>  
         <div className={cart.cartSlider ?
              "fixed top-0 bottom-0 right-0 h-screen desktop:w-[20%] laptopL:w-[30%] mobilexs:w-[80%] text-black bg-white ease-in-out duration-700 overflow-y-scroll" 

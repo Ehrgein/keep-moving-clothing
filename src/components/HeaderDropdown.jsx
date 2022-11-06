@@ -48,7 +48,6 @@ function HeaderDropdown({categories}) {
 
   return subnav ? (
     <div className=''>
-      
       <div onClick={handleSubNav}  className="flex items-start uppercase align-middle">
         <h1 className="">{categories}</h1>
       </div>

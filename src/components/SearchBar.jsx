@@ -31,8 +31,8 @@ function SearchBar() {
 
   return (
     <div>
-        <div className='mobilexs:mr-1 mobilem:mr-1 md:mr-0' onClick={handleSearch}>
-             <AiOutlineSearch size={25}/>
+        <div className='mobilexs:mr-1 mobilem:mr-1 md:mr-0 ' onClick={handleSearch}>
+             <AiOutlineSearch className='4k:w-[35px] 4k:h-[35px] desktop:w-[25px] desktop:h-[25px] laptopL:w-[22px] laptopL:h-[22px]'/>
         </div>
     {searchBar ?    
     <div className='bgparent fixed inset-0 z-55 overflow-y-scroll'>

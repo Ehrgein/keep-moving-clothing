@@ -121,6 +121,7 @@ useEffect(() => {
         <ProductsContext.Provider value={newproducts}>
             <CartContext>
             <CategoriesContext.Provider value={newcategories}>
+            <ScrollToTop/>
               <Routes>
                 <Route path='/' element={<Home/>}> </Route>
                 <Route path='products/:productscategory' element={<Products/>}/> 

@@ -1,9 +1,8 @@
 import React, {useState, useContext} from 'react'
 import mensection from '../assets/optimizedmen.jpg'
 import womensection from '../assets/optimizedwomen.jpg'
-import glasses1 from '../assets/glasses1.jpg'
-import glasses2 from '../assets/glasses2.jpg'
-import glasses3 from '../assets/glasses3.jpg'
+import glasses1 from '../assets/touseglasses.webp'
+import glasses2 from '../assets/touseglasses2.webp'
 import supremehoodie from '../assets/category/supremehoodie.jpg'
 import newbalances from "../assets/category/newbalancemobile.jpg";
 import northface2 from "../assets/optimizednorth.jpg"
@@ -23,15 +22,18 @@ function  NewHero() {
 
   return (
     <div>
-        <div className='hidden md:flex max-w[1980px] max-h-[1020px] relative'>
-                <img className='w-[50%] h-[900px]' src={glasses1}/>
-                <div className='absolute top-[62%] right-[45%] text-xl font-bold px-12 py-3  bg-black text-white hover:bg-white hover:text-black ease-in duration-300'>
-                  <h1>Shop now</h1>
+        <div className='hidden md:flex 4k:max-w[2560px] 4k:max-h[1132px] relative'>
+                <img className='4k:w-[50%] 4k:h-[1050px] desktop:w-[50%] desktop:h-[800px] laptopL:h-[650px] laptop:w-[50%] laptop:h-[550px] md:h-[450px] md:w-[50%]' src={glasses1}/>
+                <div className='absolute 4k:right-[46%] top-[55%] desktop:top-[55%] desktop:right-[45%] laptopL:right-[46%] laptop:right-[43%]
+                 font-bold 4k:px-12 desktop:px-12 4k:py-3 desktop:py-2 laptopL:px-8 laptopL:py-1 laptop:px-8 laptop:py-1
+                bg-black text-white hover:bg-white hover:text-black ease-in duration-300'>
+                  <h1 className='4k:text-3xl desktop:text-2xl laptopL:text-2xl laptop:text-xl'>Shop now</h1>
                 </div>
-                <div className='absolute top-[50%] right-[35%] text-5xl font-bold px-12 py-3  text-white'>
-                  <h1>Garret Leight Collection</h1>
+                <div className='absolute top-[45%] 4k:right-[36%] desktop:right-[35%] laptopL:right-[34%] laptop:right-[30%]  font-bold px-12 py-3  text-white'>
+                  <h1 className='4k:text-6xl desktop:text-5xl laptopL:text-4xl laptop:text-3xl'>Garret Leight Collection</h1>
                 </div>
-                <img className='w-[50%] h-auto' src={glasses3}/>
+                <img className='4k:w-[50%] 4k:h-[1050px] desktop:w-[50%] desktop:h-[800px]
+                laptopL:h-[650px] laptopL:w-[50%] laptop:w-[50%] laptop:h-[550px] md:h-[450px] md:w-[50%]' src={glasses2}/>
         </div>
 
         {/* <div className='hidden md:flex max-w[2500px] max-h-[1000px] relative gap-5 my-10 hover:text-red-500'>
