@@ -7,7 +7,7 @@ import AllProdByCat from '../components/Products/AllProdByCat'
 
 function Products() {
   return (
-    <div>
+    <div className=''>
         <Header/>
         <AllProdByCat/>
         <NewsLetter/>

@@ -17,7 +17,6 @@
 }
 
 
-
 .fade-anim {
   animation: fadeAnim 400ms ease-out;
 }
@@ -244,6 +243,7 @@
   transform: translate(-100vw, 0);
 }
 
+
 .hero img {
   animation-name: hero;
   animation-duration: 0.5s;
@@ -310,10 +310,13 @@ body {
   padding: 0px;
   background: white;
   font-family: 'Lato', sans-serif;
-  overflow-x: hidden;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body{
+  overflow-x:hidden;
 }
 
 
