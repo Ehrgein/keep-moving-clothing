@@ -12,28 +12,26 @@ function AllNew() {
   const [sortedItems, setSortedItems] = useState()
 
 
-  
-    
+       
     const sortedItemsSelect = () => {
 
       const value = document.getElementById("sortedproducts")?.value
-      const valuecaropog = document.getElementById("sortedproducts")
-      console.log(valuecaropog)
+      const mobilevalue = document.getElementById("mobilesortedproducts")?.value
 
-      if(value === 'ascending'){
-        const ascendingOrder = [...productscontext].sort((a, b) => a.price - b.price)
+      if(value === 'ascending' || mobilevalue === 'ascending' ){
+        const ascendingOrder = [...productscontext].slice(-15).sort((a, b) => a.price - b.price)
         setSortedItems(ascendingOrder)
       }
-      if(value === 'descending'){
-        const descendingOrder = [...productscontext].sort((a, b) => b.price - a.price)
+      if(value === 'descending' || mobilevalue === 'descending' ){
+        const descendingOrder = [...productscontext].slice(-15).sort((a, b) => b.price - a.price)
         setSortedItems(descendingOrder)
       }
-      if(value === 'az'){
-        const ascendingaz = [...productscontext].sort((a, b) =>a.name > b.name ? 1 : -1,);
+      if(value === 'az' || mobilevalue === 'az'){
+        const ascendingaz = [...productscontext].slice(-15).sort((a, b) =>a.name > b.name ? 1 : -1,);
         setSortedItems(ascendingaz)
       }
-      if(value === 'za'){
-        const descendingza = [...productscontext].sort((a, b) =>a.name > b.name ? -1 : 1,);
+      if(value === 'za' || mobilevalue === 'za'){
+        const descendingza = [...productscontext].slice(-15).sort((a, b) =>a.name > b.name ? -1 : 1,);
         setSortedItems(descendingza)
       }
     }
@@ -110,21 +108,36 @@ function AllNew() {
                 New Arrivals
             </div>
                 
-        <div className='md:hidden flex justify-end mr-4'>
-            <div className='text-sm px-2'>
-                  <select  defaultValue={"ascending"} selected="ascending" onChange={sortedItemsSelect} id="sortedproducts"
-                  className='mx-6 w-64 menuborder text-lg my-4 h-11 px-4'>
+        <div className='md:hidden flex justify-end text-sm px-1 h-20 mt-6 mb-8'>
+                  <select  defaultValue={"ascending"} selected="ascending" onChange={sortedItemsSelect} id="mobilesortedproducts"
+                  className='mx-2 w-44 menuborder text-lg mt-10 h-11 px-2'>
                     <option value="ascending">Price low to high</option>
                     <option value="descending">Price high to low</option>
                     <option value="az">A to Z</option>
                     <option value="za">Z to A</option>
                   </select>
-            </div>
         </div>
         <div className="flex flex-col justify-center columns-2 my-6">
         <div className="grid tablet:grid-cols-3 mobilexs:grid-cols-2
          gap-4 place-content-center my-2 tablet:my-4">
-          {productscontext.slice(-15).map(item => 
+          {sortedItems ?
+          sortedItems.map(item => 
+            <div key={item.id} className="mx-auto tablet:my-4 md:w-[250px] md:h-[250px]">
+                <div className='my-2'>
+                  <Link to={`/products/${item.categories}/${item.id}`}>
+                    <img alt={`${item.name} ${item.brand} $${item.price}`}
+                    className='md:w-[250px] md:h-[250px] mobilem:w-[190px] mobilem:h-[190px] mobilexs:w-[175px] mobilexs:h-[175px] mx-auto my-auto' src={item.prod_img}/>
+                  </Link> 
+                </div>
+                <div className='text-sm capitalize text-center h-auto my-2'>
+                  <h1 className='font-bold'>{item.name}</h1> 
+                  <p className="text-center text-sm capitalize mr-1 mt-1"> {item.brand}</p>
+                  <p className="text-center text-sm font-medium mr-1 mt-1"> $ {item.price}</p>
+                </div>
+              </div>
+          )
+          :
+          productscontext.map(item => 
             <div key={item.id} className="mx-auto tablet:my-4 md:w-[250px] md:h-[250px]">
                 <div className='my-2'>
                   <Link to={`/products/${item.categories}/${item.id}`}>
