@@ -23,7 +23,7 @@ function BrowseByCategory() {
             <div className="mt-4 flex w-full">
             <Link to={`/products/${item.categories}`}>
               <div>
-                 <img className='mobileL:w-[190px] mobileL:h-[190px] mobilem:w-[170px] mobilem:h-[170px]  mobilexs:w-[130px] mobilexs:h-[130px]  ml-1' src={item.categories_img}/> 
+                 <img alt={`${item.categories}`} className='mobileL:w-[190px] mobileL:h-[190px] mobilem:w-[170px] mobilem:h-[170px]  mobilexs:w-[130px] mobilexs:h-[130px]  ml-1' src={item.categories_img}/> 
                   <h1 className='text-center font-normal capitalize text-lg'>{item.categories}</h1>
               </div>
             </Link>

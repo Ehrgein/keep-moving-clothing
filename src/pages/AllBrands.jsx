@@ -8,7 +8,7 @@ function AllBrands() {
     
     
   return (
-    <div>
+    <div className=''>
         <Header/>
         <BrandList/>
         <NewsLetter/>

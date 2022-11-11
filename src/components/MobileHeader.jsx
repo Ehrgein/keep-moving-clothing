@@ -1,5 +1,5 @@
 import React, {useState, useContext} from 'react'
-import {AiOutlineShoppingCart} from 'react-icons/ai'
+import {AiOutlineShoppingCart, AiOutlineHeart} from 'react-icons/ai'
 import { VscAccount } from 'react-icons/vsc'
 import { Link } from 'react-router-dom'
 import Hamburger from './Hamburger'
@@ -17,20 +17,25 @@ function MobileHeader() {
 
   return (
     <div>
-      <div className="md:hidden flex justify-between items-center h-16 bg-black text-white mx-auto mobilexs:px-1 px-4 sticky z-10 top-0">
-        <Hamburger className='hidden' key={1} nav={nav} handleNav={handleNav}/>
-        <div className="flex">
+      <div className="laptopL:hidden flex justify-between items-center mobilem: mobilexs:h-16 bg-black text-white mx-auto sticky z-10 top-0">
+        <div className='flex'>
+          <Hamburger className='hidden' key={1} nav={nav} handleNav={handleNav}/>
+          <SearchBar/>
+        </div>
+        <div className="flex border-2 border-white mobilexs:px-3 mobilexs:py-1 mobilexs:ml-2">
           <Link to="/">
-            <h1 className="w-full mobilexs:text-base mobilem:text-lg font-bold text-center border-2 mobilexs:px-0 px-4 py-1 mobilem:ml-6 ml-4">
+            <h1 className="w-full mobilexs:text-base mobilem:text-lg font-bold text-center ">
               K E E P M O V I N G
             </h1>
           </Link>
         </div>
         <div className="text-sm flex">
-          <SearchBar/>
+          <Link to="/account/wishlist">
+           <AiOutlineHeart className='mobilexs:w-5 mobilexs:h-5 mobileL:h-6 mobileL:w-6'/>
+          </Link>
           <CartSlider/>
-          <Link to='/account/login'>          
-            <VscAccount className='mobilem:mr-2' size={25} />
+          <Link to='/account'>          
+            <VscAccount className='mobilem:mr-2 tablet:w-[25px] h-auto mobilexs:w-5 mobilexs:h-5 mobileL:h-6 mobileL:w-6 mobilexs:mr-1'  />
           </Link>
         </div>
       </div>

@@ -5,7 +5,7 @@ import Orders from '../components/Account/Orders'
 
 function MyOrders() {
   return (
-    <div>
+    <div >
         <Header/>
         <Orders/>
         <NewsLetter/>

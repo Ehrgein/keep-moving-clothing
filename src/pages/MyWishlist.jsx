@@ -16,7 +16,7 @@ function Account() {
 
   return (
 
-    <div>
+    <div >
         <Header/>
         <Wishlist/>
         <NewsLetter/>

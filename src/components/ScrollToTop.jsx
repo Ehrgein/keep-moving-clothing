@@ -7,7 +7,6 @@ export default function ScrollToTop() {
  
     useEffect(() => {
         window.scrollIntoView(0,0);
-        console.log(window.scrollIntoView(0, 0))
     }, [pathname])
 
 

@@ -5,7 +5,7 @@ import NewsLetter from '../components/NewsLetter'
 
 function OrdersInfo() {
   return (
-    <div>
+    <div >
         <Header/>
         <OrderDetails/>
         <NewsLetter/>

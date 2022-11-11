@@ -1,9 +1,10 @@
 import React from 'react'
-import womenclothes from "../assets/womenclothes.jpg";
-import discounts from "../assets/discounts.jpg";
+import womenclothes from "../assets/womenclothes.webp";
+import discounts from "../assets/discounts.webp";
 import menclothes2 from "../assets/menclothes2.avif";
 
 function MobileMenWomen() {
+
   return (
     <div>
         <div>
@@ -13,7 +14,7 @@ function MobileMenWomen() {
               ALL WOMEN'S
             </a>
           </div>
-          <img src={womenclothes} className="w-full h-auto block" />
+          <img alt='woman wearing air jordan sneakers' src={womenclothes} className="w-full h-auto block" />
         </div>
       </div>
       <div>
@@ -23,7 +24,7 @@ function MobileMenWomen() {
               ALL MEN'S
             </a>
           </div>
-          <img src={menclothes2} className="w-full h-auto block" />
+          <img alt='men wearing hoodies' src={menclothes2} className="w-full h-auto block" />
         </div>
       </div>
       <div className="">
@@ -34,7 +35,7 @@ function MobileMenWomen() {
               <p className="text-xl">Up To 20 % OFF</p>
             </h4>
           </div>
-          <img src={discounts} className="w-full h-auto block" />
+          <img alt='men wearing hoodie offering discounts' src={discounts} className="w-full h-auto block" />
         </div>
       </div>
       <div className="flex flex-col justify-center">

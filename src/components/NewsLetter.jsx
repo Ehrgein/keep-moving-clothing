@@ -9,13 +9,13 @@ function NewsLetter() {
     
 
     <div className='bg-black'>
-      <div className='hidden md:flex justify-between w-full bg-black'>
-        <div className='flex h-72 w-[25%] bg-black text-white col-span-4 pb-4 flex-col justify-start items-start'>
-          <h1 className='mb-4 mt-4 ml-8 uppercase text-lg font-bold text-[#aaa]'>
+      <div className='hidden md:flex justify-between w-full '>
+        <div className='flex h-auto w-[25%] bg-black text-white col-span-4 flex-col justify-start items-start pb-20'>
+          <h1 className='mb-4 ml-8 tablet:mt-4 uppercase 4k:text-2xl font-bold text-[#aaa]'>
             Our Store
           </h1>
-          <ul>
-            <li className='ml-8'>3601 Lyon S </li>
+          <ul className='4k:text-xl 4k:mt-3'>
+            <li className='ml-8 '>3601 Lyon S </li>
             <li className='ml-8'>San Francisco </li>
             <li className='ml-8'> California</li>
             <li className='ml-8'> AC9412</li>
@@ -24,11 +24,11 @@ function NewsLetter() {
             <li className='ml-8'> Sat & Sun - Closed </li>
           </ul>
         </div>
-        <div className='flex h-72 w-[25%] bg-black text-white col-span-4 flex-col justify-start items-start'>
-          <h1 className='mb-4 mt-4 ml-4 uppercase text-lg font-bold text-[#aaa]'>
+        <div className='flex h-auto w-[25%] bg-black text-white col-span-4 flex-col justify-start items-start'>
+          <h1 className='mb-4 mt-4 ml-4 uppercase 4k:text-2xl font-bold text-[#aaa]'>
             Customer Support
           </h1>
-          <ul>
+          <ul className='4k:text-xl 4k:mt-3'>
             <li className='ml-4'>
             FAQs
             </li>
@@ -46,11 +46,11 @@ function NewsLetter() {
             </li>
           </ul>
         </div>
-        <div className='flex h-72 w-[15%] bg-black text-white col-span-4 flex-col justify-start items-start'>
-          <h1 className='mb-4 mt-4 ml-4 uppercase text-lg font-bold text-[#aaa]'>
+        <div className='flex h-auto w-[15%] bg-black text-white col-span-4 flex-col justify-start items-start'>
+          <h1 className='mb-4 mt-4 ml-4 uppercase 4k:text-2xl font-bold text-[#aaa]'>
             Fine Print
           </h1>
-          <ul>
+          <ul className='4k:text-xl 4k:mt-3'>
             <li className='ml-4'>
             Terms of Service
             </li>
@@ -62,13 +62,14 @@ function NewsLetter() {
             </li>
           </ul>
         </div>
-        <div className='flex h-72 w-[36%] bg-black text-white col-span-3 flex-col justify-start items-center'>
-          <h1  className='mb-4 mt-4 ml-4 uppercase text-lg font-bold text-[#aaa]'>
+        <div className='flex h-auto w-[36%] bg-black text-white col-span-3 flex-col justify-start items-center'>
+          <h1  className='mb-4 tablet:mt-4 ml-4 uppercase 4k:text-2xl text-lg font-bold text-[#aaa]'>
             JOIN OUR NEWSLETTER
           </h1>
           <div className='flex border-white'>
-          <input placeholder='Enter your Email' className='h-12 desktop:w-96 laptopL:w-60 md:w-48 text-black text-lg pl-2'/>
-          <a href="/"><RiArrowRightSLine className='border-white border-2'size={48} /> </a>
+            <input placeholder='Enter your Email' className='h-12 desktop:w-96 laptopL:w-60 md:w-48 text-black text-lg'/>
+            <RiArrowRightSLine className='border-white border-2
+             desktop:w-[48px] desktop:h-[48px] laptop:h-[48px] laptop:w-[48px] tablet:w-[48px] tablet:h-[48px] mobileL:w-[30px] mobileL:h-[30px]' />
           </div>
           <h1  className='mb-4 mt-4 ml-4 uppercase text-lg font-bold text-[#aaa] text-start'>
             Follow Us
@@ -81,7 +82,7 @@ function NewsLetter() {
           </div> 
         </div>  
       </div>
-      <div className='hidden md:flex justify-center h-16 bg-black text-white w-full'>
+      <div className='hidden md:flex justify-center pt-4 bg-black text-white w-full h-24' >
           <SiVisa className='mx-2'size={40}/>
           <SiMastercard  className='mx-2'size={40}/>
           <SiDiscover className='mx-2' size={40}/>
@@ -95,16 +96,16 @@ function NewsLetter() {
       {/*mobile starts here */}
 
 
-      <div className='md:hidden bg-white'>
-        <div className='mt-12 border-0 border-t text-xl'>
-          <h1 className='mt-6 text-xl mx-4 text-center font-medium'> Sign up for Email </h1>
-          <p className='text-sm font-normal mt-3 mx-4 text-center'>Sign up to receive Keep Moving emails and get notified as soon as our new merch hits the stores!</p>
-          <h1 className=' mt-4 mx-4 font-medium text-center'>Email Address</h1>
-          <input  className='border mt-3 mx-4 border-black w-[92%] text-black font-extralight text-base mb-3 h-10 pl-2'/>
-          <div className='justify-center flex w-full'>
-            <button className='bg-black text-white text-center text-base font-bold w-[92%] mb-4 h-10'> Submit</button>
-          </div>
-        <div className='text-sm text-center border mt-10'>
+      <div className='md:hidden bg-black text-white'>
+          <div className='text-sm text-center pt-4'>
+            <div className=''> 
+              <p className='mx-4 font-medium text-center uppercase'>Join our newsletter </p>
+            </div>
+            <div className='flex justify-center'>
+              <input placeholder='Email' className='placeholder:pl-2 mt-3 w-[70%] text-black text-base mb-3 h-10'/> 
+              <RiArrowRightSLine className='border-white border-2 mobilexs:w-[40px] mobilexs:h-[40px]
+              mobileM:w-[30] mt-3' />
+            </div>
             <h1 className='mt-2 font-semibold text-lg'>About</h1>
             <h1 className='mt-2 font-semibold text-lg'>Contact Us</h1>
             <h1 className='mt-2 font-semibold text-lg'> FAQ </h1>
@@ -115,12 +116,17 @@ function NewsLetter() {
             <h1 className='mt-2 font-semibold text-lg'>Terms & Conditions</h1>
             <h1 className='mt-2 font-semibold text-lg'>Gift Cards</h1>
             <h1 className='mt-2 font-semibold text-lg'>Terms of Service</h1>
-            <h1 className='mt-2 font-semibold text-lg'>Refund Policy</h1> 
-        </div>
+            <h1 className='mt-2 font-semibold text-lg pb-4'>Refund Policy</h1> 
+          </div>
         </div>
     </div>
-    </div>
+
   )
 }
 
 export default NewsLetter
+
+{/* <div className='flex border-white'>
+<input placeholder='Enter your Email' className='h-12 desktop:w-96 laptopL:w-60 md:w-48 text-black text-lg pl-2'/>
+
+</div> */}

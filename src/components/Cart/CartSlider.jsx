@@ -7,6 +7,7 @@ import {CartContext} from '../Cart/CartFunctionality'
 import { useParams } from 'react-router-dom'
 import {TiDeleteOutline} from 'react-icons/ti'
 import axios from 'axios'
+import CheckoutModal from '../CheckoutModal'
 
 
 
@@ -14,6 +15,8 @@ import axios from 'axios'
 function CartSlider() {
 
     const [errorMsg, seterrorMsg] = useState("")
+    
+    const [onpurchasemodal, setonPurchasemodal] = useState(false)
 
     const productscontext = useContext(ProductsContext)
     const cart = useContext(CartContext)
@@ -28,28 +31,34 @@ function CartSlider() {
   
 
   const handleCheckout = () => {
+    if (cart.items.length > 0 ) {
     axios.post("http://localhost:3001/checkout", {
             userid: usercontext.userid,
             values: values
     }).then((response) => {
-        console.log(response);
-        seterrorMsg(response.data)
+        if(response.status === 200) {
+            seterrorMsg("")
+            setonPurchasemodal(true)
+        }
     })
+    } else {
+        seterrorMsg("Cannot make purchases on an empty cart")   
+    }
     
-  }
+  } 
 
 
 
 
   return ( 
-    <div>
-        <div onClick={() => cart.handleCart()} className="md:mr-4 mobilexs:mr-2 mobilem:mr-2 text-base flex gap-4">
-            <AiOutlineShoppingCart className='4k:w-[35px] 4k:h-[35px] desktop:w-[25px] desktop:h-[25px] laptopL:w-[22px] laptopL:h-[22px]'/> 
+    <div className='overflow-x-hidden'>
+        <div onClick={() => cart.handleCart()} className="md:mr-4 mobilexs:mr-1 text-base flex">
+            <AiOutlineShoppingCart className='4k:w-[35px] 4k:h-[35px] desktop:w-[25px]  laptopL:w-[22px]  tablet:w-[25px] h-auto mobilexs:w-5 mobilexs:h-5  mobileL:h-6 mobileL:w-6 mx-1'/> 
         </div>  
         <div className={cart.cartSlider ?
-             "fixed top-0 bottom-0 right-0 h-screen desktop:w-[20%] laptopL:w-[30%] mobilexs:w-[80%] text-black bg-white ease-in-out duration-700 overflow-y-scroll" 
+             "fixed  cartshadow top-0 bottom-0 right-0 h-screen 4k:w-[20%] desktop:w-[20%] laptopL:w-[30%] laptop:w-[40%] tablet:w-[50%] mobileL:w-[75%]  mobilexs:w-[85%] text-black bg-white ease-in-out duration-700 overflow-y-scroll" 
              : 
-             " fixed top-0 bottom-0 h-screen desktop:w-[20%] mobilexs:w-[80%] ease-in-out duration-700 right-[-120%]"}>
+             "fixed  cartshadow  top-0 bottom-0 h-screen desktop:w-[20%] mobileL:w-[75%] mobilexs:w-[85%] ease-in-out duration-700 right-[-120%]"}>
             <div className='text-black text-xl flex mt-4 ml-4 justify-between text-center items-start'>
                 <h1 className=''> 
                     CART
@@ -58,19 +67,19 @@ function CartSlider() {
                     X
                 </h1>
             </div>
-            <div className='mt-10 mx-4 cart-anim overflow-y-scroll'>
+            {cart.items.length > 0 ? <div className='mt-10 mx-4 cart-anim overflow-y-scroll mobilexs:text-sm'>
                         {cart.items.map(item =>
-                        <div key={item.id} className='cart-anim flex justify-start  cartborder' >
-                            <div className='my-4 w-[100px] h-[100px]'>
-                                <img  src={item.img} className='w-[100px] h-[100px] '/>
+                        <div key={item.id} className='scrollcart cart-anim flex justify-start  cartborder' >
+                            <div className=' my-4 mobilem:h-32 mobilem:w-32  mobilexs:w-[120px] mobilexs:h-[120px]'>
+                                <img alt={`${item.name} ${item.brand} $${item.price}`} src={item.img} className='w-[120px] h-[120px]'/>
                             </div>
                             <div className='uppercase font-medium ml-2 my-6 tracking-wide'>
                                 <div className='h-[65%]'>
-                                    <h1>{item.name}</h1>
+                                    <h1 className='text-base'>{item.name}</h1>
                                 </div>
-                                <div className='flex items-end gap-6 '>
-                                    <AiOutlineMinus onClick={() => cart.removeOneFromCart(item.id)}/>
-                                    <p>{cart.getProductQuantity(item.id)}</p>
+                                <div className='flex items-center h-10 gap-6 '>
+                                    <AiOutlineMinus  onClick={() => cart.removeOneFromCart(item.id)}/>
+                                    <p className='text-base'>{cart.getProductQuantity(item.id)}</p>
                                     <AiOutlinePlus onClick={ () =>  cart.addOneToCart(item.id)}/>
                                     <p onClick={() => cart.addOneToCart(item.id)}></p>
                                 </div>
@@ -85,14 +94,17 @@ function CartSlider() {
                                 <h1 className='mt-2'>$ {cart.getTotalCost()}</h1>
                             </div>
                             <div className='flex justify-center mt-12 mb-12'>
-                                <button onClick={handleCheckout} className='bg-black text-white tracking-widest uppercase font-bold px-20 py-2 text-lg'>Checkout {errorMsg}</button>
+                                <button onClick={handleCheckout} className='bg-black text-white tracking-widest uppercase font-bold px-20 py-2 text-lg'>Checkout</button>
                             </div>
-                            <div>
-                                
-                            </div>
-                    </div>  
+                    </div>
+                    :
+                    <div className='mt-20'>
+                        You have no items in your cart, maybe try adding some? 
+                    </div>} 
                 </div>
+                {onpurchasemodal ? <CheckoutModal onpurchasemodal={onpurchasemodal} setonPurchasemodal={setonPurchasemodal}/> : null}
             </div>
+            
 
   )
 }

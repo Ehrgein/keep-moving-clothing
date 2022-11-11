@@ -6,7 +6,6 @@ import cookieParser from 'cookie-parser';
 import session from 'express-session'
 
 
-
 const app = express()
 const saltRounds = 10
 
@@ -38,6 +37,7 @@ app.use(session({
 }))
 
 app.use(cookieParser())
+
 
 
 app.get("/", (req, res) =>{
@@ -79,8 +79,6 @@ app.get("/products", (req, res) => {
 
 
 
-
-
 app.get("/brands", (req, res) => {
     const query = "SELECT brand from brands ORDER BY brand";
     db.query(query, (err, data) =>{
@@ -89,7 +87,7 @@ app.get("/brands", (req, res) => {
     })
  })
 
- app.get("/categories", (req, res) => {
+app.get("/categories", (req, res) => {
     const query = "SELECT * from categories";
     db.query(query, (err, data) =>{
         if(err) return res.json(err)
@@ -98,13 +96,13 @@ app.get("/brands", (req, res) => {
  })
 
 
- app.post("/userdata", (req, res) => {
+app.post("/userdata", (req, res) => {
 
     const username = req.body.username
     const password = req.body.password
     const email = req.body.email
 
-    bcrypt.hash(password,saltRounds, (err, hash) =>{
+    bcrypt.hash(password,saltRounds, (err, hash) => {
 
         if(err) {
             console.log(err);
@@ -113,11 +111,13 @@ app.get("/brands", (req, res) => {
             "INSERT INTO userdata (username, password, email) values (?, ?, ?)",
             [username, hash, email]
             , (err, result) =>{
-            console.log(err)
+            res.send(err)
             }
-        ) 
+        )
+        console.log(err)
     })
 })
+
 
 
 app.post("/checkout", (req, res) => {
@@ -153,7 +153,7 @@ app.post("/checkout", (req, res) => {
                             throw err;
                         });
                     }
-                    res.send('success pog')
+                    res.send(results)
                 })
             })
         })
@@ -162,11 +162,8 @@ app.post("/checkout", (req, res) => {
     else{
         res.send("Please login to make your purchase")
     }
-}
-    
+}    
 )
-
-
 
 
 app.get("/logout", (req, res, next) =>{
@@ -189,7 +186,6 @@ app.get("/login", (req, res) => {
         res.send({loggedIn: false})
     }
 })
-
 
 
 app.post("/login", (req, res) => {
@@ -221,10 +217,6 @@ app.post("/login", (req, res) => {
         }   
     )
  })
-
-
-
-
 
 
 app.listen(3001, () =>{

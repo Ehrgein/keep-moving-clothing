@@ -5,7 +5,7 @@ import SignUp from '../components/Login/SignUp'
 
 function Register() {
   return (
-        <div>
+        <div >
             <Header/>
             <SignUp/>
             <NewsLetter/>

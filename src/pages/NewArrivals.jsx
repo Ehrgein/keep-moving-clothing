@@ -5,7 +5,7 @@ import NewsLetter from '../components/NewsLetter'
 
 function NewArrivals() {
   return ( 
-    <div>
+    <div >
         <Header/>
         <AllNew/>
         <NewsLetter/>

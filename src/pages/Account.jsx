@@ -13,7 +13,7 @@ function Account() {
 
   return (
 
-    <div>
+    <div className=''>
         <Header/>
         <AccountInformation/>
         <NewsLetter/>

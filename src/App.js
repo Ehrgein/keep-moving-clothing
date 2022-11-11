@@ -96,12 +96,9 @@ useEffect(() => {
           setUser(response.data.user[0].username)
       } else{
           setIsLoggedIn(false)
-
-          
       }
   })
-}, [])
-
+}, [user, isLoggedIn])
 
 
 

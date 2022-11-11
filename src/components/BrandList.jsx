@@ -25,6 +25,7 @@ function BrandList() {
     console.log(Object.entries(listedbrands))
     
     
+    
 
   return (
     <div className='mt-10 mb-10'>

@@ -7,7 +7,7 @@ function Header() {
 
 
   return (
-    <div className="sticky z-50 top-0">
+    <div className="sticky w-full z-50 top-0">
       <DesktopHeader/>
       
       <MobileHeader/>

@@ -9,7 +9,7 @@ function ProductCart() {
 
 
   return (
-    <div>
+    <div >
         <Header/>
         <ProductInfo/>
         <Recommended/>

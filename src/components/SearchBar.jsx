@@ -32,7 +32,8 @@ function SearchBar() {
   return (
     <div>
         <div className='mobilexs:mr-1 mobilem:mr-1 md:mr-0 ' onClick={handleSearch}>
-             <AiOutlineSearch className='4k:w-[35px] 4k:h-[35px] desktop:w-[25px] desktop:h-[25px] laptopL:w-[22px] laptopL:h-[22px]'/>
+             <AiOutlineSearch className='4k:w-[35px] 4k:h-[35px] desktop:w-[25px] desktop:h-[25px] laptopL:w-[22px] laptopL:h-[22px] tablet:w-[25px]
+              tablet:h-[25px] mobileL:w-6 mobileL:h-6 mobilexs:w-5 mobilexs:h-5 ml-2'/>
         </div>
     {searchBar ?    
     <div className='bgparent fixed inset-0 z-55 overflow-y-scroll'>
@@ -49,13 +50,15 @@ function SearchBar() {
             <div className='md:mt-10 mt-2 flex flex-wrap justify-center bg-white'>
                 {products?.map(item =>
                 <div key={item.id} className='flex md:flex-col  md:items-center md:justify-center justify-start items-center 
-                md:w-[250px] md:h-[300px] mobilexs:w-[280px] mobilexs:h-[150px] capitalize mx-2 my-2 4k:w-[250px] 4k:h-[250px]'>
+                4k:w-[400px] 4k:h-[400px]
+                md:w-[250px] md:h-[300px] mobilexs:w-[280px] mobilexs:h-[150px] capitalize mx-2 my-2 '>
                     <Link className='w-[200px] md:w-auto' onClick={handleSearch} to={`/products/${item.categories}/${item.id}`}>
-                      <img className='md:w-[150px] md:h-[150px] mobilexs:w-[120px] mobilexs:h-[120px] md:mr-0 mobilexs:ml-1' src={item.prod_img}/>
+                      <img className='4k:w-[300px] 4k:h-[300px]
+                      md:w-[150px] md:h-[150px] mobilexs:w-[120px] mobilexs:h-[120px] md:mr-0 mobilexs:ml-1' src={item.prod_img}/>
                     </Link>
-                    <div className='md:ml-8 flex flex-col justify-center w-[150px] md:w-auto'>
-                      <p className='text-sm mt-2 tracking-wide'> {item.name}</p>
-                      <p className='text-sm mt-2 tracking-wide font-normal'> {item.brand}</p>
+                    <div className='4k:ml-0 md:ml-8 flex flex-col justify-center w-[150px] md:w-auto text-center'>
+                      <p className='4k:text-lg text-sm mt-2 tracking-wide'> {item.name}</p>
+                      <p className='4k:text-lg text-sm mt-2 tracking-wide font-normal'> {item.brand}</p>
                       <p className='hidden md:text-sm mt-2 tracking-wide font-normal'>$ {item.price}</p>
                     </div>
                 </div>

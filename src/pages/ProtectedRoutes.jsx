@@ -1,17 +1,17 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect} from 'react'
 import { Outlet, Navigate } from 'react-router-dom'
 import { UserContext } from '../App'
-import Home from './Home'
 import Login from './Login'
+import axios from 'axios'
 
 
 
 const useAuth = () => {
 
   const loggedin = useContext(UserContext)
-  console.log(loggedin.isLoggedIn)
-   
-  return loggedin.user
+  const validate = loggedin.user
+ 
+  return validate
 
 }
 

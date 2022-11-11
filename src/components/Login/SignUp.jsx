@@ -3,6 +3,7 @@ import {BsGoogle, } from 'react-icons/bs'
 import {IconContext} from 'react-icons'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import CheckoutModal from '../CheckoutModal'
 
 
 function SignUp() {
@@ -11,17 +12,16 @@ function SignUp() {
     const [formvalues, setFormValues] = useState(initialvalues)
     const [formError, setFormError] = useState({});
     const [isSubmit, setIsSubmit] = useState(false)
+    const [duplicateuser, setDuplicateuser] = useState("")
 
-    console.log(formvalues.username)
 
-    const userRef = useRef()
-    const pwdRef = useRef()
-    const emailRef = useRef()
+
+ 
 
 
     const handleChange = (e) => {
         const {name, value} = e.target
-        setFormValues({...formvalues, [name]:value})
+        setFormValues({...formvalues, [name]:value})   
         
     }
 
@@ -35,7 +35,7 @@ function SignUp() {
 
     useEffect(() => {
         console.log(formError)
-        if(Object.keys(formError).length ===0 && isSubmit){
+        if(Object.keys(formError).length === 0 && isSubmit){
             console.log(formvalues)
         }
     }, [formError])
@@ -70,46 +70,54 @@ function SignUp() {
                 password: formvalues.password,
                 email: formvalues.email,
             }).then((response) =>{
-                console.log(response);
+                console.log(response.data.errno); // 1062
+                if(response.data.errno == 1062) {
+                    setDuplicateuser("Username/Email already exists")
+                }
+                else{
+                    setDuplicateuser("")
+                }
             })
         }
+
+
 
   return (
     <div>
         <div className='h-[80vh] flex justify-center'>
             <div className='flex flex-col mt-12 items-center text-center h-24'>
                 <div className='mt-12 flex justify-center w-[400px] h-auto mb-4'>
-                    <h3 className='text-2xl font-bold'> Create Account</h3>
+                    <h3 className='text-3xl font-bold'> Create Account</h3>
                 </div>
-                <form onSubmit={handleSubmit} className='flex flex-col justify-start text-black w-[400px] h-auto'>
+                <form onSubmit={handleSubmit} className='flex flex-col justify-start text-black 4k:w-[600px] laptopL:w-[400px] mobilem:w-[340px] mobilexs:w-[285px] h-auto'>
 
-                    <label className='flex items-start font-bold text-lg mt-1' >Username</label>
-                    <input onChange={handleChange}  name="username" value={formvalues.username} placeholder='Username' className='pl-2 inpborder mt-2 h-14'/>
+                    <label className='flex items-start font-bold laptopL:text-xl mt-1' >Username</label>
+                    <input onChange={handleChange}  name="username" value={formvalues.username} placeholder='Username' className='pl-2 inpborder mt-2 h-14 desktop:text-2xl laptopL:text-xl'/>
                     <p className='text-red-500 text-start mt-1'>{formError.username}</p>
                     
-                    <label className='flex items-start font-bold text-lg  mt-1'>Password</label>
-                    <input  onChange={handleChange}  name="password" value={formvalues.password}  type='password' autoComplete="off" placeholder='Password' className='inpborder mt-2 h-14 pl-2'/>
+                    <label className='flex items-start font-bold laptopL:text-xl  mt-1'>Password</label>
+                    <input  onChange={handleChange}  name="password" value={formvalues.password}  type='password' autoComplete="off" placeholder='Password'
+                     className='inpborder mt-2 h-14 pl-2 desktop:text-2xl laptopL:text-xl'/>
                     <p className='text-red-500 text-start mt-1'>{formError.password}</p>
 
-                    <label className='flex items-start font-bold text-lg mt-1'>Email</label>
-                    <input onChange={handleChange}  name="email" value={formvalues.email} placeholder='Email' className='pl-2 inpborder mt-2 h-14'/>
+                    <label className='flex items-start font-bold laptopL:text-xl mt-1'>Email</label>
+                    <input onChange={handleChange}  name="email" value={formvalues.email} placeholder='Email' className='pl-2 inpborder mt-2 h-14 desktop:text-2xl laptopL:text-xl'/>
                     <p className='text-red-500 text-start mt-1'>{formError.email}</p>
 
-                    <button onClick={handleRegister} className='mt-2 text-lg font-bold px-12 py-2 bg-black text-white ease-in duration-300'>
+                    <button  className='mt-2 desktop:text-2xl laptopL:text-xl font-bold px-12 py-2 bg-black text-white ease-in duration-300'>
                         CREATE
                     </button>
                      <div className='flex justify-center items-center mt-3 text-center'>
-                        <Link to="/login"><p className='w-auto border-b-2 border-black'>Back to Login</p></Link>
+                        <Link to="/login"><p className='w-auto border-b-2 border-black desktop:text-2xl laptopL:text-xl '>Back to Login</p></Link>
                     </div>
-
-                    {Object.keys(formError).length === 0 && isSubmit ?
+                    <h1 className='text-red-500 text-base mt-2'>{duplicateuser}</h1>
+                    {Object.keys(formError).length === 0 && isSubmit && duplicateuser.length == 0 ?
                     (<div className='text-green-500 mt-2'>
                         Signed up successfully
                     </div>)
                     :
                     null}
                 </form> 
-
             </div>
         </div>
     </div>
