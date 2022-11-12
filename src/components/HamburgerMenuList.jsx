@@ -26,17 +26,11 @@ function HamburgerMenuList({key, nav, handleNav}) {
             <h1 className='flex pl-2 text-lg font-bold py-2 w-[100%] uppercase tracking-widest'>
               New Arrivals
             </h1>
-            <div className="h-auto">
-              <AiOutlineRight  size={22}/>
-            </div>
           </Link>
           <Link className="flex items-center topblack" to="/brands">
             <h1 className='flex pl-2 text-lg font-bold py-2 w-[100%] uppercase tracking-widest'>
               Brands
             </h1>
-            <div className="h-auto">
-                <AiOutlineRight  size={22}/>
-            </div>
           </Link>
         {arrowcategories.map(item =>
           <div key={item.id} className="flex items-center topblack justify-between">
@@ -46,16 +40,10 @@ function HamburgerMenuList({key, nav, handleNav}) {
                   {item.categories}
                 </h1>
               </Link>
-              <div className="h-auto">
-              <AiOutlineRight  size={22}/>
-            </div>
           </div>
-        ) }
+        )}
         <Link className="flex items-center topblack" to="/brands">
           <h1 className='flex pl-2 text-lg font-bold py-2 w-[100%] uppercase tracking-widest'>Sale</h1>
-          <div className="h-auto">
-            <AiOutlineRight  size={22}/>
-          </div>
         </Link>
         </div>
         <div className="h-[70vh] w-full bg-black flex  flex-col px-4 text-white">

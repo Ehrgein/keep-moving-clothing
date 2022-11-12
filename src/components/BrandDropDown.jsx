@@ -35,29 +35,32 @@ function BrandDropDown() {
   return brandnav ? (
     <div>
       <div>
-        <h1 onClick={handleBrand}>Brands</h1>
+        <button  onClick={handleBrand}>BRANDS</button>
       </div>
-      <div ref={refTWo} onMouseLeave={handleSubFalse}  className='fixed top-[9%] w-[100%] h-[50%] left-0 text-black bg-white fade-anim justify-start flex flex-col'>
+      <div ref={refTWo} onMouseLeave={handleSubFalse}  className='fixed 4k:top-[10.5%] desktop:top-[11%]  laptopL:top-[12%] w-[100%]
+       4k:h-[35%] laptopL:h-[37%] h-[50%] left-0 text-black bg-white fade-anim justify-start flex flex-col'>
             <div className='flex justify-center items-start'>
               <h1 className='flex font-bold mt-4'> Most Popular Brands</h1>
             </div>
-            <div className='flex flex-col h-[650px] w-[95%] justify-start items-center'>
-              <div className='h-[35%] w-[15%] desktop:text-sm md: text-xs flex flex-col justify-start items-start flex-wrap mt-6 mr-40 gap-1'>
-                  {brands.slice(0, 9).map(item => 
+            <div className='flex flex-col h-[650px] w-[100%] justify-start items-center pr-32 desktop:pr-12'>
+              <div className='4k:h-[40%] desktop:h-[30%] laptopL:h-[30%] laptopL:w-[20%] 4k:text-lg laptop:text-sm
+               desktop:text-sm md: text-xs flex flex-col justify-start items-start flex-wrap mt-6 mr-40 gap-1'>
+                  {brands.slice(0, 8).map(item => 
                   <div key={item.id} className='flex mx-6'>
                     <Link  onClick={handleSubFalse} to={`/collection/${item.brand}`}><p className='flex'>{item.brand}</p></Link>
                   </div>)}
-                  {brands.slice(10, 19).map(item => 
+                  {brands.slice(10, 18).map(item => 
                   <div key={item.id} className='flex mx-6'>
                     <Link onClick={handleSubFalse} to={`/collection/${item.brand}`}><p className='flex'>{item.brand}</p></Link>
                   </div>)}
-                  {brands.slice(20, 29).map(item => 
+                  {brands.slice(20, 28).map(item => 
                   <div key={item.id} className='flex mx-6'>
                     <Link onClick={handleSubFalse} to={`/collection/${item.brand}`}><p className='flex'>{item.brand}</p></Link>
                   </div>)}
               </div>
-                <div className='mt-5 w-[40%] flex justify-center ml-32'>
-                 <button className='h-10 font-bold w-[30%] border-2 flex justify-center bg-[#1f2021] text-white items-center'>
+                <div className='mt-5 w-[40%] flex justify-center desktop:ml-16 ml-32'>
+                 <button className='4k:h-10 desktop:h-8 laptopL:h-7 font-bold 4k:w-[25%] desktop:w-[25%] laptopL:w-[40%] desktop:text-lg 4k:text-xl laptopL:text-base
+                  flex justify-center bg-black text-white items-center'>
                   <Link to="/brands">VIEW ALL</Link>
                   </button>
                 </div>
@@ -70,7 +73,7 @@ function BrandDropDown() {
     ) : (  
 
       <div>
-        <h1 onClick={handleBrand}>Brands</h1>
+        <button onClick={handleBrand}>BRANDS</button>
       </div>
     );
   }

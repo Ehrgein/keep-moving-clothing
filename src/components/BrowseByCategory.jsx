@@ -16,7 +16,7 @@ function BrowseByCategory() {
 
 
   return (
-    <div className='flex flex-wrap flex-columns-2 gap-2 mx-2 my-4'>
+    <div className='flex flex-wrap flex-columns-2 justify-center gap-2 mx-2 my-4'>
       { 
         categoriescontext.map(item => 
           <div key={item.id} pic={item.categories_img} className='flex flex-wrap my-4'>
@@ -34,6 +34,8 @@ function BrowseByCategory() {
     </div>
   )
 }
+
+
 
 export default BrowseByCategory
 

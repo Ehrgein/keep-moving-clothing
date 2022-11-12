@@ -49,17 +49,22 @@ function SearchBar() {
             </div>
             <div className='md:mt-10 mt-2 flex flex-wrap justify-center bg-white'>
                 {products?.map(item =>
-                <div key={item.id} className='flex md:flex-col  md:items-center md:justify-center justify-start items-center 
-                4k:w-[400px] 4k:h-[400px]
-                md:w-[250px] md:h-[300px] mobilexs:w-[280px] mobilexs:h-[150px] capitalize mx-2 my-2 '>
+                <div key={item.id} className='flex flex-col  items-center md:justify-center justify-start
+                4k:w-[430px] 4k:h-[430px] desktop:w-[350px] desktop:h-[350px] laptopL:w-[280px] laptop:h-[260px]
+                laptop:w-[260px] tablet:w-[250px] tablet:h-[250px] mobileL:w-[350px] mobileL:h-[300px] mobilem:w-[325px] mobilem:h-[300px]
+                mobilexs:w-[325px] mobilexs:h-[300px] capitalize mx-2 my-2 '>
                     <Link className='w-[200px] md:w-auto' onClick={handleSearch} to={`/products/${item.categories}/${item.id}`}>
-                      <img className='4k:w-[300px] 4k:h-[300px]
-                      md:w-[150px] md:h-[150px] mobilexs:w-[120px] mobilexs:h-[120px] md:mr-0 mobilexs:ml-1' src={item.prod_img}/>
+                      <img className='4k:w-[300px] 4k:h-[300px] desktop:w-[275px] desktop:h-[275px]
+                       laptopL:w-[180px] laptopL:h-[180px] laptop:w-[170px] laptop:h-[170px]
+                      tablet:w-[160px] tablet:h-[160px]
+                       
+                        mobilexs:h-[200px] mobilexs:w-[200px] md:mr-0 mobilexs:ml-1' src={item.prod_img}/>
                     </Link>
-                    <div className='4k:ml-0 md:ml-8 flex flex-col justify-center w-[150px] md:w-auto text-center'>
-                      <p className='4k:text-lg text-sm mt-2 tracking-wide'> {item.name}</p>
-                      <p className='4k:text-lg text-sm mt-2 tracking-wide font-normal'> {item.brand}</p>
-                      <p className='hidden md:text-sm mt-2 tracking-wide font-normal'>$ {item.price}</p>
+                    <div className='4k:ml-0 laptopL:ml-0  flex flex-col justify-center 4k:w-[350px] laptopL:w-[280px] 
+                     tablet:w-[240px] mobilexs:w-[150px]  md:w-auto text-center'>
+                      <p className='4k:text-lg desktop:text-lg laptopL:text-base mobilexs:text-lg mt-2 font-semibold'> {item.name}</p>
+                      <p className='4k:text-lg desktop:text-base laptopL:text-sm laptop:text-base mobilexs:text-base
+                         mt-2 font-normal'> {item.brand}</p>
                     </div>
                 </div>
                 )}

@@ -1,41 +1,36 @@
 import React from 'react'
 import womenclothes from "../assets/womenclothes.webp";
-import discounts from "../assets/discounts.webp";
 import menclothes2 from "../assets/menclothes2.avif";
+import {Link} from 'react-router-dom'
 
 function MobileMenWomen() {
 
   return (
     <div>
         <div>
+        <div>
         <div className="relative inline mt-4">
-          <div className="midtext mt-12">
-            <a className="inline-block text-2xl text-white mt-2 border-2 py-2 px-2">
-              ALL WOMEN'S
-            </a>
+        <p className='absolute newintext text-white text-2xl'> New in</p>
+          <div className="mt-12 midtextmobile w-64">
+            <Link to={"products/outerwear"} className="inline-block mobilem:text-2xl mobilexs:text-xl
+             text-white hover:text-black bg-black hover:bg-white mt-2  py-2 px-2">
+                SHOP AIR JORDAN
+              </Link>
           </div>
-          <img alt='woman wearing air jordan sneakers' src={womenclothes} className="w-full h-auto block" />
+          <img alt='men wearing hoodies' src={womenclothes} className="w-full h-auto block" />
         </div>
+      </div>
       </div>
       <div>
         <div className="relative inline mt-4">
-          <div className="midtext mt-12">
-            <a className="inline-block text-2xl text-white mt-2 border-2 py-2 px-2">
-              ALL MEN'S
-            </a>
+        <p className='absolute newintext text-white text-2xl'> New in</p>
+          <div className="mt-12 midtextmobile w-64">
+            <Link to={"products/outerwear"} className="inline-block mobilem:text-2xl mobilexs:text-xl
+             text-white hover:text-black bg-black hover:bg-white mt-2  py-2 px-2">
+                SHOP OUTERWEAR
+              </Link>
           </div>
           <img alt='men wearing hoodies' src={menclothes2} className="w-full h-auto block" />
-        </div>
-      </div>
-      <div className="">
-        <div className="relative inline mt-4">
-          <div className="midtext mt-28">
-            <h4 className="inline-block text-6xl text-white mt-2">
-              SUMMER DEALS NOW
-              <p className="text-xl">Up To 20 % OFF</p>
-            </h4>
-          </div>
-          <img alt='men wearing hoodie offering discounts' src={discounts} className="w-full h-auto block" />
         </div>
       </div>
       <div className="flex flex-col justify-center">

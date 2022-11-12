@@ -230,6 +230,7 @@ function CartFunctionality({children}) {
         getWishQuantity,
         addToWishList,
         deleteFromWish,
+        setCartProducts,
     }   
 
  

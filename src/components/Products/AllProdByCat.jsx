@@ -17,27 +17,26 @@ function AllProducts() {
 
   
     
-    const sortedItemsSelect = () => {
+    const sortedItemsSelect = (e) => {
 
-      const value = document.getElementById("sortedproducts")?.value
-      const mobilevalue = document.getElementById("mobilesortedproducts")?.value
+      const value = e.target.value
 
-      if(value === 'ascending' || mobilevalue === 'ascending' ){
+      if(value === 'ascending' ){
         const ascendingOrder = [...productscontext].filter(item => item.categories === productscategory).sort((a, b) => a.price - b.price)
         setSortedItems(ascendingOrder)
 
       }
-      if(value === 'descending' || mobilevalue === 'descending' ){
+      if(value === 'descending'){
         const descendingOrder = [...productscontext].filter(item => item.categories === productscategory).sort((a, b) => b.price - a.price)
         setSortedItems(descendingOrder)
         
       }
-      if(value === 'az' || mobilevalue === 'az'){
+      if(value === 'az' ){
         const ascendingaz = [...productscontext].filter(item => item.categories === productscategory).sort((a, b) =>a.name > b.name ? 1 : -1,);
         setSortedItems(ascendingaz)
 
       }
-      if(value === 'za' || mobilevalue === 'za'){
+      if(value === 'za' ){
         const descendingza = [...productscontext].filter(item => item.categories === productscategory).sort((a, b) =>a.name > b.name ? -1 : 1,);
         setSortedItems(descendingza)
       }
@@ -62,16 +61,17 @@ function AllProducts() {
           </div>
         </div>
         <div className='hidden laptop:flex'>
-            <div className='flex flex-wrap  desktop:pl-16 desktop:my-10 laptopL:my-6 laptopL:mx-2 laptop:my-6 laptop:pl-2'>
+            <div className='flex flex-wrap justify-center  desktop:pl-16 desktop:my-10 laptopL:my-6 laptopL:mx-2 laptop:my-6 laptop:pl-2'>
               {sortedItems ?
               sortedItems?.map(item =>
               <div key={item.id} photo={item.prod_img}  name={item.name}  brand={item.brand} price={item.price}   
                 className='flex justify-center flex-col desktop:my-10 laptopL:my-8 laptopL:mx-2 laptop:my-8 tracking-wide
-                 desktop:w-[370px] desktop:h-[370px] laptopL:w-[260px] laptopL:h-[260px] items-center laptop:w-[250px] laptop:h-[250px] md:w-[220px] md:h-[220px]'>
+                 desktop:w-[370px] desktop:h-[370px] laptopL:w-[350px] laptopL:h-[350px]
+                  items-center laptop:w-[250px] laptop:h-[250px] md:w-[220px] md:h-[220px]'>
                 <div className='flex flex-col' >
                   <Link to={`${item.id}`}>
                      <img className='desktop:h-[295px] desktop:w-[295px]
-                      laptopL:w-[210px] laptopL:h-[210px] laptop:w-[185px] laptop:h-[185px] md:w-[130px] md:h-[130px]'  src={item.prod_img}/>
+                      laptopL:w-[570px] laptopL:h-[570px] laptop:w-[185px] laptop:h-[185px] md:w-[130px] md:h-[130px]'  src={item.prod_img}/>
                   </Link>
                 </div>   
                     <ul className='desktop:mt-9 laptopL:mt-2 laptop:text-xs laptopL:text-xs text-center'>
@@ -104,11 +104,11 @@ function AllProducts() {
 
         {/*mobile starts here */}
 
-        <div className='laptop:hidden flex text-4xl justify-center flex-col'>
+        <div className='laptop:hidden flex text-4xl justify-center flex-col mb-20'>
             <div className='flex justify-center capitalize text-3xl font-bold mt-12'>  
                 {productscategory}
             </div>
-          <div className='md:hidden flex justify-end text-sm px-1 h-20 mt-6 mb-8'>
+          <div className='laptop:hidden flex justify-end text-sm px-1 h-20 mt-6 mb-8'>
                   <select defaultValue={"ascending"} selected="ascending" onChange={sortedItemsSelect} id="mobilesortedproducts"
                   className='mx-2 w-44 menuborder text-lg mt-10 h-11 px-2'>
                     <option value="ascending">Price low to high</option>
@@ -118,7 +118,6 @@ function AllProducts() {
                   </select>
           </div>
           <div className="flex flex-col justify-center columns-2">
-
             <div className="grid tablet:grid-cols-3 mobilexs:grid-cols-2 gap-4 place-content-center my-2 tablet:my-4">
             {sortedItems ? 
             sortedItems.map(item =>
