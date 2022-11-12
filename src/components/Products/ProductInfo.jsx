@@ -97,7 +97,7 @@ function ProductInfo() {
                       <h1 className='mt-4 desktop:text-2xl laptopL:text-xl tracking-widest h-auto'>S M L XL</h1>
                     <div>
                     </div>
-                    {item.stock > 1 ? 
+                    {item.stock >= 1 ? 
                     <div className='flex'>
                       <div className='rounded-full bg-green-500 desktop:w-[25px] desktop:h-[25px] laptopL:w-[20px] laptopL:h-[20px] laptop:w-[20px] laptop:h-[20px] mt-6'></div> 
                       <p className='mt-[20px] ml-2 4k:text-lg'>In stock</p>

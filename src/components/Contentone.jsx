@@ -22,7 +22,7 @@ function Contentone() {
 
   const AddToCart = (id) => {
     cartcontext.openCart()
-    cartcontext.addOneToCart(id)
+    cartcontext.addOneToCart(id) 
 
   }
 
@@ -31,27 +31,33 @@ function Contentone() {
   const images = [
     {
     img: newbalance1,
-    text: "new balance"
+    text: "new balance",
+    url: "new balance",
     },
     {
     img: nikelouis,
     text:"nike x louis",
+    url:"nike"
     },
     {
       img:converse,
       text:"converse",
+      url:"converse"
     },
     {
       img:maharishi,
       text:"maharishi",
+      url:"maharishi"
     },
     {
       img: nike,
       text: "nike",
+      url:"nike"
     },
     {
       img: jordans,
-      text: "Air Jordan"
+      text: "air jordan",
+      url:"air jordan"
     }
   ]
 

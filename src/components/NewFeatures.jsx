@@ -15,7 +15,7 @@ function NewFeatures({img1, img2, img3}) {
                         {img1.text}
                     </span>
                     <div className="h-auto shopnowcenter">
-                        <Link>
+                        <Link to={`collection/${img1.url}`}>
                             <span className="bg-black text-white hover:text-black hover:bg-white ease-in duration-300 
                             4k:text-4xl desktop:text-2xl laptopL:text-2xl laptop:text-xl 
                             desktop:px-10 tablet:px-6 4k:py-2 desktop:py-2 laptopL:py-2 laptop:py-1 tablet:py-1 font-bold">
@@ -32,7 +32,7 @@ function NewFeatures({img1, img2, img3}) {
                         {img2.text}
                     </span>
                     <div className="h-auto shopnowcenter">
-                        <Link>
+                        <Link to={`collection/${img2.url}`}>
                         <span className="bg-black text-white hover:text-black hover:bg-white ease-in duration-300   laptop:text-2xl
                         4k:text-4xl desktop:text-2xl laptopL:text-2xl tablet:text-2xl
                         desktop:px-10 tablet:px-6 4k:py-2 desktop:py-2 laptopL:py-2 laptop:py-2 tablet:py-1 font-bold">
@@ -48,7 +48,7 @@ function NewFeatures({img1, img2, img3}) {
                     {img3.text}
                     </span>
                     <div className="h-auto shopnowcenter">
-                        <Link to={"collection/air jordan"}>
+                        <Link to={`collection/${img3.url}`}>
                             <span className="bg-black text-white hover:text-black hover:bg-white ease-in duration-300 laptop:text-2xl tablet:text-2xl
                             4k:text-4xl desktop:text-2xl laptopL:text-2xl desktop:px-10 tablet:px-6 4k:py-2 desktop:py-2 laptopL:py-2 laptop:py-2 tablet:py-1 font-bold">
                                 Shop Now

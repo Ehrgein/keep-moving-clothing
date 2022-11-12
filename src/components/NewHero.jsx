@@ -2,7 +2,7 @@ import React, {useState, useContext, Suspense} from 'react'
 import glasses1 from '../assets/touseglassesopt.webp'
 import glasses2 from '../assets/touseglasses2opt.webp'
 import {Link} from 'react-router-dom'
-import { BrandsContext } from '../App';
+import { BrandsContext, ProductsContext } from '../App';
 import northface from '../assets/northfacemobile.webp'
 
 
@@ -15,6 +15,9 @@ function  NewHero() {
     const brands = useContext(BrandsContext)
 
 
+
+
+
   return (
     <div>
         <div className='hidden relative md:flex 4k:max-w[2560px] 4k:max-h[1132px] '>
@@ -22,14 +25,15 @@ function  NewHero() {
                   <h1 className='4k:text-6xl laptopL:text-5xl laptop:text-4xl'>Garret Leight Collection</h1>
                 </div>
                 <div className='absolute desktopheader
-                 
                  '>
+                  <Link to={"designer/garrett Leight"}>
                   <h1 className='text-white hover:text-black  bg-black  hover:bg-white ease-in duration-300
                   font-bold 4k:px-20 desktop:px-12 4k:py-3 desktop:py-2 laptopL:px-8 laptopL:py-1 laptop:px-8 laptop:py-1
                   4k:text-3xl desktop:text-2xl
                    laptopL:text-2xl laptop:text-2xl inline-block'>
                     Shop now
                   </h1>
+                  </Link>
                 </div>
                 <img className='4k:w-[50%] 4k:h-[1050px] desktop:w-[50%] desktop:h-[800px] laptopL:h-[650px] laptop:w-[50%] laptop:h-[550px] md:h-[450px] laptop:block md:hidden'
                 alt='men wearing sunglasses' src={glasses1}/>

@@ -19,6 +19,8 @@ import MyWishlist from './pages/MyWishlist'
 import AllBrands from "./pages/AllBrands";
 import MyOrders from "./pages/MyOrders";
 import OrdersInfo from "./pages/OrdersInfo";
+import ProductsByName from "./pages/ProdsByName";
+import ProdsByName from "./pages/ProdsByName";
 
 
 export const ProductsContext = React.createContext()
@@ -124,6 +126,7 @@ useEffect(() => {
                 <Route path='products/:productscategory' element={<Products/>}/> 
                 <Route path='brands' element={<AllBrands/>}/>
                 <Route path='newarrivals' element={<NewArrivals/>}/>
+                <Route path='/designer/:name' element={<ProdsByName/>}/>
                 <Route path='products/:productscategory/:productinfo' element={<ProductCart/>} />
                 <Route path='/collection/:brand' element={<BrandProduct/>}/>
                 <Route path='account/register' element={<Register/>}/>
