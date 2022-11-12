@@ -5,7 +5,6 @@ import {Routes, Route, useLocation} from 'react-router-dom'
 import Products from "./pages/Products";
 import ProductCart from "./pages/ProductCart";
 import Login from "./pages/Login";
-import Update from "./pages/Update";
 import NewArrivals from "./pages/NewArrivals"
 import axios from 'axios'
 import CartContext from "./components/Cart/CartFunctionality";
@@ -130,7 +129,6 @@ useEffect(() => {
                 <Route path='products/:productscategory/:productinfo' element={<ProductCart/>} />
                 <Route path='/collection/:brand' element={<BrandProduct/>}/>
                 <Route path='account/register' element={<Register/>}/>
-                <Route path="/update/:id" element={<Update/>}/>
                 <Route element={<ProtectedRoutes />}> 
                   <Route path="/account" element={<Account/>}/>
                   <Route path='/login' element={<Login/>}/>
