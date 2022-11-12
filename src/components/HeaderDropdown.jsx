@@ -38,10 +38,7 @@ function HeaderDropdown({categories}) {
   const handleClickOutside = (e) => {
     if (!refOne.current?.contains(e.target)) {
       setSubNav(false);
-    } else {
-      console.log("holi");
     }
-
   };          
 
   

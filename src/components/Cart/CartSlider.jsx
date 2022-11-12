@@ -37,7 +37,6 @@ function CartSlider() {
             userid: usercontext.userid,
             values: values
     }).then((response) => {
-        console.log(response)
         if(response.status === 200 && usercontext.user) {
             seterrorMsg("")
             setonPurchasemodal(true)

@@ -19,14 +19,11 @@ function DesktopHeader() {
     const handleNav = () => setNav(!nav);
 
 
-
-    const contextcategories = useContext(CategoriesContext)
     const cart = useContext(CartContext)
     
     const usercontext = useContext(UserContext)
 
 
-    
     const validateroute = usercontext.isLoggedIn == true ? "/account" : "/login"
 
 

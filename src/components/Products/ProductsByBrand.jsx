@@ -36,8 +36,7 @@ function ProductsByBrand() {
       }
     }
 
-    console.log(productscontext)
-
+    
   return (
     <div>
         <div className='hidden laptop:flex text-4xl justify-center flex-col'>

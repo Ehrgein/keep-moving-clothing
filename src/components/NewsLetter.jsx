@@ -15,7 +15,7 @@ function NewsLetter() {
             Our Store
           </h1>
           <ul className='4k:text-xl 4k:mt-3'>
-            <li className='ml-8 '>3601 Lyon S </li>
+            <li className='ml-8 '>Evergreen Terrace 742 </li>
             <li className='ml-8'>San Francisco </li>
             <li className='ml-8'> California</li>
             <li className='ml-8'> AC9412</li>

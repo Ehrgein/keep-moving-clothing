@@ -9,7 +9,6 @@ function Recommended() {
 
 
     let {productscategory} = useParams()
-    let {productinfo} = useParams()
 
     const productscontext = useContext(ProductsContext)
 

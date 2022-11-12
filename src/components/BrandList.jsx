@@ -22,9 +22,7 @@ function BrandList() {
       }
     })
 
-    console.log(Object.entries(listedbrands))
-    
-    
+
     
 
   return (

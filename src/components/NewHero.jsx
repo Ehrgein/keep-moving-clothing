@@ -12,11 +12,7 @@ function  NewHero() {
     const [nav, setNav] = useState(false);
     const handleNav = () => setNav(!nav);
 
-    const brands = useContext(BrandsContext)
-
-
-
-
+ 
 
   return (
     <div>

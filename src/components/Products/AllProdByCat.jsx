@@ -42,7 +42,6 @@ function AllProducts() {
       }
     }
 
-    console.log(sortedItems)    
 
   return (
     <div>

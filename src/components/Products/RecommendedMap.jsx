@@ -7,12 +7,9 @@ function RecommendedMap({items}) {
 
 
   let {product} = useParams()
-  let {productinfo} = useParams()
-
 
   const slicedarr = items.slice(-5)
 
-  // to={`/products/${category}`} 
 
   return (
     <div className='flex justify-center flex-wrap'>

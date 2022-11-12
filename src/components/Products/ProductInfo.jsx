@@ -16,10 +16,8 @@ function ProductInfo() {
     const [wishstatus, setWishStatus] = useState(wishitems)
 
     let {productinfo} = useParams()
-    let {productscategory} = useParams()
 
     const productscontext = useContext(ProductsContext)
-    const usercontext = useContext(UserContext)
     const cart = useContext(CartContext)
 
     const AddCart = () => {

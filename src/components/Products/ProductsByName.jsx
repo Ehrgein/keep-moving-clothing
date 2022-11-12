@@ -17,7 +17,7 @@ function ProductsByName() {
 
     
 
-    // console.log(products)
+
 
 
     const sortedItemsSelect = (e) => {
@@ -50,7 +50,7 @@ function ProductsByName() {
       }
     }
 
-    console.log(sortedItems)    
+ 
 
   return (
     <div>

@@ -12,19 +12,14 @@ function Wishlist() {
 
     const [data, setData] = useState([])
 
-    const cart = useContext(CartContext)
     const usercontext = useContext(UserContext)
 
   
-
-
-
         
     useEffect(() => {
       axios.post("http://localhost:3001/purchase_list", {
           userid: usercontext.userid,
       }).then((response) => {
-          console.log(response.data)
           setData(response.data)
       })
   }, [])

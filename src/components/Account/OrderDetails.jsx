@@ -8,8 +8,6 @@ function OrderDetails() {
 
     const [data, setData] = useState([])
 
-    const usercontext = useContext(UserContext)
-    const cartcontext = useContext(CartContext)
     let {orderid} = useParams()
 
 
@@ -17,7 +15,6 @@ function OrderDetails() {
       axios.post("http://localhost:3001/purchase_history", {
           orderid : orderid
       }).then((response) => {
-          console.log(response.data)
           setData(response.data)
       })
   }, [])
@@ -34,7 +31,7 @@ function OrderDetails() {
     return totalcost
 }
 
-    console.log(data)
+
 
   return (
     <div>
