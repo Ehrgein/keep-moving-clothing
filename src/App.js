@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useContext, createContext, useLayoutEffect} from "react";
 import Home from "./pages/Home";
 import { useNavigate } from "react-router-dom"; 
-import {Routes, Route, useLocation} from 'react-router-dom'
+import {Routes, Route} from 'react-router-dom'
 import Products from "./pages/Products";
 import ProductCart from "./pages/ProductCart";
 import Login from "./pages/Login";
@@ -11,15 +11,14 @@ import CartContext from "./components/Cart/CartFunctionality";
 import Register from "./pages/Register";
 import Account from './pages/Account'
 import ProtectedRoutes from "./pages/ProtectedRoutes";
-import ProductsByBrand from "./components/Products/ProductsByBrand";
 import BrandProduct from './pages/BrandProduct'
 import ScrollToTop from "./components/ScrollToTop";
 import MyWishlist from './pages/MyWishlist'
 import AllBrands from "./pages/AllBrands";
 import MyOrders from "./pages/MyOrders";
 import OrdersInfo from "./pages/OrdersInfo";
-import ProductsByName from "./pages/ProdsByName";
 import ProdsByName from "./pages/ProdsByName";
+import PageNotFound from "./pages/PageNotFound";
 
 
 export const ProductsContext = React.createContext()
@@ -117,6 +116,7 @@ useEffect(() => {
             <ScrollToTop/>
               <Routes>
                 <Route path='/' element={<Home/>}> </Route>
+                <Route path='/*' element={<PageNotFound/>}/>
                 <Route path='products/:productscategory' element={<Products/>}/> 
                 <Route path='brands' element={<AllBrands/>}/>
                 <Route path='newarrivals' element={<NewArrivals/>}/>
