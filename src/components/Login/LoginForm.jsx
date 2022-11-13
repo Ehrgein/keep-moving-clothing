@@ -1,8 +1,6 @@
 import React, {useState, useEffect, createContext, useContext} from 'react'
-import {BsGoogle, } from 'react-icons/bs'
-import {IconContext} from 'react-icons'
 import axios from 'axios'
-import { Link, redirect, useNavigate, Navigate} from 'react-router-dom'
+import { Link, useNavigate} from 'react-router-dom'
 import { UserContext } from '../../App'
 
 function LoginForm() {
@@ -71,14 +69,3 @@ function LoginForm() {
 export default LoginForm
 
 
-
-
-
-{/* <div className='flex bg-[#dd4b39] h-[50px] w-[400px] mt-4 rounded-md'>
-<IconContext.Provider value={{ color: "white"}}>                
-    <BsGoogle className='ml-2 my-1 ' size={35}/> 
-</IconContext.Provider>
-<h1 className='ml-2 text-white text-start text-xl  px-2 py-2 bg-[#DE1B1B] w-full rounded-md'>
-Sign in with Google
-</h1>
-</div> */}

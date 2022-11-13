@@ -1,5 +1,5 @@
 import React, {useState, useContext} from 'react'
-import {AiOutlineShoppingCart, AiOutlineHeart} from 'react-icons/ai'
+import {AiOutlineHeart} from 'react-icons/ai'
 import { VscAccount } from 'react-icons/vsc'
 import { Link } from 'react-router-dom'
 import Hamburger from './Hamburger'
@@ -13,8 +13,7 @@ function MobileHeader() {
     const [nav, setNav] = useState(false);
     const handleNav = () => setNav(!nav);
     
-    const usercontext = useContext(UserContext)
-
+    
   return (
     <div>
       <div className="laptopL:hidden flex justify-between items-center mobilem: mobilexs:h-16 bg-black text-white mx-auto sticky z-10 top-0">

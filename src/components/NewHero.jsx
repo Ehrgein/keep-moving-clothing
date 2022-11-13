@@ -1,8 +1,7 @@
-import React, {useState, useContext, Suspense} from 'react'
+import React, {useState} from 'react'
 import glasses1 from '../assets/touseglassesopt.webp'
 import glasses2 from '../assets/touseglasses2opt.webp'
 import {Link} from 'react-router-dom'
-import { BrandsContext, ProductsContext } from '../App';
 import northface from '../assets/northfacemobile.webp'
 
 

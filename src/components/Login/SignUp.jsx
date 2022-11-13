@@ -1,9 +1,6 @@
-import React, {useState, useRef, useEffect} from 'react'
-import {BsGoogle, } from 'react-icons/bs'
-import {IconContext} from 'react-icons'
+import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
-import CheckoutModal from '../CheckoutModal'
 
 
 function SignUp() {
@@ -14,9 +11,6 @@ function SignUp() {
     const [isSubmit, setIsSubmit] = useState(false)
     const [duplicateuser, setDuplicateuser] = useState("")
 
-
-
- 
 
 
     const handleChange = (e) => {
@@ -132,28 +126,3 @@ function SignUp() {
 export default SignUp
 
 
-
-
-
-
-
-
-
-// const handleRegister = (event) => {
-//     axios.post("http://localhost:3001/userdata", {
-//         username: username,
-//         password: password,
-//         email: email,
-//     }).then((response) =>{
-//         console.log(response);
-//         event.preventDefault()
-//         // event.target.reset()
-//         nameRef.current.value = ''
-//         passwordRef.current.value = ''
-//         mailRef.currentvalue = ''
-//         console.log(username)
-//     })
-// }
-
-{/* <input ref={mailRef} name="email" onChange={(e) => {setEmailReg(e.target.value)}} placeholder='Email' className='pl-2 inpborder mt-2 h-14'/>
-<button  type="submit" className='text-xl uppercase font-sans tracking-wide'>create</button> */}

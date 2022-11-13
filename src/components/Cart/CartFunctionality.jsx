@@ -1,5 +1,4 @@
 import React, {createContext, useContext, useState, useEffect} from 'react'
-import { json } from 'react-router-dom'
 import {ProductsContext} from '../../App'
 
 
@@ -23,7 +22,7 @@ export const CartContext = createContext({
 })
 
 
-const cartitemsLocal = JSON.parse(localStorage.getItem("cart")) // "[]11" 
+const cartitemsLocal = JSON.parse(localStorage.getItem("cart")) 
 const wishlistitemsLocal = JSON.parse(localStorage.getItem("wish")) 
 
 function CartFunctionality({children}) {

@@ -1,8 +1,8 @@
 import React from 'react'
 import {RiArrowRightSLine} from 'react-icons/ri'
 import {SiVisa, SiMastercard, SiDiscover} from 'react-icons/si'
-import {FaCcPaypal, FaTiktok, FaCcMastercard} from 'react-icons/fa'
-import { BsPaypal, BsTwitter, BsFacebook, BsInstagram } from 'react-icons/bs'
+import {FaCcPaypal, FaTiktok} from 'react-icons/fa'
+import {BsTwitter, BsFacebook, BsInstagram } from 'react-icons/bs'
 
 function NewsLetter() {
   return (
@@ -126,7 +126,3 @@ function NewsLetter() {
 
 export default NewsLetter
 
-{/* <div className='flex border-white'>
-<input placeholder='Enter your Email' className='h-12 desktop:w-96 laptopL:w-60 md:w-48 text-black text-lg pl-2'/>
-
-</div> */}

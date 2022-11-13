@@ -9,7 +9,6 @@ function BrandList() {
     const onlybrands = brands?.map(item => item.brand)
 
 
-
     const listedbrands = []
 
     onlybrands?.forEach(brand => {

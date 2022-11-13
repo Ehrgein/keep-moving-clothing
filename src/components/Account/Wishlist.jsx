@@ -2,7 +2,6 @@ import React, {useState, useContext} from 'react'
 import { AiOutlineHeart} from 'react-icons/ai'
 import { FiHeart } from 'react-icons/fi'
 import { CartContext } from '../Cart/CartFunctionality'
-import DesktopHeader from '../DesktopHeader'
 import {Link} from 'react-router-dom'
 
 function Wishlist() {
@@ -10,7 +9,6 @@ function Wishlist() {
   const cart = useContext(CartContext)
 
   
-
   console.log(cart.wishitems)
   
   const addWish = (id) => {
@@ -20,7 +18,6 @@ function Wishlist() {
 
   }
 
-  
   
   return (
     

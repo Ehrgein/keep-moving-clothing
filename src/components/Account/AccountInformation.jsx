@@ -3,7 +3,6 @@ import { ProductsContext, UserContext } from '../../App'
 import {VscAccount} from 'react-icons/vsc'
 import axios from 'axios'
 import {useNavigate, Link} from 'react-router-dom'
-import { useEffect } from 'react'
 
 
 
@@ -11,8 +10,6 @@ function AccountInformation() {
 
   
 
-    
-    const productspurchased = useContext(ProductsContext)
 
     const usercontext = useContext(UserContext)
 
@@ -66,12 +63,3 @@ function AccountInformation() {
 
 export default AccountInformation
 
-{/* <div className='flex w-[900px] h-auto mx-12 justify-start py-4 pr-4 text-center'>
-<div className='flex w-auto h-auto pl-8  mt-4 flex-col'>
-    <img className='w-[120px] h-[120px]' src={productspurchased[35]?.prod_img}/>
-    <h1 className='flex capitalize text-center'>{productspurchased[35]?.name}</h1>
-    <h1 className='flex capitalize text-center'>{productspurchased[35]?.brand}</h1>
-    <h1 className='flex capitalize'>$ {productspurchased[35]?.price}</h1>
-    <button>View Purchase ticket</button>
-</div>
-</div> */}

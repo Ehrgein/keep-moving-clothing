@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
-import { MdOutlineKeyboardArrowDown } from "react-icons/md";
-import { IconContext } from "react-icons";
 import {Link } from "react-router-dom"
-import {ProductsContext, CategoriesContext} from '../App'
+import {ProductsContext} from '../App'
 import {CartContext} from './Cart/CartFunctionality'
 
 

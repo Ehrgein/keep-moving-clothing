@@ -1,9 +1,7 @@
 import React, { useState, useContext } from "react";
-import {AiOutlineClose, AiOutlineRight, AiOutlineShop, AiOutlineShopping, AiOutlineShoppingCart} from 'react-icons/ai'
-import {CategoriesContext, productscontext} from '../App'
+import {AiOutlineClose} from 'react-icons/ai'
+import {CategoriesContext} from '../App'
 import {Link} from 'react-router-dom'
-import {BsArrowRightShort} from 'react-icons/bs'
-import {VscAccount} from 'react-icons/vsc'
 
 
 function HamburgerMenuList({key, nav, handleNav}) {

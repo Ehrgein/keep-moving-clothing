@@ -1,13 +1,8 @@
 import React, {useState, useContext, useEffect} from 'react'
 import { AiOutlineHeart} from 'react-icons/ai'
-import { FiHeart } from 'react-icons/fi'
-import { CartContext } from '../Cart/CartFunctionality'
-import DesktopHeader from '../DesktopHeader'
 import {Link} from 'react-router-dom'
 import { UserContext } from '../../App'
 import axios from 'axios'
-import moment from 'moment'
-
 function Wishlist() {
 
     const [data, setData] = useState([])
@@ -25,15 +20,6 @@ function Wishlist() {
   }, [])
 
 
-
-
-    
-
-
-
-
-
-  
 
   return (
     

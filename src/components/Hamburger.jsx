@@ -22,5 +22,3 @@ function Hamburger({ nav, handleNav }) {
 }
 
 export default Hamburger;
-
-// DO LIST RENDERING TOMORROW

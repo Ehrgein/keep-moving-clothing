@@ -8,10 +8,6 @@ function BrandDropDown() {
     const handleBrand = () => setBrandNav(!brandnav)
     const brands = useContext(BrandsContext)
 
-
-
-  
-  
     const handleSubFalse = () => setBrandNav(false)
   
   

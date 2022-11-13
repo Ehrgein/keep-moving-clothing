@@ -1,4 +1,4 @@
-import React, { useContext, Suspense, useState} from "react";
+import React, { useContext} from "react";
 import NewArrivalsHome from "./NewArrivalsHome";
 import {ProductsContext} from '../App'
 import MobileMenWomen from "./MobileMenWomen";

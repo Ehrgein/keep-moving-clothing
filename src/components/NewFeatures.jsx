@@ -8,7 +8,6 @@ function NewFeatures({img1, img2, img3}) {
 
         <div>
             <div className="flex flex-grow w-full 4k:h-[800px] desktop:h-[600px] laptopL:h-[550px] laptop:h-[512px]">
-
                 <div className="relative tablet:hidden laptopL:block w-[33%] 4k:h-auto desktop:h-[600px] laptopL:h-[550px] laptop:h-[500px]
                  mx-1">
                     <span className="midtext text-white 4k:text-4xl desktop:text-3xl laptopL:text-3xl laptop:text-3xl capitalize" >

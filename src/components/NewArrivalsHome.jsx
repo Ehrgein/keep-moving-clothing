@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import {Link} from 'react-router-dom'
-import {ProductsContext, CategoriesContext} from '../App'
+import {ProductsContext} from '../App'
 import {motion} from 'framer-motion'
 
 function NewArrivalsHome() {

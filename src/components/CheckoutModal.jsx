@@ -2,12 +2,10 @@ import React, {useContext} from 'react'
 import {motion} from 'framer-motion'
 import { Link } from 'react-router-dom'
 import {FcCheckmark} from 'react-icons/fc'
-import { UserContext } from '../App'
 
 function CheckoutModal({purchasemodal, setonPurchasemodal}) {
     
   
-
   return (
     
     <div className='checkoutmodal fixed  inset-0 z-55 overflow-y-scroll'>

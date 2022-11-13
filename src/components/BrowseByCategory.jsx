@@ -9,7 +9,6 @@ import {CategoriesContext} from '../App'
 import {Link} from 'react-router-dom'
 
 
-
 function BrowseByCategory() {
 
   const categoriescontext = useContext(CategoriesContext)

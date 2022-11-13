@@ -1,13 +1,11 @@
 import React, {useState, useContext} from 'react'
-import {Link, useNavigate} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import Sliderbar from './Sliderbar'
-import {AiOutlineSearch, AiOutlineHeart, AiOutlineShoppingCart} from 'react-icons/ai'
-import {BrandsContext, CategoriesContext, UserContext} from '../App'
-import HeaderDropdown from './HeaderDropdown'
+import {AiOutlineHeart} from 'react-icons/ai'
+import {UserContext} from '../App'
 import BrandDropDown from './BrandDropDown'
 import CartSlider from './Cart/CartSlider'
 import {CartContext} from '../components/Cart/CartFunctionality'
-import axios from 'axios'
 import { VscAccount } from 'react-icons/vsc'
 import SearchBar from './SearchBar'
 
@@ -25,9 +23,6 @@ function DesktopHeader() {
 
 
     const validateroute = usercontext.isLoggedIn == true ? "/account" : "/login"
-
-
-
 
 
   return (
