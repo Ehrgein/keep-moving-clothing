@@ -152,13 +152,13 @@ function CartFunctionality({children}) {
 
         let totalcost = 0
 
-        cartProducts ? cartProducts.map(cartitem => {
-            totalcost += (cartitem.price * cartitem.quantity)
+        cartProducts?.map(cartitem => {
+            totalcost += cartitem.price * cartitem.quantity    
         })
-        :
-        null
-
         return totalcost
+        
+        
+        
     }
     
 

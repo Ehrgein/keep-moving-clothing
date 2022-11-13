@@ -31,6 +31,9 @@ function CartSlider() {
   const values = idsquant.map(Object.values)
 
 
+  
+
+
   const handleCheckout = () => {
     if (cart.items.length > 0 ) {
     axios.post("http://localhost:3001/checkout", {
@@ -52,8 +55,6 @@ function CartSlider() {
     }
     
   } 
-
-
 
 
 

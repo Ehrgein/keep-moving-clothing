@@ -55,7 +55,6 @@ function App() {
   const usercontext = useContext(UserContext)
   const cartcontext = useContext(CartContext)
 
-  console.log
 
 
 

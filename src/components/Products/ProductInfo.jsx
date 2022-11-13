@@ -33,16 +33,10 @@ function ProductInfo() {
 
     useEffect(() => {
 
-      setwishList[wishstatus]
+      setwishList(wishstatus)
         
     }, [cart.wishitems])  
  
-
-
-
-
-
-
 
   return (
     <div className=''> 
