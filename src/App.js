@@ -101,18 +101,14 @@ useEffect(() => {
 }, [user, isLoggedIn])
 
 
-
-
-  
-
   const contextvalue = {user, userid, isLoggedIn, setUser, setUserId, setIsLoggedIn}
-
   
+
 
   return (
     
 
-    <div className='opacity-changer'>
+    <div>
       <UserContext.Provider value={contextvalue}>
         <BrandsContext.Provider value={allbrands}>
         <ProductsContext.Provider value={newproducts}>
