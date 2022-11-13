@@ -25,11 +25,11 @@ import {motion} from 'framer-motion'
           <motion.div drag="x"
           dragConstraints={{right:0, left:-width}} className='inner-carousel'>
             {contextproducts.filter(item => item.categories == props).slice(0, 11).map(item => 
-            <motion.div className='flex flex-col uppercase justify-center 4k:w-[400px] 4k:h-[400px] desktop:w-[390px] desktop:h-[390px]  laptopL:w-[330px] laptopL:h-[330px] laptop:w-[310px] laptop:h-[310px] md:w-[300px] md:h-[300px]
-            4k:my-20 4k:mx-16 desktop:mx-12 desktop:mt-14 text-sm laptopL:mx-12 laptopL:mt-8 laptop:mx-4 laptop:mt-8 md:mt-8 md:mx-2 mb-4 items-center ml-6'
+            <motion.div className='flex flex-col uppercase justify-center 4k:w-[400px] 4k:h-[400px] desktop:w-[370px] desktop:h-[380px]  laptopL:w-[330px] laptopL:h-[330px] laptop:w-[310px] laptop:h-[310px] md:w-[300px] md:h-[300px]
+            4k:my-20 4k:mx-16 desktop:mx-18 desktop:mt-14 text-sm laptopL:mx-12 laptopL:mt-8 laptop:mx-4 laptop:mt-8 md:mt-8 md:mx-2 mb-4 items-center ml-6'
             key={item.id} categories={item.categories} itemname={item.name} itemprice={item.price} itemimg={item.prod_img} >
           
-              <motion.div className='4k:w-[350px] 4k:h-[350px] desktop:w-[340px] desktop:h-[340px] laptopL:w-[250px] laptopL:h-[250px]
+              <motion.div className='4k:w-[350px] 4k:h-[350px] desktop:w-[300px] desktop:h-[300px] laptopL:w-[250px] laptopL:h-[250px]
                laptop:w-[220px] laptop:h-[220px] md:w-[230px] md:h-[230px]'>
                 <Link to={`/products/${item.categories}/${item.id}`}>
                   <img alt={`${item.name} ${item.brand} ${item.price}`}

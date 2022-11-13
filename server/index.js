@@ -13,7 +13,7 @@ const saltRounds = 10
 const db = mysql.createConnection({
     host:"localhost",
     user: "root",
-    password: "asdwow123",
+    password: "dbpassword",
     database: "ecommerce_db",
     multipleStatements: true
 })
