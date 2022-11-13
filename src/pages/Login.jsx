@@ -7,7 +7,7 @@ import { useNavigate} from 'react-router-dom'
 import Account from './Account'
 import AccountInformation from '../components/Account/AccountInformation'
 
-function login() {
+function Login() {
 
     const status = useContext(UserContext)  
 
@@ -23,4 +23,4 @@ function login() {
   )
 }
 
-export default login
+export default Login
