@@ -55,11 +55,10 @@ function App() {
 
   axios.defaults.withCredentials = true;
 
-  const prodreq = axios.get("/products");
-  const catreq = axios.get("/categories");
-  const brandsreq = axios.get("/brands");
+  const prodreq = axios.get("http://localhost:3001/products");
+  const catreq = axios.get("http://localhost:3001/categories");
+  const brandsreq = axios.get("http://localhost:3001/brands");
 
-  
   const fetchAllProducts = async () => {
     try {
       await axios.all([prodreq, catreq, brandsreq]).then(
@@ -81,7 +80,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    axios.get("/login").then((response) => {
+    axios.get("http://localhost:3001/login").then((response) => {
       if (response.data.loggedIn) {
         setIsLoggedIn(true);
         setUserId(response.data.user[0].id);

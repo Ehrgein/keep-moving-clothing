@@ -215,5 +215,3 @@ app.post("/login", (req, res) => {
 app.listen(3001, () => {
   console.log("Connected to backend!");
 });
-
-module.exports = app;
