@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(
   cors({
     credentials: true,
-    origin: "keepmovingclothing.vercel.app",
+    origin: "localhost",
     methods: ["GET", "POST"],
   })
 );
