@@ -75,7 +75,7 @@ function Contentone() {
           </h2>
         </div>
         <div className="flex flex-wrap justify-center columns-2 mb-6">
-          {productscontext
+          {/* {productscontext
             ?.slice(-4)
             ?.reverse()
             ?.map((item) => (
@@ -109,7 +109,7 @@ function Contentone() {
                   </button>
                 </div>
               </div>
-            ))}
+            ))} */}
         </div>
         <MobileMenWomen />
         <BrowseByCategory />

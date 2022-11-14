@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function HamburgerMenuList({ key, nav, handleNav }) {
 
-  
+
   const arrowcategories = useContext(CategoriesContext);
   const [menuarrow, setMenu] = useState(false);
 
@@ -33,7 +33,7 @@ function HamburgerMenuList({ key, nav, handleNav }) {
             Brands
           </h1>
         </Link>
-        {arrowcategories?.map((item) => (
+        {/* {arrowcategories?.map((item) => (
           <div
             key={item.id}
             className="flex items-center topblack justify-between"
@@ -44,7 +44,7 @@ function HamburgerMenuList({ key, nav, handleNav }) {
               </h1>
             </Link>
           </div>
-        ))}
+        ))} */}
         <Link className="flex items-center topblack" to="/brands">
           <h1 className="flex pl-2 text-lg font-bold py-2 w-[100%] uppercase tracking-widest">
             Sale
