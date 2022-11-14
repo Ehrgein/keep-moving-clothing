@@ -15,7 +15,7 @@ import {
 
 const app = express();
 const saltRounds = 10;
-
+ 
 const db = mysql.createConnection({
   user: DB_USER,
   password: DB_PASSWORD,
