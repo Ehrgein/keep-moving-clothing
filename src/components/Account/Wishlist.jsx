@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, {useContext} from 'react'
 import { AiOutlineHeart} from 'react-icons/ai'
 import { FiHeart } from 'react-icons/fi'
 import { CartContext } from '../Cart/CartFunctionality'
@@ -9,8 +9,7 @@ function Wishlist() {
   const cart = useContext(CartContext)
 
   
-  console.log(cart.wishitems)
-  
+
   const addWish = (id) => {
 
     cart.addOneToCart(id)

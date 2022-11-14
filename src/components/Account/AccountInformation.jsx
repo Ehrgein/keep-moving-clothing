@@ -1,5 +1,5 @@
-import React, {useContext, useState} from 'react'
-import { ProductsContext, UserContext } from '../../App'
+import React, {useContext} from 'react'
+import {UserContext } from '../../App'
 import {VscAccount} from 'react-icons/vsc'
 import axios from 'axios'
 import {useNavigate, Link} from 'react-router-dom'

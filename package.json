@@ -1,6 +1,6 @@
 {
   "name": "clothing_store",
-  "homepage": ".",
+  "homepage": "https://keepmovingclothing.vercel.app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
