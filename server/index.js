@@ -25,6 +25,8 @@ const db = mysql.createConnection({
   multipleStatements: true,
 });
 
+
+
 app.use(express.json());
 app.use(
   cors({
