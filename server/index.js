@@ -9,7 +9,7 @@ const app = express();
 const saltRounds = 10;
 
 const db = mysql.createConnection({
-  host: "https://keepmovingclothing.vercel.app/",
+  host: "keepmovingclothing.vercel.app",
   user: "root",
   password: "dbpassword",
   database: "ecommerce_db",
@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(
   cors({
     credentials: true,
-    origin: "https://keepmovingclothing.vercel.app",
+    origin: "keepmovingclothing.vercel.app",
     methods: ["GET", "POST"],
   })
 );
