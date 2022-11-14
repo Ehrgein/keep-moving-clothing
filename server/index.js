@@ -9,7 +9,7 @@ const app = express();
 const saltRounds = 10;
 
 const db = mysql.createConnection({
-  host: "localhost",
+  host: "/",
   user: "root",
   password: "dbpassword",
   database: "ecommerce_db",
@@ -93,7 +93,6 @@ app.get("/categories", (req, res) => {
 });
 
 app.post("/userdata", (req, res) => {
-  
   const username = req.body.username;
   const password = req.body.password;
   const email = req.body.email;

@@ -82,7 +82,7 @@ function Contentone() {
         </h2>
       </div>
       <div className="flex flex-wrap justify-center columns-2 mb-6">
-          {productscontext.slice(-4).reverse().map(item => 
+          {productscontext?.slice(-4).reverse().map(item => 
           <div key={item.id} className="flex flex-wrap flex-col mobileL:w-[170px] mobilem:w-[150px] fold:w-[130px] mobileL:mx-2 fold:mx-3">
               <Link to={`products/${item.categories}/${item.id}`}>
                 <img className="mobileL:h-40 mobileL:w-40 mobilem:h-36 mobilem:w-36 fold:w-[130px] fold:h-[130px] my-4" src={item.prod_img} />
