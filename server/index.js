@@ -217,6 +217,3 @@ app.listen(3001, () => {
 });
 
 module.exports = app;
-
-// SELECT  p.id, p.prod_img, p.price, p.name, c.quantity, c.purchase_id, c.product_id
-// FROM  purchases_products c JOIN products p on p.id = c.product_id
