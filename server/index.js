@@ -9,7 +9,7 @@ const app = express();
 const saltRounds = 10;
 
 const db = mysql.createConnection({
-  host: "kmcclothingapi",
+  host: "keepmovingclothing.vercel.app",
   user: "root",
   password: "dbpassword",
   database: "ecommerce_db",
@@ -215,6 +215,8 @@ app.post("/login", (req, res) => {
 app.listen(3001, () => {
   console.log("Connected to backend!");
 });
+
+module.exports = app;
 
 // SELECT  p.id, p.prod_img, p.price, p.name, c.quantity, c.purchase_id, c.product_id
 // FROM  purchases_products c JOIN products p on p.id = c.product_id
