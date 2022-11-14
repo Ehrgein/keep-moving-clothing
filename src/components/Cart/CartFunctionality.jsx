@@ -53,7 +53,7 @@ function CartFunctionality({children}) {
     const openCart = () => setCart(true)
 
     function getProductData(id) {
-        let productData = productscontext.find(product => product.id === id) 
+        let productData = productscontext?.find(product => product.id === id) 
         if (productData == undefined){
             console.log("Product data does not exist for ID" +id)
             return undefined
@@ -65,7 +65,7 @@ function CartFunctionality({children}) {
 
     function getProductQuantity(id) {
         
-        const quantity = cartProducts.find(product => product.id === id)?.quantity
+        const quantity = cartProducts?.find(product => product.id === id)?.quantity
 
         if (quantity === undefined) {
             return 0;
@@ -77,7 +77,7 @@ function CartFunctionality({children}) {
 
     function getWishQuantity(id) {
         
-        const quantity = wishlist.find(product => product.id === id)?.quantity
+        const quantity = wishlist?.find(product => product.id === id)?.quantity
 
         if (quantity === undefined) {
             return 0;
@@ -92,7 +92,7 @@ function CartFunctionality({children}) {
     function addOneToCart(id) { // 61 
 
         const quantity = getProductQuantity(id);
-        const fullitem = productscontext.filter(item => item.id == id)
+        const fullitem = productscontext?.filter(item => item.id == id)
 
 
 
@@ -117,7 +117,7 @@ function CartFunctionality({children}) {
             ) 
         } else {           
             setCartProducts(
-                cartProducts.map(
+                cartProducts?.map(
                     product =>
                     
                     product.id === id
@@ -137,7 +137,7 @@ function CartFunctionality({children}) {
             deleteFromCart(id);
         } else{
             setCartProducts(
-                    cartProducts.map(
+                    cartProducts?.map(
                         product =>
                         product.id === id                               
                         ? {...product, quantity: product.quantity -1}  
@@ -166,7 +166,7 @@ function CartFunctionality({children}) {
 
         setCartProducts(
             cartProducts =>
-            cartProducts.filter(currentProduct => {
+            cartProducts?.filter(currentProduct => {
                 return currentProduct.id != id;
             })                                              
         )
@@ -178,7 +178,7 @@ function CartFunctionality({children}) {
         
 
         const quantity = getWishQuantity(id);
-        const fullitem = productscontext.filter(item => item.id == id)
+        const fullitem = productscontext?.filter(item => item.id == id)
 
         if (quantity == 0) {
         setwishList(
@@ -206,7 +206,7 @@ function CartFunctionality({children}) {
 
         setwishList(
             wishlist =>
-            wishlist.filter(currentwishitem=> {
+            wishlist?.filter(currentwishitem=> {
                 return currentwishitem.id != id;
             })                                              
         )

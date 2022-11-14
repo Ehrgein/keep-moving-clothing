@@ -27,7 +27,7 @@ function ProductInfo() {
 
 
       
-    const filtered = cart.wishitems.filter(item => item.id == productinfo)
+    const filtered = cart.wishitems?.filter(item => item.id == productinfo)
 
 
 
@@ -35,13 +35,13 @@ function ProductInfo() {
 
       setwishList(wishstatus)
         
-    }, [cart.wishitems])  
+    }, [cart?.wishitems])  
  
 
   return (
     <div className=''> 
         <div className='hidden laptop:flex w-full h-auto bg-white flex-col items-center 4k:items-center mt-10 desktop:mt-20 desktop:mb-20 mb-10 ml-14'>
-            {productscontext.map(item => (
+            {productscontext?.map(item => (
             item.id == productinfo ? 
             <div key={item.id} className='flex'>
                 <div className='flex justify-center w-[75%] flex-grow'>
