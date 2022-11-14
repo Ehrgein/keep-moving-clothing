@@ -15,7 +15,7 @@ const db = mysql.createConnection({
   database: "ecommerce_db",
   multipleStatements: true,
 });
-
+   
 app.use(express.json());
 app.use(
   cors({
