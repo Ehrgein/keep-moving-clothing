@@ -32,10 +32,13 @@ function CartSlider() {
   const handleCheckout = () => {
     if (cart.items.length > 0) {
       axios
-        .post("http://localhost:3001/checkout", {
-          userid: usercontext.userid,
-          values: values,
-        })
+        .post(
+          "https://clothingstorebackend-production.up.railway.app/checkout",
+          {
+            userid: usercontext.userid,
+            values: values,
+          }
+        )
         .then((response) => {
           if (response.status === 200 && usercontext.user) {
             seterrorMsg("");

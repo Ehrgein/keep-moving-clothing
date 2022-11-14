@@ -55,9 +55,15 @@ function App() {
 
   axios.defaults.withCredentials = true;
 
-  const prodreq = axios.get("http://localhost:3001/products");
-  const catreq = axios.get("http://localhost:3001/categories");
-  const brandsreq = axios.get("http://localhost:3001/brands");
+  const prodreq = axios.get(
+    "https://clothingstorebackend-production.up.railway.app/products"
+  );
+  const catreq = axios.get(
+    "https://clothingstorebackend-production.up.railway.app/categories"
+  );
+  const brandsreq = axios.get(
+    "https://clothingstorebackend-production.up.railway.app/brands"
+  );
 
   const fetchAllProducts = async () => {
     try {
@@ -80,7 +86,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    axios.get("http://localhost:3001/login").then((response) => {
+    axios.get("https://clothingstorebackend-production.up.railway.app/login").then((response) => {
       if (response.data.loggedIn) {
         setIsLoggedIn(true);
         setUserId(response.data.user[0].id);

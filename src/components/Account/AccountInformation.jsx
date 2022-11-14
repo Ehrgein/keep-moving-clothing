@@ -16,7 +16,7 @@ function AccountInformation() {
     const navigate = useNavigate()
     
     const handleLogout = () => {
-        axios.get("http://localhost:3001/logout").then((response)=>{
+        axios.get("https://clothingstorebackend-production.up.railway.app/logout").then((response)=>{
             usercontext.setIsLoggedIn(false)
             navigate("/login")
             window.location.reload()

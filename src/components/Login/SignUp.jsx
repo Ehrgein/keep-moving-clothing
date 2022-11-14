@@ -51,11 +51,14 @@ function SignUp() {
       formvalues.email.length > 1
     ) {
       axios
-        .post("http://localhost:3001/userdata", {
-          username: formvalues.username,
-          password: formvalues.password,
-          email: formvalues.email,
-        })
+        .post(
+          "https://clothingstorebackend-production.up.railway.app/userdata",
+          {
+            username: formvalues.username,
+            password: formvalues.password,
+            email: formvalues.email,
+          }
+        )
         .then((response) => {
           console.log(response);
           console.log(response.data.errno); // 1062

@@ -15,7 +15,7 @@ function LoginForm() {
 
   const handleLogin = () => {
     axios
-      .post("http://localhost:3001/login", {
+      .post("https://clothingstorebackend-production.up.railway.app/login", {
         username: username,
         password: password,
       })
