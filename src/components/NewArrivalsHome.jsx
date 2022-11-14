@@ -27,7 +27,7 @@ function NewArrivalsHome() {
           dragConstraints={{ right: 0, left: -width }}
           className="inner-carousel ml-6"
         >
-          {productscontext?.slice(-13).map((item) => (
+          {productscontext?.slice(-13)?.map((item) => (
             <motion.div
               className="flex flex-col uppercase justify-center 4k:w-[400px] 4k:h-[400px] desktop:w-[370px] desktop:h-[380px]  laptopL:w-[330px] laptopL:h-[330px] laptop:w-[310px] laptop:h-[310px] md:w-[300px] md:h-[300px]
             4k:my-20 4k:mx-12 desktop:mx-18 desktop:mt-12 text-sm laptopL:mx-4 laptop:mx-3 tablet:mx-2 laptop:mt-8 md:mt-8 mb-4 items-center"
