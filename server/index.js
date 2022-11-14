@@ -4,15 +4,24 @@ import cors from "cors";
 import bcrypt from "bcrypt";
 import cookieParser from "cookie-parser";
 import session from "express-session";
+import {
+  PORT,
+  DB_HOST,
+  DB_NAME,
+  DB_PASSWORD,
+  DB_PORT,
+  DB_USER,
+} from "./config.js";
 
 const app = express();
 const saltRounds = 10;
 
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "dbpassword",
-  database: "ecommerce_db",
+  user: DB_USER,
+  password: DB_PASSWORD,
+  host: DB_HOST,
+  port: DB_PORT,
+  database: DB_NAME,
   multipleStatements: true,
 });
 
@@ -20,7 +29,7 @@ app.use(express.json());
 app.use(
   cors({
     credentials: true,
-    origin: "https://keepmovingclothing.vercel.app",
+    origin: "http://localhost:3000",
     methods: ["GET", "POST"],
   })
 );
@@ -212,6 +221,6 @@ app.post("/login", (req, res) => {
   );
 });
 
-app.listen(3001, () => {
-  console.log("Connected to backend!");
+app.listen(PORT, () => {
+  console.log("Connected to backend!", PORT);
 });
