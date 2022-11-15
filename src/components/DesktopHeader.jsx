@@ -36,25 +36,41 @@ function DesktopHeader() {
         </div>
         <div className="hidden md:flex 4k:text-xl desktop:headerfont laptop:text-lg sticky tracking-widest bg-black text-white justify-center mt-4 h-10 items-center font-normal md:gap-3 gap-6  uppercase">
           <BrandDropDown onClick={() => cart.closeCart()} />
-          <Link onClick={() => cart.closeCart()} to="/newarrivals">
-            <p>LATEST</p>
-          </Link>
-          <Link onClick={() => cart.closeCart()} to="/products/tops">
-            <p>TOPS</p>
-          </Link>
-          <Link onClick={() => cart.closeCart()} to="/products/outerwear">
-            <p>OUTERWEAR</p>
-          </Link>
-          <Link onClick={() => cart.closeCart()} to="/products/bottoms">
-            <p>BOTTOMS</p>
-          </Link>
-          <Link onClick={() => cart.closeCart()} to="/products/sneakers">
-            <p>SNEAKERS</p>
-          </Link>
-          <Link onClick={() => cart.closeCart()} to="/products/accesories">
-            <p>ACCESORIES</p>
-          </Link>
-          <p>SALE</p>
+          <div>
+            <button onClick={() => cart.closeCart()}>
+              <Link to="/newarrivals">LATEST</Link>
+            </button>
+          </div>
+          <div>
+            <button onClick={() => cart.closeCart()}>
+              <Link to="/products/tops">TOPS</Link>
+            </button>
+          </div>
+          <div>
+            <button onClick={() => cart.closeCart()}>
+              <Link to="/products/outerwear">OUTERWEAR</Link>
+            </button>
+          </div>
+          <div>
+            <button onClick={() => cart.closeCart()}>
+              <Link to="/products/bottoms">BOTTOMS</Link>
+            </button>
+          </div>
+          <div>
+            <button onClick={() => cart.closeCart()}>
+              <Link to="/products/sneakers">SNEAKERS</Link>
+            </button>
+          </div>
+          <div>
+            <button onClick={() => cart.closeCart()}>
+              <Link to="/products/accesories">ACCESORIES</Link>
+            </button>
+          </div>
+          <div>
+            <button onClick={() => cart.closeCart()}>
+              <Link to="/">SALE</Link>
+            </button>
+          </div>
         </div>
         <div className="flex ml-6 justify-end w-auto items-center mt-4 font-semibold tracking-[2px] pr-4 mr-4 text-xs gap-4">
           <SearchBar className="cursor-pointer" />
