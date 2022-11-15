@@ -1,8 +1,6 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 
 .arrow {
   color: white;
@@ -16,19 +14,20 @@
   transform: translate(-100vw, 0);
 }
 
+.headerfont {
+  font-size: 1.15rem;
+}
 
 .fade-anim {
   animation: fadeAnim 400ms ease-out;
 }
 
-
 .cart-anim {
   animation: fadeAnim 400ms ease-in;
   overflow-y: auto;
-
 }
 
-.maybemove{
+.maybemove {
   animation-timing-function: ease-in-out;
   animation-duration: 100ms;
 }
@@ -42,8 +41,6 @@
   }
 }
 
-
-
 @keyframes cartAnim {
   from {
     opacity: 0.4;
@@ -52,10 +49,6 @@
     opacity: 1;
   }
 }
-
-
-
-
 
 @keyframes slide {
   0% {
@@ -78,111 +71,103 @@
   }
 }
 
-.item{
+.item {
   min-width: 250px;
   min-height: 250px;
   padding: 1px;
 }
 
-.grabimg{
+.grabimg {
   cursor: pointer;
 }
 
-.inner-carousel{
+.inner-carousel {
   display: flex;
   width: 100%;
 }
 
-.carousel{
-  cursor:grab;
+.carousel {
+  cursor: grab;
   overflow: hidden;
   width: 4200px;
 }
 
-.carouselallitems{
-  cursor:grab;
+.carouselallitems {
+  cursor: grab;
   overflow: hidden;
   width: 5400px;
 }
 
-
-
-
-
-.brandborder{
+.brandborder {
   border-top: 1px solid #eee;
 }
 
-
-.headerborder{
-  border-bottom: 1px solid ;
-
+.headerborder {
+  border-bottom: 1px solid;
 }
 
-.inpborder{
+.inpborder {
   border: 1px solid #ccc;
 }
 
-.cartborder{
-
+.cartborder {
   border-top: 1px solid #ccc;
 }
 
-.botbordercustom{
+.botbordercustom {
   border-bottom: 1px solid #ccc;
 }
 
-.accountborder{
-  border-bottom : 1px solid #ccc;
+.accountborder {
+  border-bottom: 1px solid #ccc;
 }
 
-.cancelborder{
+.cancelborder {
   border-bottom: 0px solid#ccc;
 }
 
-.opaci{
+.opaci {
   opacity: 1;
 }
 
-.cartshadow{
+.cartshadow {
   box-shadow: 0 0 24px 0 rgba(0, 4, 10, 0.2);
 }
 
-.focussort{
+.focussort {
   border: red;
   border: 20px;
 }
 
-.bgparent{
+.bgparent {
   background: rgba(0, 0, 0, 0.9);
 }
 
-.checkoutmodal{
+.checkoutmodal {
   background: rgba(0, 0, 0, 0.6);
 }
 
 .bgchild {
-  background: rgb(255, 255, 255, 1)
+  background: rgb(255, 255, 255, 1);
 }
 
-.loadingsvg{
-
+.loadingsvg {
 }
 
-.topbotborder{
+.topbotborder {
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
 }
 
-.topblack{
+.topblack {
   border-top: 1px solid black;
 }
 
-.topborder{
+.topborder {
   border-top: 1px solid #ccc;
 }
 
-.menuborder{
+.menuborder {
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
   border-left: 1px solid #ccc;
@@ -190,21 +175,17 @@
   outline: none;
 }
 
-.bottomleftrightb{
+.bottomleftrightb {
   border-bottom: 1px solid #ccc;
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
 }
 
-.topleftrightborder{
+.topleftrightborder {
   border-top: 1px solid #ccc;
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
 }
-
-
-
-
 
 .midtext {
   position: absolute;
@@ -230,7 +211,7 @@
   height: 100%;
 }
 
-.desktopheader{
+.desktopheader {
   position: absolute;
   height: 60%;
   text-align: center;
@@ -242,8 +223,7 @@
   height: 100%;
 }
 
-
-.newintext{
+.newintext {
   position: absolute;
   height: 52%;
   text-align: center;
@@ -257,7 +237,7 @@
 
 .mainpicturemobile {
   position: absolute;
-  height:81%;
+  height: 81%;
   text-align: center;
   width: 100%;
 }
@@ -279,13 +259,11 @@
   height: 100%;
 }
 
-
 .shopnowcenter {
   position: absolute;
   top: 82%;
   text-align: center;
   width: 100%;
-
 }
 .shopwnocenter:before {
   content: "";
@@ -299,7 +277,6 @@
   text-align: center;
   width: 100%;
 }
-
 
 .category::before {
   content: "";
@@ -320,34 +297,28 @@
   transform: translate(-100vw, 0);
 }
 
-
 .hero img {
   animation-name: hero;
   animation-duration: 0.5s;
   animation-timing-function: ease-out;
 }
 
-.buttonfill{{
-  background: linear-gradient(to right, black 50%, white 50%);
-  background-size: 200% 100%;
-  background-position: right bottom;
-  transition: all .5s ease-out;
-}}
+.buttonfill {
+   {
+    background: linear-gradient(to right, black 50%, white 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: all 0.5s ease-out;
+  }
+}
 
-
-
-
-.heart{
+.heart {
   animation: heartbeat 1s infinite;
   fill: black;
   color: black;
   opacity: 1;
   transition: opacity 1000ms;
 }
-
-
-
-
 
 @keyframes slidetwo {
   0% {
@@ -371,18 +342,9 @@
   }
 }
 
-
-.scrollcart{
+.scrollcart {
   overflow-y: hidden;
 }
-
-
-
-
-
-
-
-
 
 html,
 body {
@@ -391,17 +353,9 @@ body {
   margin: 0px;
   padding: 0px;
   background: white;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   box-sizing: border-box;
   overflow-x: clip;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-
-
-
-
-
-
-
