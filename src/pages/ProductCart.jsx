@@ -1,16 +1,15 @@
 import React, { Suspense } from "react";
 import Header from "../components/Header";
 import Loading from "./Loading";
+import Recommended from "../components/Products/Recommended";
+import NewsLetter from "../components/NewsLetter";
 
-const LazyProductInfo = React.lazy(() =>
-  import("../components/Products/ProductInfo")
-);
-const LazyRecommended = React.lazy(() =>
-  import("../components/Products/Recommended")
-);
-
-const LazyNewsLetter = React.lazy(() => {
-  import("/components/NewsLetter");
+const LazyAllProdByCat = React.lazy(() => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(import("../components/Products/ProductInfo"));
+    }, 500);
+  });
 });
 
 function ProductCart() {
@@ -19,8 +18,8 @@ function ProductCart() {
       <Header />
       <Suspense fallback={<Loading />}>
         <LazyProductInfo />
-        <LazyRecommended />
-        <LazyNewsLetter />
+        <Recommended />
+        <NewsLetter />
       </Suspense>
     </div>
   );

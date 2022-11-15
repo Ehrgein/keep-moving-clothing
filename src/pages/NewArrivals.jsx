@@ -16,9 +16,10 @@ function NewArrivals() {
     <div>
       <Header />
       <Suspense fallback={<Loading />}>
-        <LazyAllNew />
-        <NewsLetter />
+        <LazyAllNew/>
+        <NewsLetter/>
       </Suspense>
+
     </div>
   );
 }
