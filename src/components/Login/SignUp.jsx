@@ -45,10 +45,13 @@ function SignUp() {
   };
 
   const handleRegister = () => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+
     if (
       formvalues.username.length &&
-      formvalues.password.length &&
-      formvalues.email.length > 1
+      formvalues.password.length > 1 &&
+      formvalues.email.length > 1 &&
+      regex.test(formvalues.email)
     ) {
       axios
         .post(
