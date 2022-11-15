@@ -61,7 +61,7 @@ function Recommended() {
             </div>
           ))}
       </div>
-      <div className="hidden md:flex justify-center mb-12">
+      <div className="hidden md:flex justify-center mb-12 border-2 border-black text-black bg-white">
         <Link
           onClick={() => cartcontext.closeCart()}
           to={`/products/${productscategory}`}
