@@ -28,7 +28,7 @@ function CheckoutModal({ purchasemodal, setonPurchasemodal }) {
             <h1 className="mt-3 4k:text-2xl desktop:text-xl laptopL:text-lg tablet:text-xl mobilexs:text-lg font-medium">
               You can find your purchase details
               <Link
-                className="text-[#0000FF] mobilexs:text-lg ml-2 4k:text-2xl desktop:text-xl"
+                className="underline mobilexs:text-lg ml-2 4k:text-2xl desktop:text-xl"
                 to={`/account/orders`}
               >
                 here
