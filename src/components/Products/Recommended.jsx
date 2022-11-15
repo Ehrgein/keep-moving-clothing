@@ -66,7 +66,7 @@ function Recommended() {
           onClick={() => cartcontext.closeCart()}
           to={`/products/${productscategory}`}
         >
-          <div className="flex bg-[#1f2021] text-white font-bold text-medium px-5 py-3 uppercase items-center">
+          <div className="flex bg-black text-white font-bold text-medium px-5 py-3 uppercase items-center">
             <HiOutlineArrowNarrowLeft className="mr-2" size={23} />
             <h1>Go back to {productscategory}</h1>
           </div>
