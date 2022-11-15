@@ -57,7 +57,7 @@ function DesktopHeader() {
           <p>SALE</p>
         </div>
         <div className="flex ml-6 justify-end w-auto items-center mt-4 font-semibold tracking-[2px] pr-4 mr-4 text-xs gap-4">
-          <SearchBar />
+          <SearchBar className="cursor-pointer" />
           <Link to={validateroute}>
             {" "}
             <VscAccount className="4k:w-[35px] 4k:h-[35px] desktop:w-[25px] desktop:h-[25px] laptopL:w-[22px] laptopL:h-[22px]" />{" "}
@@ -66,7 +66,7 @@ function DesktopHeader() {
             {" "}
             <AiOutlineHeart className="4k:w-[35px] 4k:h-[35px] desktop:w-[25px] desktop:h-[25px] laptopL:w-[22px] laptopL:h-[22px]" />
           </Link>
-          <CartSlider />
+          <CartSlider className="cursor-pointer" />
         </div>
       </div>
     </div>
