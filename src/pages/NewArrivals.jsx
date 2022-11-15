@@ -3,7 +3,13 @@ import Header from "../components/Header";
 import NewsLetter from "../components/NewsLetter";
 import Loading from "./Loading";
 
-const LazyAllNew = React.lazy(() => import("../components/Products/AllNew"));
+const LazyAllNew = React.lazy(() => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(import("../components/Products/AllNew"));
+    }, 500);
+  });
+});
 
 function NewArrivals() {
   return (
@@ -11,8 +17,8 @@ function NewArrivals() {
       <Header />
       <Suspense fallback={<Loading />}>
         <LazyAllNew />
+        <NewsLetter />
       </Suspense>
-      <NewsLetter />
     </div>
   );
 }

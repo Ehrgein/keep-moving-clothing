@@ -7,10 +7,9 @@ const LazyAllProdByCat = React.lazy(() => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(import("../components/Products/AllProdByCat"));
-    }, 1000);
+    }, 500);
   });
 });
-
 
 function Products() {
   return (
@@ -18,7 +17,7 @@ function Products() {
       <Header />
       <Suspense fallback={<Loading />}>
         <LazyAllProdByCat />
-        <NewsLetter />
+        <NewsLetter/>
       </Suspense>
     </div>
   );
