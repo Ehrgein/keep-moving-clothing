@@ -4,9 +4,14 @@ import NewsLetter from "../components/NewsLetter";
 import AllProdByCat from "../components/Products/AllProdByCat";
 import Loading from "./Loading";
 
-const LazyAllProdByCat = React.lazy(() =>
-  import("../components/Products/AllProdByCat")
-);
+const LazyAllProdByCat = React.lazy(() => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(import("../components/Products/AllProdByCat"));
+    }, 1000);
+  });
+});
+
 
 function Products() {
   return (
@@ -14,8 +19,6 @@ function Products() {
       <Header />
       <Suspense fallback={<Loading />}>
         <LazyAllProdByCat />
-      </Suspense>
-      <Suspense fallback={<Loading />}>
         <NewsLetter />
       </Suspense>
     </div>
