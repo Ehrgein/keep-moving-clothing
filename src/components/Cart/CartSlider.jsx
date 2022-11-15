@@ -89,7 +89,10 @@ function CartSlider() {
                 className="scrollcart cart-anim flex justify-start cartborder my-2"
               >
                 <div className=" my-4 mobilem:h-32 mobilem:w-32 mobileL:w-[120px] mobileL:h-[120px]  mobilexs:w-[120px] mobilexs:h-[120px]">
-                  <Link to={`/products/${item.categories}/${item.id}`}>
+                  <Link
+                    onClick={() => cart.closeCart()}
+                    to={`/products/${item.categories}/${item.id}`}
+                  >
                     <img
                       alt={`${item.name} ${item.brand} $${item.price}`}
                       src={item.img}
