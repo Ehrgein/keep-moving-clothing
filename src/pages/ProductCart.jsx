@@ -1,8 +1,6 @@
 import React, {useEffect, useState, useContext, Suspense} from 'react'
 import NewsLetter from '../components/NewsLetter'
 import Header from '../components/Header'
-import ProductInfo from '../components/Products/ProductInfo'
-import Recommended from '../components/Products/Recommended'
 import Loading from './Loading'
 
 

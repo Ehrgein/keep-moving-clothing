@@ -1,7 +1,5 @@
 import React, { useContext, Suspense, useState } from "react";
 import Header from "../components/Header";
-import NewHero from "../components/NewHero";
-import Contentone from "../components/Contentone";
 import NewsLetter from "../components/NewsLetter";
 import Loading from "./Loading";
 
