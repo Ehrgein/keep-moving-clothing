@@ -11,6 +11,11 @@ function Recommended() {
 
   const cartcontext = useContext(CartContext);
 
+  const closeCartScroll = () => {
+    cartcontext.closeCart();
+    window.scrollTo(0, 0);
+  };
+
   const scrolltoTop = () => {
     window.scrollTo(0, 0);
   };
@@ -32,7 +37,7 @@ function Recommended() {
             >
               <ul className="text-sm text-center">
                 <Link
-                  onClick={scrolltoTop}
+                  onClick={() => closeCartScroll()}
                   to={`/products/${productscategory}/${item.id}`}
                 >
                   <img
@@ -58,7 +63,7 @@ function Recommended() {
       </div>
       <div className="hidden md:flex justify-center mb-12">
         <Link
-          onClick={cartcontext.closeCart}
+          onClick={() => cartcontext.closeCart()}
           to={`/products/${productscategory}`}
         >
           <div className="flex bg-[#1f2021] text-white font-bold text-medium px-5 py-3 uppercase items-center">
@@ -102,10 +107,6 @@ function Recommended() {
       </div>
     </div>
   );
-}
-
-{
-  /* {allproducts.filter(category => category.category == product).map(item => <RecommendedMap key={item.id} categories={item.category} items={item.items} />)} */
 }
 
 export default Recommended;
