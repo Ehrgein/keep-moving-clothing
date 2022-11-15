@@ -56,6 +56,7 @@ function CartSlider() {
     }
   };
 
+  
   return (
     <div className="overflow-x-hidden">
       <div

@@ -33,12 +33,9 @@ function LoginForm() {
       });
   };
 
-  console.log(username);
-  console.log(usercontext.user);
-
   return (
     <div>
-      <div className="h-[70vh] flex justify-center">
+      <div className="mb-20 mt-10 flex justify-center">
         <div className="flex flex-col mt-12 items-center text-center h-24">
           <div className="mt-12 flex justify-start laptopL:w-[400px] h-auto">
             <h3 className="laptopL:text-4xl mobilexs:text-2xl font-bold">
