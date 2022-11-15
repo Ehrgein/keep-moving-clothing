@@ -35,7 +35,7 @@ function LoginForm() {
 
   return (
     <div>
-      <div className="flex flex-col justify-center items-center text-center h-auto mt-6">
+      <div className="flex flex-col justify-center items-center text-center h-auto mt-6 4k:mt-20">
         <div className="mt-12 flex justify-start laptopL:w-[400px] h-auto">
           <h3 className="laptopL:text-4xl mobilexs:text-2xl font-bold">
             {" "}

@@ -6,7 +6,7 @@ import { BsTwitter, BsFacebook, BsInstagram } from "react-icons/bs";
 
 function NewsLetter() {
   return (
-    <div className="bg-black 4k:pb-12 laptopL:pb-10">
+    <div className="bg-black 4k:mt-28 4k:pb-12 laptopL:pb-10">
       <div className="hidden md:flex justify-between w-full ">
         <div className="flex h-auto w-[25%] bg-black text-white col-span-4 flex-col justify-start items-start pb-20">
           <h1 className="mb-4 ml-8 tablet:mt-4 uppercase 4k:text-2xl font-bold text-[#aaa]">
