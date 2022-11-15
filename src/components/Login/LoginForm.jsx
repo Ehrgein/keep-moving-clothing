@@ -35,7 +35,7 @@ function LoginForm() {
 
   return (
     <div>
-      <div className="flex flex-col justify-center items-center text-center h-auto mt-10 mb-20">
+      <div className="flex flex-col justify-center items-center text-center h-auto mt-10">
         <div className="mt-12 flex justify-start laptopL:w-[400px] h-auto">
           <h3 className="laptopL:text-4xl mobilexs:text-2xl font-bold">
             {" "}
@@ -58,7 +58,7 @@ function LoginForm() {
         <div className="flex justify-start font-bold text-lg h-12 laptopL:w-[400px] mobilem:w-[340px] mobilexs:w-[280px] mt-2">
           <h1> Forgot your password?</h1>
         </div>
-        <div className="flex laptopL:w-[400px] mobilexs:w-[285px]  mobilem:w-[340px] justify-center h-24   bg-[#1f2021] px-2 py-2 text-white mt-4">
+        <div className="flex laptopL:w-[400px] mobilexs:w-[285px]  mobilem:w-[340px] justify-center bg-[#1f2021] px-2 py-2 text-white mt-4">
           <button
             onClick={handleLogin}
             className="laptopL:text-2xl mobilexs:text-lg uppercase font-sans tracking-wide"
