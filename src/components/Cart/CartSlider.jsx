@@ -56,14 +56,13 @@ function CartSlider() {
     }
   };
 
-  
   return (
     <div className="overflow-x-hidden">
       <div
         onClick={() => cart.handleCart()}
         className="md:mr-4 mobilexs:mr-1 text-base flex"
       >
-        <AiOutlineShoppingCart className="4k:w-[35px] 4k:h-[35px] desktop:w-[25px]  laptopL:w-[22px]  tablet:w-[25px] h-auto mobilexs:w-5 mobilexs:h-5  mobileL:h-6 mobileL:w-6 mx-1" />
+        <AiOutlineShoppingCart className="cursor-pointer 4k:w-[35px] 4k:h-[35px] desktop:w-[25px]  laptopL:w-[22px]  tablet:w-[25px] h-auto mobilexs:w-5 mobilexs:h-5  mobileL:h-6 mobileL:w-6 mx-1" />
       </div>
       <div
         className={

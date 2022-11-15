@@ -82,7 +82,7 @@ function DesktopHeader() {
             {" "}
             <AiOutlineHeart className="4k:w-[35px] 4k:h-[35px] desktop:w-[25px] desktop:h-[25px] laptopL:w-[22px] laptopL:h-[22px]" />
           </Link>
-          <CartSlider className="cursor-pointer" />
+          <CartSlider  />
         </div>
       </div>
     </div>
