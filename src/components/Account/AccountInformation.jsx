@@ -20,7 +20,7 @@ function AccountInformation() {
       });
   };
 
-  console.log(usercontext.user);
+  console.log(usercontext.userid);
 
   return (
     <div className="pb-32">

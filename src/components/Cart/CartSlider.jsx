@@ -29,6 +29,8 @@ function CartSlider() {
   const idarray = idsquant?.map(({ id }) => id); // id first, quantity second
   const values = idsquant?.map(Object.values);
 
+  console.log(usercontext.userid);
+
   const handleCheckout = () => {
     if (cart.items.length > 0) {
       axios
