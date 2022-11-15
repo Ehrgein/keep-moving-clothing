@@ -14,6 +14,8 @@ function Products() {
       <Header />
       <Suspense fallback={<Loading />}>
         <LazyAllProdByCat />
+      </Suspense>
+      <Suspense fallback={<Loading />}>
         <NewsLetter />
       </Suspense>
     </div>
