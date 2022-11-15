@@ -21,6 +21,9 @@ function Wishlist() {
       });
   }, []);
 
+  
+
+
   return (
     <div>
       <div className="h-auto bg-white w-full flex mb-20 mt-10 justify-start flex-col">
@@ -31,25 +34,25 @@ function Wishlist() {
         <div className="flex justify-center mt-20 items-center tablet">
           <div className="mobilexs:mx-2 laptop:mx-6 tablet:mx-4 flex flex-col items-center">
             <h1 className="4k:text-2xl">Order ID</h1>
-            {data?.map((item) => 
+            {data?.map((item) => (
               <Link to={`${item.id}`}>
                 <p className="cursor-pointer my-1 4k:text-xl">{item.id}</p>
               </Link>
-            )}
+            ))}
           </div>
           <div className="mobilexs:mx-2 laptop:mx-6 tablet:mx-4 flex flex-col items-center">
             <h1 className="4k:text-2xl">Customer</h1>
-            {data?.map((item) => 
+            {data?.map((item) => (
               <p className="cursor-pointer my-1 4k:text-xl">{item.username}</p>
-            )}
+            ))}
           </div>
           <div className="mobilexs:mx-2 laptop:mx-6 tablet:mx-4 flex flex-col items-center">
             <h1 className="4k:text-2xl">Purchase Date</h1>
-            {data?.map((item) => 
+            {data?.map((item) => (
               <p className="cursor-pointer my-1 4k:text-xl">
                 {item.purchase_date.split("T")[0]}
               </p>
-            )}
+            ))}
           </div>
         </div>
       </div>

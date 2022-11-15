@@ -23,8 +23,8 @@ function AccountInformation() {
         })
     }
 
-
-
+    console.log(user)
+    console.log(usercontext.user)
    
     
   return (

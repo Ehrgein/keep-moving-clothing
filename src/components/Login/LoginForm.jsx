@@ -20,15 +20,21 @@ function LoginForm() {
         password: password,
       })
       .then((response) => {
+        console.log(response);
         if (response.data.message) {
+          console.log(response);
           setMessage(response.data.message);
         } else {
+          console.log(response);
           usercontext.setUser(response.data[0].username);
           usercontext.setIsLoggedIn(true);
           navigate("/account");
         }
       });
   };
+
+  console.log(username);
+  console.log(usercontext.user);
 
   return (
     <div>
