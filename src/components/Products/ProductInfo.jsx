@@ -29,7 +29,7 @@ function ProductInfo() {
     cart.addOneToCart(productinfo);
   };
 
-  const filtered = cart.wishitems.filter((item) => item.id == productinfo);
+  const filtered = cart.wishitems?.filter((item) => item.id == productinfo);
 
   useEffect(() => {
     setwishList(wishstatus);
@@ -133,7 +133,7 @@ function ProductInfo() {
 
       <div className="laptop:hidden">
         {productscontext
-          .filter((item) => item.id == productinfo)
+          ?.filter((item) => item.id == productinfo)
           .map((item) => (
             <div key={item.id}>
               <div className="flex mt-6 mobilexs:mx-6 tablet:mx-0 tablet:w-full justify-center">
