@@ -4,7 +4,7 @@ import Loading from "./Loading";
 import Recommended from "../components/Products/Recommended";
 import NewsLetter from "../components/NewsLetter";
 
-const LazyAllProdByCat = React.lazy(() => {
+const LazyProductInfo = React.lazy(() => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(import("../components/Products/ProductInfo"));
