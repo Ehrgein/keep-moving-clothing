@@ -2,6 +2,7 @@ import React, { useState, useEffect, createContext, useContext } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../App";
+import { CartContext } from "../Cart/CartFunctionality";
 
 function LoginForm() {
   const navigate = useNavigate();
@@ -10,6 +11,7 @@ function LoginForm() {
   const [password, setPassword] = useState("");
 
   const usercontext = useContext(UserContext);
+  const cartcontext = useContext(CartContext);
 
   const [loginMessage, setMessage] = useState("");
 
@@ -69,7 +71,7 @@ function LoginForm() {
         </div>
         <div className="flex laptopL:w-[400px] mobilem:w-[340px] mobilexs:w-[285px] justify-start h-14 py-1 text-black mt-2 text-lg font-normal">
           <p className="pr-2"> No account ? </p>
-          <Link to="/account/register">
+          <Link onClick={() => cartcontext.closeCart()} to="/account/register">
             <button className="tracking-wide text-black border-black border-b-2">
               Register here
             </button>
