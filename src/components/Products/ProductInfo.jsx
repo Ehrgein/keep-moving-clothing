@@ -29,7 +29,7 @@ function ProductInfo() {
     cart.addOneToCart(productinfo);
   };
 
-  const filtered = cart.wishitemsfilter((item) => item.id == productinfo);
+  const filtered = cart.wishitems.filter((item) => item.id == productinfo);
 
   useEffect(() => {
     setwishList(wishstatus);

@@ -13,6 +13,8 @@ function NewArrivalsHome() {
     setWidth(4200 - 900);
   }, []);
 
+  
+
   return (
     <div>
       <div className="flex justify-center text-center mt-11">
