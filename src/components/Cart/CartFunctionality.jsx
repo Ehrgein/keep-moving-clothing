@@ -90,6 +90,7 @@ function CartFunctionality({ children }) {
           price: fullitem[0].price,
           img: fullitem[0].prod_img,
           brand: fullitem[0].brand,
+          categories: fullitem[0].categories,
           quantity: 1,
         },
       ]);
