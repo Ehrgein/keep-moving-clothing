@@ -12,7 +12,7 @@ function Products() {
   return (
     <div className="">
       <Header />
-      <Suspense fallback={<Loading />}>
+      <Suspense fallback={<h1>Loading Products...</h1>}>
         <LazyAllProdByCat />
       </Suspense>
       <NewsLetter />

@@ -22,8 +22,6 @@ const [ismainLoaded, setisMainLoaded] = useState(false)
           <LazyContent/>
         </Suspense>
         <NewsLetter/>
-
-
     </div>
   )
 }
