@@ -35,7 +35,7 @@ function DesktopHeader() {
           </Link>
         </div>
         <div className="hidden md:flex 4k:text-xl  sticky tracking-widest bg-black text-white justify-center mt-4 h-10 items-center font-normal md:gap-3 gap-6  uppercase">
-          <BrandDropDown />
+          <BrandDropDown onClick={() => cart.closeCart()} />
           <Link onClick={() => cart.closeCart()} to="/newarrivals">
             <p>LATEST</p>
           </Link>
@@ -45,7 +45,7 @@ function DesktopHeader() {
           <Link onClick={() => cart.closeCart()} to="/products/outerwear">
             <p>OUTERWEAR</p>
           </Link>
-          <Link to="/products/bottoms">
+          <Link onClick={() => cart.closeCart()} to="/products/bottoms">
             <p>BOTTOMS</p>
           </Link>
           <Link onClick={() => cart.closeCart()} to="/products/sneakers">
