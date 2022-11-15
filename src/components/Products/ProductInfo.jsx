@@ -33,7 +33,6 @@ function ProductInfo() {
 
   useEffect(() => {
     setwishList(wishstatus);
-    return cart.closeCart();
   }, [cart.wishitems]);
 
   return (
