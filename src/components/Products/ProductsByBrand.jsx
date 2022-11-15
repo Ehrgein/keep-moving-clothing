@@ -111,7 +111,7 @@ function ProductsByBrand() {
                    desktop:w-[370px] desktop:h-[370px] laptopL:w-[260px] laptopL:h-[260px] items-center laptop:w-[250px] laptop:h-[250px] md:w-[220px] md:h-[220px]"
                   >
                     <div className="flex flex-col">
-                      <Link to={`${item.id}`}>
+                      <Link to={`/products/${item.categories}/${item.id}`}>
                         <img
                           className="desktop:h-[295px] desktop:w-[295px]
                         laptopL:w-[210px] laptopL:h-[210px] laptop:w-[185px] laptop:h-[185px] md:w-[130px] md:h-[130px]"
