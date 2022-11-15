@@ -1,251 +1,195 @@
-import React, {createContext, useContext, useState, useEffect} from 'react'
-import {ProductsContext} from '../../App'
-
-
-
+import React, { createContext, useContext, useState, useEffect } from "react";
+import { ProductsContext } from "../../App";
 
 export const CartContext = createContext({
-    items: [],
-    cartSlider: false,
-    wishitems: [],
-    getProductQuantity: () => {},
-    addOneToCart: () => {},
-    removeOneFromCart: () => {},
-    deleteFromCart: () => {},
-    getTotalCost: () => {},
-    handleCart: () => {},
-    closeCart: () => {},
-    openCart: () => {},
-    addToWishList: () => {},
-    getWishQuantity: () => {},
-    deleteFromWish: () => {},
-})
+  items: [],
+  cartSlider: false,
+  wishitems: [],
+  getProductQuantity: () => {},
+  addOneToCart: () => {},
+  removeOneFromCart: () => {},
+  deleteFromCart: () => {},
+  getTotalCost: () => {},
+  handleCart: () => {},
+  closeCart: () => {},
+  openCart: () => {},
+  addToWishList: () => {},
+  getWishQuantity: () => {},
+  deleteFromWish: () => {},
+});
 
+const cartitemsLocal = JSON.parse(localStorage.getItem("cart"));
+const wishlistitemsLocal = JSON.parse(localStorage.getItem("wish"));
 
-const cartitemsLocal = JSON.parse(localStorage.getItem("cart")) 
-const wishlistitemsLocal = JSON.parse(localStorage.getItem("wish")) 
+function CartFunctionality({ children }) {
+  const [cartProducts, setCartProducts] = useState(
+    JSON.parse(localStorage.getItem("cart")) || []
+  );
+  const [cartSlider, setCart] = useState(false);
 
-function CartFunctionality({children}) {
+  const [wishlist, setwishList] = useState(
+    JSON.parse(localStorage.getItem("wish")) || []
+  );
 
+  const productscontext = useContext(ProductsContext);
 
-    const [cartProducts, setCartProducts] = useState(cartitemsLocal)
-    const [cartSlider, setCart] = useState(false)
-    const [wishlist, setwishList] = useState(wishlistitemsLocal)
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cartProducts));
+    localStorage.setItem("wish", JSON.stringify(wishlist));
+  }, [cartProducts, wishlist]);
 
-    const productscontext = useContext(ProductsContext)
+  const handleCart = () => setCart(!cartSlider);
 
-    
+  const closeCart = () => setCart(false);
 
-    useEffect(() => {
+  const openCart = () => setCart(true);
 
-        localStorage.setItem("cart", JSON.stringify(cartProducts))
-        localStorage.setItem("wish", JSON.stringify(wishlist))
-
-            
-
-    }, [cartProducts, wishlist])
-    
-
-    const handleCart = () => setCart(!cartSlider)
-
-    const closeCart = () => setCart(false)
-
-    const openCart = () => setCart(true)
-
-    function getProductData(id) {
-        let productData = productscontext?.find(product => product.id === id) 
-        if (productData == undefined){
-            console.log("Product data does not exist for ID" +id)
-            return undefined
-        }
-        return productData
+  function getProductData(id) {
+    let productData = productscontext?.find((product) => product.id === id);
+    if (productData == undefined) {
+      console.log("Product data does not exist for ID" + id);
+      return undefined;
     }
-    
+    return productData;
+  }
 
+  function getProductQuantity(id) {
+    const quantity = cartProducts?.find(
+      (product) => product.id === id
+    )?.quantity;
 
-    function getProductQuantity(id) {
-        
-        const quantity = cartProducts?.find(product => product.id === id)?.quantity
-
-        if (quantity === undefined) {
-            return 0;
-        }
-        
-        
-        return quantity
+    if (quantity === undefined) {
+      return 0;
     }
 
-    function getWishQuantity(id) {
-        
-        const quantity = wishlist?.find(product => product.id === id)?.quantity
+    return quantity;
+  }
 
-        if (quantity === undefined) {
-            return 0;
-        }
-        
-        
-        return quantity
+  function getWishQuantity(id) {
+    const quantity = wishlist?.find((product) => product.id === id)?.quantity;
+
+    if (quantity === undefined) {
+      return 0;
     }
 
+    return quantity;
+  }
 
+  function addOneToCart(id) {
+    // 61
 
-    function addOneToCart(id) { // 61 
+    const quantity = getProductQuantity(id);
+    const fullitem = productscontext?.filter((item) => item.id == id);
 
-        const quantity = getProductQuantity(id);
-        const fullitem = productscontext?.filter(item => item.id == id)
-
-
-
-        if(quantity === 0) {    
-           
-            
-            setCartProducts(
-                [
-                    ...cartProducts,
-                    {
-
-                        id: id,
-                        name: fullitem[0].name,
-                        price: fullitem[0].price,
-                        img: fullitem[0].prod_img,
-                        brand: fullitem[0].brand,
-                        quantity: 1,
-                        
-
-                    }
-                ]
-            ) 
-        } else {           
-            setCartProducts(
-                cartProducts?.map(
-                    product =>
-                    
-                    product.id === id
-                      ? {...product, quantity: product.quantity + 1}  
-                    : product                                    
-
-                )          
-            )
-        }
-    }
-    
-    function removeOneFromCart(id) {
-
-        const quantity = getProductQuantity(id);
-
-        if(quantity == 1){
-            deleteFromCart(id);
-        } else{
-            setCartProducts(
-                    cartProducts?.map(
-                        product =>
-                        product.id === id                               
-                        ? {...product, quantity: product.quantity -1}  
-                        : product                                       
-                    )    
-            )
-        }
-    }
-
-    function getTotalCost() {
-
-        let totalcost = 0
-
-        cartProducts?.map(cartitem => {
-            totalcost += cartitem.price * cartitem.quantity    
-        })
-        return totalcost
-        
-        
-        
-    }
-    
-
-
-    function deleteFromCart(id){
-
-        setCartProducts(
-            cartProducts =>
-            cartProducts?.filter(currentProduct => {
-                return currentProduct.id != id;
-            })                                              
+    if (quantity === 0) {
+      setCartProducts([
+        ...cartProducts,
+        {
+          id: id,
+          name: fullitem[0].name,
+          price: fullitem[0].price,
+          img: fullitem[0].prod_img,
+          brand: fullitem[0].brand,
+          quantity: 1,
+        },
+      ]);
+    } else {
+      setCartProducts(
+        cartProducts?.map((product) =>
+          product.id === id
+            ? { ...product, quantity: product.quantity + 1 }
+            : product
         )
-        
+      );
     }
+  }
 
-    function addToWishList(id)  {
+  function removeOneFromCart(id) {
+    const quantity = getProductQuantity(id);
 
-        
-
-        const quantity = getWishQuantity(id);
-        const fullitem = productscontext?.filter(item => item.id == id)
-
-        if (quantity == 0) {
-        setwishList(
-                [
-                    ...wishlist,
-                    {
-                        id: id,
-                        name: fullitem[0].name,
-                        price: fullitem[0].price,
-                        brand: fullitem[0].brand,
-                        img: fullitem[0].prod_img,
-                        categories: fullitem[0].categories,
-                        quantity: 1,
-                    }
-                ]
-            )
-        }
-    }
-
-    function deleteFromWish(id){
-
-        // const wish = JSON.parse(localStorage.getItem('wish'))
-        // const filtered = items.filter(item => item.id != id)  
-        //  maybe this instead next time hm
-
-        setwishList(
-            wishlist =>
-            wishlist?.filter(currentwishitem=> {
-                return currentwishitem.id != id;
-            })                                              
+    if (quantity == 1) {
+      deleteFromCart(id);
+    } else {
+      setCartProducts(
+        cartProducts?.map((product) =>
+          product.id === id
+            ? { ...product, quantity: product.quantity - 1 }
+            : product
         )
-        
+      );
     }
+  }
 
+  function getTotalCost() {
+    let totalcost = 0;
 
-    const contextValue = {
-        items: cartProducts,
-        cartSlider: cartSlider,
-        wishitems: wishlist,
-        getProductQuantity,
-        addOneToCart,
-        removeOneFromCart,
-        deleteFromCart,
-        getTotalCost,
-        handleCart,
-        openCart,
-        closeCart,
-        getWishQuantity,
-        addToWishList,
-        deleteFromWish,
-        setCartProducts,
-    }   
+    cartProducts?.map((cartitem) => {
+      totalcost += cartitem.price * cartitem.quantity;
+    });
+    return totalcost;
+  }
 
- 
-return (
+  function deleteFromCart(id) {
+    setCartProducts((cartProducts) =>
+      cartProducts?.filter((currentProduct) => {
+        return currentProduct.id != id;
+      })
+    );
+  }
 
-    <CartContext.Provider value={contextValue}>
-        {children}
-    </CartContext.Provider>
-        )
+  function addToWishList(id) {
+    const quantity = getWishQuantity(id);
+    const fullitem = productscontext?.filter((item) => item.id == id);
+
+    if (quantity == 0) {
+      setwishList([
+        ...wishlist,
+        {
+          id: id,
+          name: fullitem[0].name,
+          price: fullitem[0].price,
+          brand: fullitem[0].brand,
+          img: fullitem[0].prod_img,
+          categories: fullitem[0].categories,
+          quantity: 1,
+        },
+      ]);
+    }
+  }
+
+  function deleteFromWish(id) {
+    // const wish = JSON.parse(localStorage.getItem('wish'))
+    // const filtered = items.filter(item => item.id != id)
+    //  maybe this instead next time hm
+
+    setwishList((wishlist) =>
+      wishlist?.filter((currentwishitem) => {
+        return currentwishitem.id != id;
+      })
+    );
+  }
+
+  const contextValue = {
+    items: cartProducts,
+    cartSlider: cartSlider,
+    wishitems: wishlist,
+    getProductQuantity,
+    addOneToCart,
+    removeOneFromCart,
+    deleteFromCart,
+    getTotalCost,
+    handleCart,
+    openCart,
+    closeCart,
+    getWishQuantity,
+    addToWishList,
+    deleteFromWish,
+    setCartProducts,
+  };
+
+  return (
+    <CartContext.Provider value={contextValue}>{children}</CartContext.Provider>
+  );
 }
 
-
-export default CartFunctionality
-
-
-
-
-    
- 
+export default CartFunctionality;

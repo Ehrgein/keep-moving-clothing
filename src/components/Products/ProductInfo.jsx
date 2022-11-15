@@ -58,7 +58,7 @@ function ProductInfo() {
                       {item.name}
                     </h4>
                   </div>
-                  {/* {filtered[0]?.id === productinfo ? (
+                  {filtered[0]?.id === productinfo ? (
                     <div
                       className="flex justify-start items-start"
                       onClick={() => cart.deleteFromWish(productinfo)}
@@ -81,7 +81,7 @@ function ProductInfo() {
                         </button>
                       </IconContext.Provider>
                     </div>
-                  )} */}
+                  )}
                 </div>
 
                 <div className="max-w-xs">
