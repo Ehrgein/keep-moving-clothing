@@ -1,5 +1,4 @@
 import React, { Suspense } from "react";
-import NewsLetter from "../components/NewsLetter";
 import Header from "../components/Header";
 import Loading from "./Loading";
 
@@ -10,6 +9,10 @@ const LazyRecommended = React.lazy(() =>
   import("../components/Products/Recommended")
 );
 
+const LazyNewsLetter = React.lazy(() => {
+  import("/components/NewsLetter");
+});
+
 function ProductCart() {
   return (
     <div>
@@ -17,7 +20,7 @@ function ProductCart() {
       <Suspense fallback={<Loading />}>
         <LazyProductInfo />
         <LazyRecommended />
-        <NewsLetter />
+        <LazyNewsLetter />
       </Suspense>
     </div>
   );
