@@ -34,7 +34,7 @@ function DesktopHeader() {
             </h1>
           </Link>
         </div>
-        <div className="hidden md:flex 4k:text-xl  sticky tracking-widest bg-black text-white justify-center mt-4 h-10 items-center font-normal md:gap-3 gap-6  uppercase">
+        <div className="hidden md:flex 4k:text-xl desktop:text-xl laptop:text-lg sticky tracking-widest bg-black text-white justify-center mt-4 h-10 items-center font-normal md:gap-3 gap-6  uppercase">
           <BrandDropDown onClick={() => cart.closeCart()} />
           <Link onClick={() => cart.closeCart()} to="/newarrivals">
             <p>LATEST</p>
