@@ -25,7 +25,7 @@ function BrandList() {
         <h1> All Brands</h1>
       </div>
       {Object.entries(listedbrands)?.map(([key, val]) => (
-        <div className="hidden md:flex items-center justify-center text-6xl capitalize mx-20 mt-20 brandborder">
+        <div className="hidden md:flex items-start justify-center text-6xl capitalize mx-20 mt-20 brandborder">
           <div className="w-[40%] flex flex-col font-bold">
             <p className="flex justify-center mx-2 w-[100%]"> {key} </p>
           </div>

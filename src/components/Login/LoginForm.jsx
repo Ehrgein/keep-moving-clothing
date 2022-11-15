@@ -57,9 +57,6 @@ function LoginForm() {
             className="pl-2 inpborder mt-2 h-14"
           />
         </form>
-        <div className="flex justify-start font-bold text-lg h-12 laptopL:w-[400px] mobilem:w-[340px] mobilexs:w-[280px] mt-2">
-          <h1> Forgot your password?</h1>
-        </div>
         <div className="flex laptopL:w-[400px] mobilexs:w-[285px]  mobilem:w-[340px] justify-center bg-[#1f2021] px-2 py-2 text-white mt-4">
           <button
             onClick={handleLogin}
@@ -69,6 +66,10 @@ function LoginForm() {
             Sign In{" "}
           </button>
         </div>
+        <div className="flex justify-start font-bold text-lg h-12 laptopL:w-[400px] mobilem:w-[340px] mobilexs:w-[280px] mt-2">
+          <h1> Forgot your password?</h1>
+        </div>
+
         <div className="flex laptopL:w-[400px] mobilem:w-[340px] mobilexs:w-[285px] justify-start h-14 py-1 text-black mt-2 text-lg font-normal">
           <p className="pr-2"> No account ? </p>
           <Link onClick={() => cartcontext.closeCart()} to="/account/register">
