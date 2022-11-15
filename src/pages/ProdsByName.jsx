@@ -4,6 +4,8 @@ import NewsLetter from "../components/NewsLetter";
 import Loading from "./Loading";
 import ProductsByName from "../components/Products/ProductsByName";
 
+
+
 function ProdsByName() {
   return (
     <div className="">
