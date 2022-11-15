@@ -3,7 +3,7 @@ import React from "react";
 function Loading() {
   return (
     <div
-      className="h-[80vh] w-[100vw] flex justify-center items-center"
+      className="h-[80vh] w-[100vw] bg-white flex justify-center items-center"
       role="status"
     >
       <svg
