@@ -73,8 +73,7 @@ function SignUp() {
 
   return (
     <div>
-      <div className="h-[80vh] flex justify-center">
-        <div className="flex flex-col mt-12 items-center text-center h-24">
+        <div className="flex flex-col items-center text-center h-auto mt-10 mb-20">
           <div className="mt-12 flex justify-center w-[400px] h-auto mb-4">
             <h3 className="text-3xl font-bold"> Create Account</h3>
           </div>
