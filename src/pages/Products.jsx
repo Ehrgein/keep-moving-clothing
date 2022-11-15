@@ -10,12 +10,12 @@ const LazyAllProdByCat = React.lazy(() =>
 
 function Products() {
   return (
-    <div className="">
+    <div>
       <Header />
       <Suspense fallback={<Loading />}>
         <LazyAllProdByCat />
+        <NewsLetter />
       </Suspense>
-      <NewsLetter />
     </div>
   );
 }
