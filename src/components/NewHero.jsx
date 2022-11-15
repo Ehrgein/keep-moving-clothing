@@ -30,10 +30,10 @@ function  NewHero() {
                   </h1>
                   </Link>
                 </div>
-                <img className='4k:w-[50%] 4k:h-[1050px] desktop:w-[50%] desktop:h-[800px] laptopL:h-[650px] laptop:w-[50%] laptop:h-[550px] md:h-[450px] laptop:block md:hidden'
+                <img className='object-cover 4k:w-[50%] 4k:h-[1050px] desktop:w-[50%] desktop:h-[800px] laptopL:h-[650px] laptop:w-[50%] laptop:h-[550px] md:h-[450px] laptop:block md:hidden'
                 alt='men wearing sunglasses' src={glasses1}/>
                 <img alt='women wearing sunglasses' 
-                className='4k:w-[50%] 4k:h-[1050px] desktop:w-[50%] desktop:h-[800px]
+                className='object-cover 4k:w-[50%] 4k:h-[1050px] desktop:w-[50%] desktop:h-[800px]
                 laptopL:h-[650px] laptopL:w-[50%] laptop:w-[50%] laptop:h-[550px] laptop:block md:hidden' src={glasses2}/>
         </div>
 
