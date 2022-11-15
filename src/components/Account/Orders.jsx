@@ -37,7 +37,6 @@ function Wishlist() {
               </Link>
             ))}
           </div>
-
           <div className="mobilexs:mx-2 laptop:mx-6 tablet:mx-4 flex flex-col items-center">
             <h1 className="4k:text-2xl">Customer</h1>
             {data?.map((item) => (
