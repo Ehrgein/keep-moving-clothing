@@ -9,6 +9,7 @@ import { CartContext } from "../Cart/CartFunctionality";
 import axios from "axios";
 import CheckoutModal from "../CheckoutModal";
 import ErrorModal from "../ErrorModal";
+import { Link } from "react-router-dom";
 
 function CartSlider() {
   const [errorMsg, seterrorMsg] = useState("");
