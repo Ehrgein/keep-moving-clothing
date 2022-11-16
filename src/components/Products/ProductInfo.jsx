@@ -102,7 +102,7 @@ function ProductInfo() {
                 </h1>
                 <div></div>
                 {item.stock >= 1 ? (
-                  <div className="flex">
+                  <div className="flex items-center">
                     <div className="rounded-full bg-green-500 desktop:w-[25px] desktop:h-[25px] laptopL:w-[20px] laptopL:h-[20px] laptop:w-[20px] laptop:h-[20px] mt-6"></div>
                     <p className="mt-[20px] ml-2 4k:text-lg">In stock</p>
                   </div>
@@ -147,7 +147,10 @@ function ProductInfo() {
           .map((item) => (
             <div key={item.id}>
               <div className="flex mt-6 mobilexs:mx-6 tablet:mx-0 tablet:w-full justify-center">
-                <img className="w-[350px] h-[350px]" src={item.prod_img} />
+                <img
+                  className="mobileL:w-[330px] mobileL:h-[330px] mobilem:w-[310px] mobilem:h-[310px] mobilexs:w-[290px] mobilexs:h-[290px]"
+                  src={item.prod_img}
+                />
               </div>
               <div className="flex justify-center my-2 items-center text-center flex-col">
                 <h1 className="flex-start items-start text-2xl font-bold capitalize">
@@ -159,20 +162,17 @@ function ProductInfo() {
                 </h1>
                 <h1 className="mt-2 font-bold text-lg">$ {item.price}</h1>
               </div>
-              <div className="flex justify-center">
-                <div
-                  className={
-                    item.stock === 0
-                      ? "mt-4 bg-red-500 w-6 h-6 rounded-full"
-                      : "mt-5 bg-green-500 w-5 h-5 rounded-full"
-                  }
-                />
-                {item.stock == 0 ? (
-                  <p className="mt-3 mx-1 h-6 text-lg"> Out of Stock</p>
+              <div>
+                {item.stock >= 1 ? (
+                  <div className="flex items-center">
+                    <div className="rounded-full bg-green-500 desktop:w-[25px] desktop:h-[25px] laptopL:w-[20px] laptopL:h-[20px] laptop:w-[20px] laptop:h-[20px] mt-6"></div>
+                    <p className="mt-[20px] ml-2 4k:text-lg">In stock</p>
+                  </div>
                 ) : (
-                  <p className="mt-4 mx-1 h-6 text-lg">
-                    In stock, ready to ship
-                  </p>
+                  <div className="flex">
+                    <div className="rounded-full bg-red-500 desktop:w-[25px] desktop:h-[25px] laptopL:w-[20px] laptopL:h-[20px] laptop:w-[20px] laptop:h-[20px] mt-6"></div>
+                    <p className="mt-[20px] ml-2 4k:text-lg">Out of stock</p>
+                  </div>
                 )}
               </div>
               <div className="flex flex-col justify-center items-center">

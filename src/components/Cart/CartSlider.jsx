@@ -76,7 +76,7 @@ function CartSlider() {
           <h1 className="">CART</h1>
           <h1
             onClick={() => cart.handleCart()}
-            className="mx-6 text-base text-thin"
+            className="mx-6 text-base text-thin cursor-pointer"
           >
             X
           </h1>
@@ -109,14 +109,14 @@ function CartSlider() {
                   </div>
                   <div className="flex items-center h-10 gap-6 ">
                     <AiOutlineMinus
-                      className="4k:w-[15px] 4k:h-[15px]"
+                      className="4k:w-[15px] 4k:h-[15px] cursor-pointer"
                       onClick={() => cart.removeOneFromCart(item.id)}
                     />
                     <p className="4k:text-lg text-base">
                       {cart.getProductQuantity(item.id)}
                     </p>
                     <AiOutlinePlus
-                      className="4k:w-[15px] 4k:h-[15px]"
+                      className="4k:w-[15px] 4k:h-[15px] cursor-pointer"
                       onClick={() => cart.addOneToCart(item.id)}
                     />
                     <p onClick={() => cart.addOneToCart(item.id)}></p>

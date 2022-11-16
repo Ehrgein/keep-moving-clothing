@@ -51,7 +51,7 @@ function NewsLetter() {
           <div className="flex border-white">
             <input
               placeholder="Enter your Email"
-              className="h-12 desktop:w-96 laptopL:w-60 md:w-48 text-black text-lg"
+              className="h-12 desktop:w-96 laptopL:w-60 md:w-48 text-black text-lg desktop:ml-3 laptop:ml-2"
             />
             <RiArrowRightSLine
               className="border-white border-2
