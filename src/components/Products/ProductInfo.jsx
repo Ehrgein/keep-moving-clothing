@@ -118,7 +118,7 @@ function ProductInfo() {
                     className="flex justify-center items-center 
                     uppercase laptop:mt-4 mt-10 text-center 4k:text-2xl desktop:text-xl laptopL:text-xl laptop:text-lg
                     bg-black text-white font-black 4k:h-14 desktop:h-8  laptop:h-8 h-12 desktop:py-3
-                     4k:w-auto desktop:w-[450px]  laptop:w-[320px]"
+                     4k:w-full desktop:w-[450px]  laptop:w-[320px]"
                   >
                     add to cart
                   </button>
@@ -127,7 +127,7 @@ function ProductInfo() {
                   <h4
                     className="flex justify-center items-center mt-2 text-center
                    desktop:py-3 desktop:h-8 4k:text-2xl 4k:h-14 desktop:text-xl laptopL:text-xl laptop:text-lg
-                    bg-yellow-500 text-black h-12 laptop:h-8 py-1 4k:w-auto desktop:w-[450px] laptop:w-[320px]"
+                    bg-yellow-500 text-black h-12 laptop:h-8 py-1 4k:w-full desktop:w-[450px] laptop:w-[320px]"
                   >
                     {" "}
                     Buy with Paypal
