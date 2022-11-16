@@ -44,7 +44,10 @@ function LoginForm() {
             Login
           </h3>
         </div>
-        <form className="flex flex-col justify-start text-black laptopL:w-[400px] mobilem:w-[340px] mobilexs:w-[285px] h-auto">
+        <form
+          onSubmit={handleLogin}
+          className="flex flex-col justify-start text-black laptopL:w-[400px] mobilem:w-[340px] mobilexs:w-[285px] h-auto"
+        >
           <input
             placeholder="Username"
             onChange={(e) => setUsername(e.target.value)}
@@ -56,16 +59,15 @@ function LoginForm() {
             onChange={(e) => setPassword(e.target.value)}
             className="pl-2 inpborder mt-2 h-14"
           />
-        </form>
-        <div className="flex laptopL:w-[400px] mobilexs:w-[285px]  mobilem:w-[340px] justify-center bg-[#1f2021] px-2 py-2 text-white mt-4">
           <button
-            onClick={handleLogin}
-            className="laptopL:text-2xl mobilexs:text-lg uppercase font-sans tracking-wide"
+            className="flex laptopL:w-[400px] mobilexs:w-[285px]  mobilem:w-[340px] justify-center
+             bg-[#1f2021] px-2 py-2 text-white mt-4
+            laptopL:text-2xl mobilexs:text-lg uppercase font-sans tracking-wide"
           >
             {" "}
             Sign In{" "}
           </button>
-        </div>
+        </form>
         <div className="flex justify-start font-bold text-lg h-12 laptopL:w-[400px] mobilem:w-[340px] mobilexs:w-[280px] mt-2">
           <h1> Forgot your password?</h1>
         </div>
