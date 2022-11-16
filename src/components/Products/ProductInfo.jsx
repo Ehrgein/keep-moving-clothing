@@ -102,15 +102,15 @@ function ProductInfo() {
                 </h1>
                 <div></div>
                 {item.stock >= 1 ? (
-                  <div className="flex items-center">
+                  <div className="flex justify-center items-center mt-3 mb-7">
                     <div>
                       <div
                         className="rounded-full
-                      bg-green-500 desktop:w-[25px] desktop:h-[25px] laptopL:w-[20px] laptopL:h-[20px] laptop:w-[20px] laptop:h-[20px] mt-6"
+                      bg-green-500"
                       ></div>
                     </div>
                     <div>
-                      <p className="mt-[20px] ml-2 4k:text-lg">In stock</p>
+                      <p className="ml-2 4k:text-lg">In stock</p>
                     </div>
                   </div>
                 ) : (
