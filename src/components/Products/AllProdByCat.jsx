@@ -99,6 +99,7 @@ function AllProducts() {
               ))
             : productscontext
                 ?.filter((item) => item.categories === productscategory)
+                .sort((a, b) => a.price - b.price)
                 .map((item) => (
                   <div
                     key={item.id}
