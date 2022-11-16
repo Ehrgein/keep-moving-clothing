@@ -48,8 +48,6 @@ function AllProducts() {
         </div>
         <div className="flex justify-end mr-4">
           <select
-            defaultValue={"ascending"}
-            selected="ascending"
             onChange={sortedItemsSelect}
             id="sortedproducts"
             className="mx-6 w-64 menuborder text-lg my-4 h-11 px-4"
