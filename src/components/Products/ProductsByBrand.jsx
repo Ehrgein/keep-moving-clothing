@@ -47,8 +47,6 @@ function ProductsByBrand() {
         </div>
         <div className="flex justify-end mr-4">
           <select
-            defaultValue={"ascending"}
-            selected="ascending"
             onChange={sortedItemsSelect}
             id="sortedproducts"
             className="mx-6 w-64 menuborder text-lg my-4 h-11 px-4"
@@ -100,6 +98,7 @@ function ProductsByBrand() {
               ))
             : productscontext
                 ?.filter((item) => item.brand === brand)
+                .sort((a, b) => a.price - b.price)
                 .map((item) => (
                   <div
                     key={item.id}
@@ -145,8 +144,6 @@ function ProductsByBrand() {
         </div>
         <div className="laptop:hidden flex justify-end text-sm px-1 h-20 mt-6 mb-8">
           <select
-            defaultValue={"ascending"}
-            selected="ascending"
             onChange={sortedItemsSelect}
             id="mobilesortedproducts"
             className="mx-2 w-44 menuborder text-lg mt-10 h-11 px-2"
@@ -187,7 +184,8 @@ function ProductsByBrand() {
                   </div>
                 ))
               : productscontext
-                  .filter((item) => item.brand === brand)
+                  ?.filter((item) => item.brand === brand)
+                  .sort((a, b) => a.price - b.price)
                   .map((item) => (
                     <div
                       key={item.id}

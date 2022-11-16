@@ -145,8 +145,6 @@ function AllProducts() {
         </div>
         <div className="laptop:hidden flex justify-end text-sm px-1 h-20 mt-6 mb-8">
           <select
-            defaultValue={"ascending"}
-            selected="ascending"
             onChange={sortedItemsSelect}
             id="mobilesortedproducts"
             className="mx-2 w-44 menuborder text-lg mt-10 h-11 px-2"
@@ -187,7 +185,8 @@ function AllProducts() {
                   </div>
                 ))
               : productscontext
-                  .filter((item) => item.categories === productscategory)
+                  ?.filter((item) => item.categories === productscategory)
+                  .sort((a, b) => a.price - b.price)
                   .map((item) => (
                     <div
                       key={item.id}
