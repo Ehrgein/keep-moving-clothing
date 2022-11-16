@@ -147,7 +147,7 @@ function ProductInfo() {
           .map((item) => (
             <div key={item.id}>
               <div className="flex mt-6 mobilexs:mx-6 tablet:mx-0 tablet:w-full justify-center">
-                <img className="w-[400px]" src={item.prod_img} />
+                <img className="w-[400px] h-[400px]" src={item.prod_img} />
               </div>
               <div className="flex justify-center my-2 items-center text-center flex-col">
                 <h1 className="flex-start items-start text-2xl font-bold capitalize">
