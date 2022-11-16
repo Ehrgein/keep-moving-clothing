@@ -166,7 +166,7 @@ function ProductInfo() {
                 {item.stock >= 1 ? (
                   <div className="flex justify-center items-center mt-3 mb-7">
                     <div className="rounded-full bg-green-500 mobilexs:w-[25px] mobilexs:h-[25px]"></div>
-                    <p className="ml-2 4k:text-lg">In stock</p>
+                    <p className="ml-2 4k:text-xl">In stock</p>
                   </div>
                 ) : (
                   <div className="flex">
