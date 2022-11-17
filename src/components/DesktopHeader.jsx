@@ -76,13 +76,13 @@ function DesktopHeader() {
           <SearchBar className="cursor-pointer" />
           <Link to={validateroute}>
             {" "}
-            <VscAccount className="4k:w-[35px] 4k:h-[35px] desktop:w-[25px] desktop:h-[25px] laptopL:w-[22px] laptopL:h-[22px]" />{" "}
+            <VscAccount aria-label="account" className="4k:w-[35px] 4k:h-[35px] desktop:w-[25px] desktop:h-[25px] laptopL:w-[22px] laptopL:h-[22px]" />{" "}
           </Link>
           <Link to="/account/wishlist">
             {" "}
-            <AiOutlineHeart className="4k:w-[35px] 4k:h-[35px] desktop:w-[25px] desktop:h-[25px] laptopL:w-[22px] laptopL:h-[22px]" />
+            <AiOutlineHeart aria-label="wishlist" className="4k:w-[35px] 4k:h-[35px] desktop:w-[25px] desktop:h-[25px] laptopL:w-[22px] laptopL:h-[22px]" />
           </Link>
-          <CartSlider  />
+          <CartSlider />
         </div>
       </div>
     </div>

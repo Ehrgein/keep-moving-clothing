@@ -9,7 +9,7 @@ function CheckoutModal({ purchasemodal, setonPurchasemodal }) {
       <div className="h-screen flex justify-center  items-center text-black text-2xl ">
         <motion.div className="flex flex-col cartshadow relative rounded-md justify-center bg-white md:py-12 py-8  md:px-24 px-4 cart-anim">
           <div className="absolute top-0 right-0 mt-2 mr-3">
-            <button
+            <button aria-label="Close"
               className="4k:text-2xl desktop:text-xl laptop:text-xl  mobileL:text-xl font-medium"
               onClick={() => setonPurchasemodal(false)}
             >

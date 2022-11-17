@@ -32,7 +32,7 @@ function SearchBar() {
         className="mobilexs:mr-1 mobilem:mr-1 md:mr-0 "
         onClick={handleSearch}
       >
-        <AiOutlineSearch
+        <AiOutlineSearch aria-label="Search button"
           className="cursor-pointer 4k:w-[35px] 4k:h-[35px] desktop:w-[25px] desktop:h-[25px] laptopL:w-[22px] laptopL:h-[22px] tablet:w-[25px]
               tablet:h-[25px] mobileL:w-6 mobileL:h-6 mobilexs:w-5 mobilexs:h-5 ml-2"
         />

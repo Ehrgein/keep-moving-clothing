@@ -63,7 +63,10 @@ function CartSlider() {
         onClick={() => cart.handleCart()}
         className="md:mr-4 mobilexs:mr-1 text-base flex"
       >
-        <AiOutlineShoppingCart className="cursor-pointer 4k:w-[35px] 4k:h-[35px] desktop:w-[25px]  laptopL:w-[22px]  tablet:w-[25px] h-auto mobilexs:w-5 mobilexs:h-5  mobileL:h-6 mobileL:w-6 mx-1" />
+        <AiOutlineShoppingCart
+          aria-label="Cart"
+          className="cursor-pointer 4k:w-[35px] 4k:h-[35px] desktop:w-[25px]  laptopL:w-[22px]  tablet:w-[25px] h-auto mobilexs:w-5 mobilexs:h-5  mobileL:h-6 mobileL:w-6 mx-1"
+        />
       </div>
       <div
         className={
@@ -75,6 +78,7 @@ function CartSlider() {
         <div className="text-black text-xl flex mt-4 ml-4 justify-between text-center items-start">
           <h1 className="">CART</h1>
           <h1
+            aria-label="Close"
             onClick={() => cart.handleCart()}
             className="mx-6 text-base text-thin cursor-pointer"
           >
@@ -109,6 +113,7 @@ function CartSlider() {
                   </div>
                   <div className="flex items-center h-10 gap-6 ">
                     <AiOutlineMinus
+                      aria-label="remove one item from cart"
                       className="4k:w-[15px] 4k:h-[15px] cursor-pointer"
                       onClick={() => cart.removeOneFromCart(item.id)}
                     />
@@ -116,6 +121,7 @@ function CartSlider() {
                       {cart.getProductQuantity(item.id)}
                     </p>
                     <AiOutlinePlus
+                      aria-label="add one item to cart"
                       className="4k:w-[15px] 4k:h-[15px] cursor-pointer"
                       onClick={() => cart.addOneToCart(item.id)}
                     />

@@ -75,6 +75,7 @@ function ProductInfo() {
                       <IconContext.Provider value={{ color: "black" }}>
                         <button>
                           <FiHeart
+                            aria-label="add to wishlist"
                             className="4k:mb-1 laptop:mt-2
                          4k:w-[30px] 4k:h-[30px] desktop:w-[24px] desktop:h-[24px] laptopL:w-[20px] laptopL:h-[20px] laptop:w-[22px] laptop:h-[22px] laptopL:ml-2"
                           />

@@ -14,7 +14,7 @@ function HamburgerMenuList({ key, nav, handleNav }) {
   return (
     <div className="w-full">
       <div className="flex justify-end text-xl">
-        <AiOutlineClose
+        <AiOutlineClose aria-label="Close"
           onClick={handleNav}
           className="mt-1 pl-2 flex"
           size={35}
