@@ -12,7 +12,7 @@ function Sliderbar() {
         </span>
       </div>
       <div className="md:hidden bg-orange-500 h-6 text-xs font-bold uppercase max-w-full w[-100%] text-white text-center flex items-center justify-center">
-        <span className="arrow flex 4k:text-lg  md:text-sm justify-center absolute mx-auto text-xs max-w-full">
+        <span className="lex 4k:text-lg  md:text-sm justify-center absolute mx-auto text-xs max-w-full">
           Weekends 20% OFF!
         </span>
       </div>
