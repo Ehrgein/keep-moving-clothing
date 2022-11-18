@@ -4,7 +4,7 @@ import DesktopHeader from "./DesktopHeader";
 
 function Header() {
   return (
-    <div className="sticky w-full z-50 top-0 overflow-x-hidden">
+    <div className="sticky w-full z-50 top-0">
       <DesktopHeader />
       <MobileHeader />
     </div>

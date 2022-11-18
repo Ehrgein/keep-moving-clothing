@@ -57,7 +57,7 @@ function Contentone() {
   ];
 
   return (
-    <div className="overflow-x-hidden">
+    <div className="">
       <div className="hidden md:block">
         <NewArrivalsHome />
         <NewFeatures img1={images[0]} img2={images[1]} img3={images[2]} />
