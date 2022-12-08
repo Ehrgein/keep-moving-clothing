@@ -74,7 +74,6 @@ function App() {
           setBrands(res3.data);
         })
       );
-
       return;
     } catch (err) {
       console.log(err);

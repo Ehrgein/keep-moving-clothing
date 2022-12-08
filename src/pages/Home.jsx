@@ -11,12 +11,13 @@ function Home() {
 
   return (
     <div>
-      <Header />
+
       <Suspense fallback={<Loading />}>
         <LazyHero />
         <LazyContent />
       </Suspense>
       <NewsLetter />
+      
     </div>
   );
 }

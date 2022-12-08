@@ -61,8 +61,8 @@ function AllProducts() {
       </div>
       <div className="hidden laptop:flex">
         <div className="flex flex-wrap justify-center  desktop:pl-16 desktop:my-10 laptopL:my-6 laptopL:mx-2 laptop:my-6 laptop:pl-2">
-          {sortedItems
-            ? sortedItems?.map((item) => (
+          {productscontext
+            ? productscontext?.map((item) => (
                 <div
                   key={item.id}
                   photo={item.prod_img}
@@ -97,7 +97,7 @@ function AllProducts() {
                   </ul>
                 </div>
               ))
-            : productscontext
+            : sortedItems
                 ?.filter((item) => item.categories === productscategory)
                 .sort((a, b) => a.price - b.price)
                 .map((item) => (
