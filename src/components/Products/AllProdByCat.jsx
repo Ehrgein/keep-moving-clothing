@@ -3,7 +3,7 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { ProductsContext } from "../../App";
 
-function AllProducts({ cancelsort }) {
+function AllProducts() {
   let { productscategory } = useParams();
 
   const productscontext = useContext(ProductsContext);

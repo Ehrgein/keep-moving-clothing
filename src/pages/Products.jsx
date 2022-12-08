@@ -11,21 +11,12 @@ const LazyAllProdByCat = React.lazy(() => {
   });
 });
 
-const [cancelSort, setCancelSort] = useState(false);
-
-const handleCancelSort = () => {
-  setCancelSort(true);
-};
-
 function Products() {
   return (
     <div>
       <Header />
       <Suspense fallback={<Loading />}>
-        <LazyAllProdByCat
-          setCancelSort={setCancelSort}
-          cancelSort={cancelSort}
-        />
+        <LazyAllProdByCat />
         <NewsLetter />
       </Suspense>
     </div>
