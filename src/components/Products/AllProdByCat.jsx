@@ -41,7 +41,7 @@ function AllProducts() {
   };
 
   useEffect(() => {
-    console.log("Location Changed");
+    setSortedItems([]);
   }, [location]);
 
   return (
