@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useContext } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
+import axios from "axios";
 import { Link } from "react-router-dom";
+import ProductMenus from "./ProductMenus";
 import { ProductsContext } from "../../App";
 
 function AllProducts() {
@@ -41,7 +43,7 @@ function AllProducts() {
   };
 
   useEffect(() => {
-    setSortedItems([]);
+    setSortedItems(false);
   }, [location]);
 
   return (
@@ -65,8 +67,8 @@ function AllProducts() {
       </div>
       <div className="hidden laptop:flex">
         <div className="flex flex-wrap justify-center  desktop:pl-16 desktop:my-10 laptopL:my-6 laptopL:mx-2 laptop:my-6 laptop:pl-2">
-          {productscontext
-            ? productscontext?.map((item) => (
+          {sortedItems
+            ? sortedItems?.map((item) => (
                 <div
                   key={item.id}
                   photo={item.prod_img}
@@ -101,7 +103,7 @@ function AllProducts() {
                   </ul>
                 </div>
               ))
-            : sortedItems
+            : productscontext
                 ?.filter((item) => item.categories === productscategory)
                 .sort((a, b) => a.price - b.price)
                 .map((item) => (
