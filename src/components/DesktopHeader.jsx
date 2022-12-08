@@ -11,6 +11,7 @@ import SearchBar from "./SearchBar";
 
 function DesktopHeader() {
   const [nav, setNav] = useState(false);
+
   const handleNav = () => setNav(!nav);
 
   const cart = useContext(CartContext);

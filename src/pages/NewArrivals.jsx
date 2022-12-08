@@ -11,15 +11,15 @@ const LazyAllNew = React.lazy(() => {
   });
 });
 
+
 function NewArrivals() {
   return (
     <div>
       <Header />
       <Suspense fallback={<Loading />}>
-        <LazyAllNew/>
-        <NewsLetter/>
+        <LazyAllNew />
+        <NewsLetter />
       </Suspense>
-
     </div>
   );
 }

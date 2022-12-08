@@ -1,15 +1,15 @@
 import React, { useEffect, useState, useContext } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import ProductMenus from "./ProductMenus";
 import { ProductsContext } from "../../App";
 
-function AllProducts() {
+function AllProducts({ cancelsort }) {
   let { productscategory } = useParams();
 
   const productscontext = useContext(ProductsContext);
   const [sortedItems, setSortedItems] = useState();
+
+  const location = useLocation();
 
   const sortedItemsSelect = (e) => {
     const value = e.target.value;
@@ -39,6 +39,10 @@ function AllProducts() {
       setSortedItems(descendingza);
     }
   };
+
+  useEffect(() => {
+    console.log("Location Changed");
+  }, [location]);
 
   return (
     <div>
