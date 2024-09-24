@@ -1,10 +1,4 @@
-import React, {
-  useState,
-  useEffect,
-  useContext,
-  createContext,
-  useLayoutEffect,
-} from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Home from "./pages/Home";
 import { useNavigate } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
@@ -85,15 +79,17 @@ function App() {
   }, []);
 
   useEffect(() => {
-    axios.get("https://clothingstorebackend-production.up.railway.app/login").then((response) => {
-      if (response.data.loggedIn) {
-        setIsLoggedIn(true);
-        setUserId(response.data.user[0].id);
-        setUser(response.data.user[0].username);
-      } else {
-        setIsLoggedIn(false);
-      }
-    });
+    axios
+      .get("https://clothingstorebackend-production.up.railway.app/login")
+      .then((response) => {
+        if (response.data.loggedIn) {
+          setIsLoggedIn(true);
+          setUserId(response.data.user[0].id);
+          setUser(response.data.user[0].username);
+        } else {
+          setIsLoggedIn(false);
+        }
+      });
   }, [user, isLoggedIn]);
 
   const contextvalue = {
