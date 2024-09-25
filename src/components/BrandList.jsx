@@ -24,22 +24,24 @@ function BrandList() {
       <div className="flex justify-center mt-20 text-4xl font-bold">
         <h1> All Brands</h1>
       </div>
-      {Object.entries(listedbrands)?.map(([key, val]) => (
-        <div className="hidden md:flex items-start justify-center text-6xl capitalize mx-20 mt-20 brandborder">
-          <div className="w-[40%] flex flex-col font-bold">
-            <p className="flex justify-center mx-2 w-[100%]"> {key} </p>
+      <div className="flex flex-col gap-8">
+        {Object.entries(listedbrands)?.map(([key, val]) => (
+          <div className="hidden md:flex items-start justify-center text-6xl capitalize mx-20 mt-20 brandborder">
+            <div className="w-[40%] flex flex-col font-bold">
+              <p className="flex justify-center mx-2 w-[100%]"> {key} </p>
+            </div>
+            <div className="w-[50%] h-auto flex items-center justify-start ">
+              <ul className="flex flex-wrap">
+                {val.map((item) => (
+                  <li className="mx-2  text-2xl mt-5 w-[400px]">
+                    <Link to={`/collection/${item}`}> {item} </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-          <div className="w-[50%] h-auto flex items-center justify-start ">
-            <ul className="flex flex-wrap">
-              {val.map((item) => (
-                <li className="mx-2  text-2xl mt-5 w-[400px]">
-                  <Link to={`/collection/${item}`}> {item} </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
       {Object.entries(listedbrands)?.map(([key, val]) => (
         <div className="md:hidden flex items-start justify-start text-6xl capitalize mt-10 brandborder">
           <div className="w-[40%] flex flex-col font-bold">
