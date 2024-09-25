@@ -21,8 +21,8 @@ function BrandList() {
 
   return (
     <div className="mt-10 mb-10">
-      <div className="flex justify-center mt-20 text-4xl font-bold">
-        <h1> All Brands</h1>
+      <div className="flex justify-center mt-20 text-4xl font-bold pb-8">
+        <h1> Brands</h1>
       </div>
       <div className="flex flex-col gap-2">
         {Object.entries(listedbrands)?.map(([key, val]) => (
