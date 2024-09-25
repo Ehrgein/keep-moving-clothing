@@ -26,9 +26,9 @@ function BrandList() {
       </div>
       <div className="flex flex-col gap-8">
         {Object.entries(listedbrands)?.map(([key, val]) => (
-          <div className="hidden md:flex items-start justify-center text-6xl capitalize mx-20 mt-20 brandborder">
+          <div className="hidden md:flex items-start justify-center text-6xl capitalize mx-20  brandborder">
             <div className="w-[40%] flex flex-col font-bold">
-              <p className="flex justify-center mx-2 w-[100%]"> {key} </p>
+              <span className="flex justify-center mx-2 w-[100%]"> {key} </span>
             </div>
             <div className="w-[50%] h-auto flex items-center justify-start ">
               <ul className="flex flex-wrap">
