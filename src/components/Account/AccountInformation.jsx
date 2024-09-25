@@ -55,9 +55,9 @@ function AccountInformation() {
             <Link to="wishlist">
               <li className="my-6 botbordercustom"> My Wishlist </li>
             </Link>
-            <Link to="orders">
+            {/* <Link to="orders">
               <li className="my-6 botbordercustom"> My Orders </li>
-            </Link>
+            </Link> */}
             <li onClick={handleLogout} className="my-6 botbordercustom">
               {" "}
               Sign Out{" "}
